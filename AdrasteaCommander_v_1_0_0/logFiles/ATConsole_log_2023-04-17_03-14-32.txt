@@ -1,0 +1,12 @@
+AT
+Unknown command 'AT' - try 'help'
+# ATY
+Unknown command 'ATY' - try 'help'
+# ATZ
+Unknown command 'ATZ' - try 'help'
+# ABZ
+Unknown command 'ABZ' - try 'help'
+# AT
+Unknown command 'AT' - try 'help'
+# AT
+Unknown command 'AT' - try 'help'

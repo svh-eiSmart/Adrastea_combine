@@ -1,0 +1,19 @@
+This MCU SDK V2.2.10 is the release based on previous MCU SDK V2.2.9. This version includes the requested new features and bug fix. Please refer to the online documentation about the detailed information.
+
+On ALT1255 platform, the following example projects are NOT supported since the corresponding MAP software components are disabled (limited memory resource).
+    - AwsConnector
+    - GpsConnector
+    - HttpConnector
+    - MqttConnector
+    - PwrMgmtAwsDemo
+    - SmsConnector
+
+
+Please refer to the release note (README.md) about the required MAP versions. Using the older MAP versions would miss new features / bug fix by this MCU SDK version.
+
+
+The corresponding io_par.bin for ALT1250 MCU Dev Kit and ALT1255 NB Dev Kit are available in images folder:
+    - ./images/io_par_ALT1250.bin
+    - ./images/io_par_ALT1255.bin
+    - ./images/io_par_ALT1255_EJTAG.bin  (for MCU JTAG debug on ALT1255 NB Dev Kit)
+

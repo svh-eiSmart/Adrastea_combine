@@ -1,0 +1,10 @@
+<QuickSelection>
+  <ATCommand name="QuickSelect 1" data="map" description="" />
+  <ATCommand name="QuickSelect 2" data="AT" description="" />
+  <ATCommand name="QuickSelect 3" data="AT%CERTCMD=&quot;READ&quot;,&quot;ca−certificate.pem.crt&quot;" description="" />
+  <ATCommand name="QuickSelect 4" data="[Not set]" description="" />
+  <ATCommand name="QuickSelect 5" data="[Not set]" description="" />
+  <ATCommand name="QuickSelect 6" data="[Not set]" description="" />
+  <ATCommand name="QuickSelect 7" data="[Not set]" description="" />
+  <ATCommand name="QuickSelect 8" data="[Not set]" description="" />
+</QuickSelection>

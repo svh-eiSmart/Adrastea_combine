@@ -1,0 +1,1841 @@
+AT
+unknown command (type ? for help): AT
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> Welcome to MiniConsole
+
+MCU_02_01_00_00_05_LO RD6005@041505
+PowerManager Compiled on Jun  4 2021 at 09:49:58
+
+MCU menu -- PowerManager
+========
+help or ? - Print this help menu
+read addr - Read address (hex format)
+write addr value - Write value (hex) to address (hex)
+ps - Print task list
+meminfo - Reports memory information
+ver - Show complitaion date and time
+hifc [status [clr]] [timer MS] [sus] [res]
+serialinfo [serial num]
+time [show | set Seconds(from epoch)]]
+reset [all] - Reset MCU or reset all cores if "all" arg is given
+map - Pipeline to MAP via internal UART
+pwrMode - Configure MCU sleep mode and duration (units: MSec). Usage:[stop | standby | shutdown] {<DURATION_VAL>}
+sleepSet - Enable or disable go to sleep. Usage:[enable | disable]
+gpioWkup - Configure gpio wakeup source pin. Usage:<PHYSICAL_GPIO_ID> [set [ h | l | r | f | rf] | del]
+gpioMon - Configure gpio monitored pin. Usage:<LOGICAL_GPIO_ID> [set <VALUE> | del]
+retMemTest - Read/Write a key-value pair to/from Retention Memory. Usage:[get [<KEY> | DUMPALL]| set <KEY> <VALUE>]
+setCRidMask - Configure the Content Retention section ID mask. Usage:<SECTION_ID_MASK>
+sleepStat - Print out or reset current statistics. Usage:[show | reset]
+wd - Watchdog control command. Usage:[enable | disable | testbark | timeleft | timeout <NEW_TIMEOUT_VAL>]
+inActTime - Configure the value of MCU CLI inactivity timeout in units of Sec. Usage:<NEW_TIMEOUT_VAL>
+mapMode - Switch to MAP mode when MCU wakeup from warm boot. Usage:[on | off]
+run - MCU change to run at full load.
+AT
+unknown command (type ? for help): AT
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+AT
+OK
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+AT
+OK
+AT%MQTTEV="all",1
+OK
+AT%MQTTCFG="nodes",1,"adrasteatest","broker.hivemq.com"
+OK
+AT%MQTTCFG="PROTOCOL",1,0,1200,1
+OK
+AT%MQTTCMD="subscribe",1,2,"data"
+ERROR
+AT%MQTTCMD="connect",1
+OK
+
+%MQTTEVU:"CONCONF",1,0
+AT%MQTTCMD="subscribe",1,2,"data"
+%MQTTCMD: 1
+OK
+
+%MQTTEVU:"SUBCONF",1,1,0
+AT%MQTTCMD="publish",1,2,0,"test",5
+10110
+
+%MQTTCMD: 2
+OK
+
+ERROR
+
+%MQTTEVU:"PUBCONF",1,2,0
+AT%MQTTCMD="publish",1,2,0,"data",5
+11011
+
+%MQTTCMD: 3
+OK
+
+ERROR
+
+%MQTTEVU:"PUBRCV",1,51,"data",5
+11011
+
+%MQTTEVU:"PUBCONF",1,3,0
+
+%MQTTEVU:"PUBRCV",1,101,"data",818
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":18,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":24312},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":37,"Peakmg":7,"RMSmg":5,"Kurtosis":32,"CrestFactor":97,"Skewness":9,"Deviation":0,"Peak-to-Peak Displacement":15},"Y-Axis":{"SenEvent":0,"OAVelocity":35,"Peakmg":7,"RMSmg":5,"Kurtosis":-11,"CrestFactor":615,"Skewness":6,"Deviation":0,"Peak-to-Peak Displacement":14},"Z-Axis":{"SenEvent":0,"OAVelocity":23,"Peakmg":5,"RMSmg":4,"Kurtosis":-1,"CrestFactor":667,"Skewness":-4,"Deviation":0,"Peak-to-Peak Displacement":8},"LogIndex":0,"Time":1553143111},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553143112}},"datetime":"2023-02-16T10:50:33Z","devaddr":"FF69094D","fcnt":786,"lsnr":9,"port":1,"rssi":-47}
+
+%MQTTEVU:"PUBRCV",1,151,"data",819
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":19,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":24250},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":29,"Peakmg":5,"RMSmg":4,"Kurtosis":14,"CrestFactor":20,"Skewness":14,"Deviation":0,"Peak-to-Peak Displacement":12},"Y-Axis":{"SenEvent":0,"OAVelocity":23,"Peakmg":5,"RMSmg":4,"Kurtosis":-9,"CrestFactor":597,"Skewness":-6,"Deviation":0,"Peak-to-Peak Displacement":9},"Z-Axis":{"SenEvent":0,"OAVelocity":21,"Peakmg":7,"RMSmg":5,"Kurtosis":31,"CrestFactor":677,"Skewness":0,"Deviation":0,"Peak-to-Peak Displacement":6},"LogIndex":0,"Time":1553143231},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553143232}},"datetime":"2023-02-16T10:52:33Z","devaddr":"FF69094D","fcnt":787,"lsnr":9.8,"port":1,"rssi":-37}
+
+%MQTTEVU:"PUBRCV",1,201,"data",822
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":20,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":24250},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":42,"Peakmg":7,"RMSmg":5,"Kurtosis":16,"CrestFactor":68,"Skewness":23,"Deviation":0,"Peak-to-Peak Displacement":15},"Y-Axis":{"SenEvent":0,"OAVelocity":51,"Peakmg":8,"RMSmg":6,"Kurtosis":6,"CrestFactor":544,"Skewness":-2,"Deviation":0,"Peak-to-Peak Displacement":18},"Z-Axis":{"SenEvent":0,"OAVelocity":48,"Peakmg":8,"RMSmg":6,"Kurtosis":36,"CrestFactor":571,"Skewness":-10,"Deviation":0,"Peak-to-Peak Displacement":16},"LogIndex":0,"Time":1553143351},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553143352}},"datetime":"2023-02-16T10:54:33Z","devaddr":"FF69094D","fcnt":788,"lsnr":9.8,"port":1,"rssi":-43}
+
+%MQTTEVU:"PUBRCV",1,251,"data",822
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":21,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":24250},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":63,"Peakmg":8,"RMSmg":6,"Kurtosis":-1,"CrestFactor":111,"Skewness":10,"Deviation":0,"Peak-to-Peak Displacement":27},"Y-Axis":{"SenEvent":0,"OAVelocity":41,"Peakmg":7,"RMSmg":5,"Kurtosis":2,"CrestFactor":502,"Skewness":-16,"Deviation":0,"Peak-to-Peak Displacement":16},"Z-Axis":{"SenEvent":0,"OAVelocity":25,"Peakmg":7,"RMSmg":5,"Kurtosis":52,"CrestFactor":874,"Skewness":-3,"Deviation":0,"Peak-to-Peak Displacement":9},"LogIndex":0,"Time":1553143471},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553143472}},"datetime":"2023-02-16T10:56:33Z","devaddr":"FF69094D","fcnt":789,"lsnr":7.5,"port":1,"rssi":-43}
+
+%MQTTEVU:"PUBRCV",1,0,"data",43
+type:MSG_TEMPERATURE,user:1234,message:1.25
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:578
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:562
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:585
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:103
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:621
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:585
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:593
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:558
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:102
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:546
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:535
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:523
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:507
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:107
+
+%MQTTEVU:"PUBRCV",1,1601,"data",819
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":22,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":24187},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":15,"Peakmg":5,"RMSmg":4,"Kurtosis":24,"CrestFactor":262,"Skewness":17,"Deviation":0,"Peak-to-Peak Displacement":4},"Y-Axis":{"SenEvent":0,"OAVelocity":14,"Peakmg":7,"RMSmg":5,"Kurtosis":1,"CrestFactor":575,"Skewness":0,"Deviation":0,"Peak-to-Peak Displacement":3},"Z-Axis":{"SenEvent":0,"OAVelocity":20,"Peakmg":7,"RMSmg":5,"Kurtosis":54,"CrestFactor":658,"Skewness":-13,"Deviation":0,"Peak-to-Peak Displacement":5},"LogIndex":0,"Time":1553143591},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553143592}},"datetime":"2023-02-16T10:58:33Z","devaddr":"FF69094D","fcnt":790,"lsnr":7.2,"port":1,"rssi":-43}
+
+%MQTTEVU:"PUBRCV",1,1651,"data",817
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":23,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":24187},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":30,"Peakmg":5,"RMSmg":4,"Kurtosis":8,"CrestFactor":20,"Skewness":7,"Deviation":0,"Peak-to-Peak Displacement":11},"Y-Axis":{"SenEvent":0,"OAVelocity":28,"Peakmg":7,"RMSmg":5,"Kurtosis":-1,"CrestFactor":638,"Skewness":0,"Deviation":0,"Peak-to-Peak Displacement":9},"Z-Axis":{"SenEvent":0,"OAVelocity":44,"Peakmg":8,"RMSmg":6,"Kurtosis":13,"CrestFactor":615,"Skewness":0,"Deviation":0,"Peak-to-Peak Displacement":14},"LogIndex":0,"Time":1553143711},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553143712}},"datetime":"2023-02-16T11:00:33Z","devaddr":"FF69094D","fcnt":791,"lsnr":9.5,"port":1,"rssi":-39}
+
+%MQTTEVU:"PUBRCV",1,1701,"data",820
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":24,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":24125},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":61,"Peakmg":8,"RMSmg":6,"Kurtosis":33,"CrestFactor":63,"Skewness":11,"Deviation":0,"Peak-to-Peak Displacement":25},"Y-Axis":{"SenEvent":0,"OAVelocity":58,"Peakmg":8,"RMSmg":6,"Kurtosis":17,"CrestFactor":481,"Skewness":1,"Deviation":0,"Peak-to-Peak Displacement":23},"Z-Axis":{"SenEvent":0,"OAVelocity":53,"Peakmg":8,"RMSmg":6,"Kurtosis":12,"CrestFactor":565,"Skewness":0,"Deviation":0,"Peak-to-Peak Displacement":20},"LogIndex":0,"Time":1553143831},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553143831}},"datetime":"2023-02-16T11:02:33Z","devaddr":"FF69094D","fcnt":792,"lsnr":9.2,"port":1,"rssi":-45}
+
+%MQTTEVU:"PUBRCV",1,0,"data",43
+type:MSG_TEMPERATURE,user:1234,message:1.25
+
+%MQTTEVU:"PUBRCV",1,1851,"data",825
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":25,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":24125},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":53,"Peakmg":8,"RMSmg":6,"Kurtosis":-1,"CrestFactor":64,"Skewness":8,"Deviation":0,"Peak-to-Peak Displacement":20},"Y-Axis":{"SenEvent":0,"OAVelocity":69,"Peakmg":9,"RMSmg":7,"Kurtosis":10,"CrestFactor":558,"Skewness":-13,"Deviation":0,"Peak-to-Peak Displacement":25},"Z-Axis":{"SenEvent":0,"OAVelocity":98,"Peakmg":12,"RMSmg":9,"Kurtosis":-18,"CrestFactor":450,"Skewness":-15,"Deviation":1,"Peak-to-Peak Displacement":35},"LogIndex":0,"Time":1553143951},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553143952}},"datetime":"2023-02-16T11:04:34Z","devaddr":"FF69094D","fcnt":793,"lsnr":9.8,"port":1,"rssi":-47}
+
+%MQTTEVU:"PUBRCV",1,1901,"data",818
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":26,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":24062},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":12,"Peakmg":5,"RMSmg":4,"Kurtosis":0,"CrestFactor":21,"Skewness":11,"Deviation":0,"Peak-to-Peak Displacement":3},"Y-Axis":{"SenEvent":0,"OAVelocity":12,"Peakmg":5,"RMSmg":4,"Kurtosis":-8,"CrestFactor":790,"Skewness":5,"Deviation":0,"Peak-to-Peak Displacement":3},"Z-Axis":{"SenEvent":0,"OAVelocity":14,"Peakmg":5,"RMSmg":4,"Kurtosis":74,"CrestFactor":805,"Skewness":-6,"Deviation":0,"Peak-to-Peak Displacement":4},"LogIndex":0,"Time":1553144071},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553144072}},"datetime":"2023-02-16T11:06:34Z","devaddr":"FF69094D","fcnt":794,"lsnr":10.8,"port":1,"rssi":-39}
+
+%MQTTEVU:"PUBRCV",1,1951,"data",822
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":27,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":24062},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":46,"Peakmg":7,"RMSmg":5,"Kurtosis":17,"CrestFactor":118,"Skewness":11,"Deviation":0,"Peak-to-Peak Displacement":19},"Y-Axis":{"SenEvent":0,"OAVelocity":38,"Peakmg":7,"RMSmg":5,"Kurtosis":0,"CrestFactor":517,"Skewness":-11,"Deviation":0,"Peak-to-Peak Displacement":13},"Z-Axis":{"SenEvent":0,"OAVelocity":45,"Peakmg":8,"RMSmg":6,"Kurtosis":13,"CrestFactor":566,"Skewness":5,"Deviation":0,"Peak-to-Peak Displacement":13},"LogIndex":0,"Time":1553144191},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553144192}},"datetime":"2023-02-16T11:08:34Z","devaddr":"FF69094D","fcnt":795,"lsnr":9.8,"port":1,"rssi":-39}
+
+%MQTTEVU:"PUBRCV",1,2001,"data",820
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":28,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":24062},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":24,"Peakmg":5,"RMSmg":4,"Kurtosis":14,"CrestFactor":103,"Skewness":17,"Deviation":0,"Peak-to-Peak Displacement":8},"Y-Axis":{"SenEvent":0,"OAVelocity":26,"Peakmg":7,"RMSmg":5,"Kurtosis":-4,"CrestFactor":539,"Skewness":-4,"Deviation":0,"Peak-to-Peak Displacement":9},"Z-Axis":{"SenEvent":0,"OAVelocity":28,"Peakmg":7,"RMSmg":5,"Kurtosis":21,"CrestFactor":552,"Skewness":-2,"Deviation":0,"Peak-to-Peak Displacement":9},"LogIndex":0,"Time":1553144311},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553144312}},"datetime":"2023-02-16T11:10:34Z","devaddr":"FF69094D","fcnt":796,"lsnr":7.2,"port":1,"rssi":-43}
+
+%MQTTEVU:"PUBRCV",1,0,"data",43
+type:MSG_TEMPERATURE,user:1234,message:1.25
+
+%MQTTEVU:"PUBRCV",1,2151,"data",817
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":29,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":24000},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":22,"Peakmg":7,"RMSmg":5,"Kurtosis":21,"CrestFactor":214,"Skewness":23,"Deviation":0,"Peak-to-Peak Displacement":6},"Y-Axis":{"SenEvent":0,"OAVelocity":20,"Peakmg":7,"RMSmg":5,"Kurtosis":4,"CrestFactor":562,"Skewness":0,"Deviation":0,"Peak-to-Peak Displacement":6},"Z-Axis":{"SenEvent":0,"OAVelocity":31,"Peakmg":7,"RMSmg":5,"Kurtosis":82,"CrestFactor":595,"Skewness":-14,"Deviation":0,"Peak-to-Peak Displacement":8},"LogIndex":0,"Time":1553144431},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553144432}},"datetime":"2023-02-16T11:12:34Z","devaddr":"FF69094D","fcnt":797,"lsnr":7,"port":1,"rssi":-45}
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:589
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:105
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:613
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:617
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:636
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:625
+
+%MQTTEVU:"PUBRCV",1,0,"data",44
+type:MSG_ECG_HEART_RATE,user:1234,message:97
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:613
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:605
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:609
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:617
+
+%MQTTEVU:"PUBRCV",1,0,"data",44
+type:MSG_ECG_HEART_RATE,user:1234,message:97
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:625
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:617
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:601
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:554
+
+%MQTTEVU:"PUBRCV",1,0,"data",44
+type:MSG_ECG_HEART_RATE,user:1234,message:97
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:562
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:566
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:589
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:601
+
+%MQTTEVU:"PUBRCV",1,0,"data",44
+type:MSG_ECG_HEART_RATE,user:1234,message:99
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:593
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:605
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:632
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:16
+
+%MQTTEVU:"PUBRCV",1,0,"data",37
+type:MSG_ECG_HRV,user:1234,message:34
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:632
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:101
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:16
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:625
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:18
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:605
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:18
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:632
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:17
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:871
+
+%MQTTEVU:"PUBRCV",1,0,"data",44
+type:MSG_ECG_HEART_RATE,user:1234,message:96
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:17
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:566
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:19
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:582
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:18
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:585
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:18
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:554
+
+%MQTTEVU:"PUBRCV",1,0,"data",44
+type:MSG_ECG_HEART_RATE,user:1234,message:99
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:20
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:550
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:20
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:570
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:19
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:566
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:21
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:562
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:105
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:21
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:582
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:20
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:589
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:20
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:613
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:19
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:582
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:105
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:21
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:566
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:21
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:527
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:20
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:492
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:20
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:335
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:105
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:20
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:546
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:20
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:539
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:21
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:523
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:21
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:503
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:115
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:22
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:503
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:22
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:503
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:22
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:761
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:23
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:519
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:22
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:363
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:22
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:707
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:23
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:535
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:23
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:527
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:23
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:441
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:23
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:398
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:112
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:23
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:531
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:24
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:558
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:24
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:558
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:23
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:574
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:112
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:23
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:585
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:23
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:609
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:23
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:585
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:23
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:496
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:107
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:22
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:632
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:23
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:539
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:104
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:22
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:542
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:23
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:542
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:23
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:542
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:23
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:562
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:110
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:23
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:566
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:22
+
+%MQTTEVU:"PUBRCV",1,0,"data",37
+type:MSG_ECG_HRV,user:1234,message:46
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:566
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:22
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:546
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:22
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:550
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:109
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:23
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:570
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:23
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:582
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:22
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:582
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:22
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:570
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:105
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:22
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:554
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:22
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:550
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:22
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:562
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:22
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:550
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:106
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:22
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:496
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:22
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:621
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:23
+
+%MQTTEVU:"PUBRCV",1,0,"data",43
+type:MSG_TEMPERATURE,user:1234,message:1.25
+
+%MQTTEVU:"PUBRCV",1,15601,"data",817
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":30,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":24000},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":23,"Peakmg":5,"RMSmg":4,"Kurtosis":5,"CrestFactor":21,"Skewness":2,"Deviation":0,"Peak-to-Peak Displacement":9},"Y-Axis":{"SenEvent":0,"OAVelocity":23,"Peakmg":5,"RMSmg":4,"Kurtosis":-7,"CrestFactor":561,"Skewness":-7,"Deviation":0,"Peak-to-Peak Displacement":8},"Z-Axis":{"SenEvent":0,"OAVelocity":10,"Peakmg":5,"RMSmg":4,"Kurtosis":29,"CrestFactor":886,"Skewness":-3,"Deviation":0,"Peak-to-Peak Displacement":3},"LogIndex":0,"Time":1553144551},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553144552}},"datetime":"2023-02-16T11:14:34Z","devaddr":"FF69094D","fcnt":798,"lsnr":9.2,"port":1,"rssi":-43}
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:550
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:542
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:102
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:554
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:562
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:570
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:601
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:105
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:617
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:632
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:628
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:628
+
+%MQTTEVU:"PUBRCV",1,0,"data",44
+type:MSG_ECG_HEART_RATE,user:1234,message:99
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:628
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:613
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:566
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:566
+
+%MQTTEVU:"PUBRCV",1,0,"data",44
+type:MSG_ECG_HEART_RATE,user:1234,message:97
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:570
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:566
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:558
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:570
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:105
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:589
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:613
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:601
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:613
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:105
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:632
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:621
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:597
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:13
+
+%MQTTEVU:"PUBRCV",1,0,"data",37
+type:MSG_ECG_HRV,user:1234,message:27
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:601
+
+%MQTTEVU:"PUBRCV",1,0,"data",44
+type:MSG_ECG_HEART_RATE,user:1234,message:99
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:13
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:589
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:15
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:578
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:15
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:562
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:14
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:566
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:100
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:14
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:578
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:14
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:585
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:13
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:585
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:13
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:597
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:102
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:13
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:613
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:12
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:601
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:14
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:613
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:14
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:613
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:100
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:14
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:589
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:16
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:582
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:15
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:578
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:15
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:570
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:100
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:15
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:554
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:14
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:554
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:14
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:562
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:14
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:550
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:105
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:16
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:542
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:15
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:562
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:15
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:570
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:15
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:578
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:106
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:14
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:597
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:14
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:593
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:16
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:597
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:15
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:562
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:105
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:17
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:546
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:17
+
+%MQTTEVU:"PUBRCV",1,0,"data",37
+type:MSG_ECG_HRV,user:1234,message:24
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:546
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:16
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:535
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:16
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:531
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:106
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:16
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:519
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:16
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:523
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:15
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:542
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:15
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:554
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:110
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:15
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:500
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:16
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:593
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:16
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:597
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:16
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:570
+
+%MQTTEVU:"PUBRCV",1,0,"data",45
+type:MSG_ECG_HEART_RATE,user:1234,message:110
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:17
+
+%MQTTEVU:"PUBRCV",1,0,"data",47
+type:MSG_ECG_R2R_INTERVAL,user:1234,message:585
+
+%MQTTEVU:"PUBRCV",1,0,"data",50
+type:MSG_ECG_RESPIRATORY_RATE,user:1234,message:17
+
+%MQTTEVU:"PUBRCV",1,25851,"data",817
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":31,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":24000},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":23,"Peakmg":5,"RMSmg":4,"Kurtosis":41,"CrestFactor":100,"Skewness":16,"Deviation":0,"Peak-to-Peak Displacement":6},"Y-Axis":{"SenEvent":0,"OAVelocity":24,"Peakmg":7,"RMSmg":5,"Kurtosis":-6,"CrestFactor":537,"Skewness":2,"Deviation":0,"Peak-to-Peak Displacement":6},"Z-Axis":{"SenEvent":0,"OAVelocity":27,"Peakmg":7,"RMSmg":5,"Kurtosis":49,"CrestFactor":879,"Skewness":1,"Deviation":0,"Peak-to-Peak Displacement":8},"LogIndex":0,"Time":1553144671},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553144672}},"datetime":"2023-02-16T11:16:34Z","devaddr":"FF69094D","fcnt":799,"lsnr":10,"port":1,"rssi":-41}
+
+%MQTTEVU:"PUBRCV",1,0,"data",43
+type:MSG_TEMPERATURE,user:1234,message:1.25
+
+%MQTTEVU:"PUBRCV",1,26001,"data",816
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":32,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23937},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":22,"Peakmg":5,"RMSmg":4,"Kurtosis":22,"CrestFactor":40,"Skewness":12,"Deviation":0,"Peak-to-Peak Displacement":8},"Y-Axis":{"SenEvent":0,"OAVelocity":16,"Peakmg":7,"RMSmg":5,"Kurtosis":-5,"CrestFactor":574,"Skewness":-2,"Deviation":0,"Peak-to-Peak Displacement":5},"Z-Axis":{"SenEvent":0,"OAVelocity":16,"Peakmg":5,"RMSmg":4,"Kurtosis":32,"CrestFactor":642,"Skewness":0,"Deviation":0,"Peak-to-Peak Displacement":4},"LogIndex":0,"Time":1553144791},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553144792}},"datetime":"2023-02-16T11:18:39Z","devaddr":"FF69094D","fcnt":800,"lsnr":9,"port":1,"rssi":-41}
+
+%MQTTEVU:"PUBRCV",1,26051,"data",820
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":33,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23937},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":17,"Peakmg":5,"RMSmg":4,"Kurtosis":27,"CrestFactor":345,"Skewness":20,"Deviation":0,"Peak-to-Peak Displacement":5},"Y-Axis":{"SenEvent":0,"OAVelocity":20,"Peakmg":7,"RMSmg":5,"Kurtosis":2,"CrestFactor":540,"Skewness":-8,"Deviation":0,"Peak-to-Peak Displacement":5},"Z-Axis":{"SenEvent":0,"OAVelocity":24,"Peakmg":7,"RMSmg":5,"Kurtosis":38,"CrestFactor":641,"Skewness":11,"Deviation":0,"Peak-to-Peak Displacement":6},"LogIndex":0,"Time":1553144911},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553144912}},"datetime":"2023-02-16T11:20:33Z","devaddr":"FF69094D","fcnt":801,"lsnr":10.5,"port":1,"rssi":-39}
+
+%MQTTEVU:"PUBRCV",1,26101,"data",818
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":34,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23937},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":23,"Peakmg":7,"RMSmg":5,"Kurtosis":10,"CrestFactor":176,"Skewness":15,"Deviation":0,"Peak-to-Peak Displacement":7},"Y-Axis":{"SenEvent":0,"OAVelocity":26,"Peakmg":7,"RMSmg":5,"Kurtosis":5,"CrestFactor":592,"Skewness":-5,"Deviation":0,"Peak-to-Peak Displacement":7},"Z-Axis":{"SenEvent":0,"OAVelocity":32,"Peakmg":7,"RMSmg":5,"Kurtosis":30,"CrestFactor":558,"Skewness":2,"Deviation":0,"Peak-to-Peak Displacement":9},"LogIndex":0,"Time":1553145031},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553145032}},"datetime":"2023-02-16T11:22:33Z","devaddr":"FF69094D","fcnt":802,"lsnr":9.5,"port":1,"rssi":-40}
+
+%MQTTEVU:"PUBRCV",1,26151,"data",820
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":35,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23937},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":19,"Peakmg":5,"RMSmg":4,"Kurtosis":25,"CrestFactor":105,"Skewness":20,"Deviation":0,"Peak-to-Peak Displacement":6},"Y-Axis":{"SenEvent":0,"OAVelocity":22,"Peakmg":5,"RMSmg":4,"Kurtosis":-15,"CrestFactor":526,"Skewness":-2,"Deviation":0,"Peak-to-Peak Displacement":6},"Z-Axis":{"SenEvent":0,"OAVelocity":19,"Peakmg":7,"RMSmg":5,"Kurtosis":25,"CrestFactor":685,"Skewness":1,"Deviation":0,"Peak-to-Peak Displacement":5},"LogIndex":0,"Time":1553145151},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553145152}},"datetime":"2023-02-16T11:24:33Z","devaddr":"FF69094D","fcnt":803,"lsnr":6.8,"port":1,"rssi":-43}
+
+%MQTTEVU:"PUBRCV",1,26201,"data",818
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":36,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23875},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":17,"Peakmg":5,"RMSmg":4,"Kurtosis":20,"CrestFactor":41,"Skewness":11,"Deviation":0,"Peak-to-Peak Displacement":6},"Y-Axis":{"SenEvent":0,"OAVelocity":29,"Peakmg":7,"RMSmg":5,"Kurtosis":0,"CrestFactor":585,"Skewness":0,"Deviation":0,"Peak-to-Peak Displacement":10},"Z-Axis":{"SenEvent":0,"OAVelocity":30,"Peakmg":7,"RMSmg":5,"Kurtosis":26,"CrestFactor":552,"Skewness":2,"Deviation":0,"Peak-to-Peak Displacement":10},"LogIndex":0,"Time":1553145271},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553145272}},"datetime":"2023-02-16T11:26:33Z","devaddr":"FF69094D","fcnt":804,"lsnr":8.2,"port":1,"rssi":-45}
+
+%MQTTEVU:"PUBRCV",1,26251,"data",821
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":37,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23875},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":10,"Peakmg":5,"RMSmg":4,"Kurtosis":32,"CrestFactor":43,"Skewness":18,"Deviation":0,"Peak-to-Peak Displacement":3},"Y-Axis":{"SenEvent":0,"OAVelocity":16,"Peakmg":5,"RMSmg":4,"Kurtosis":-8,"CrestFactor":508,"Skewness":-6,"Deviation":0,"Peak-to-Peak Displacement":5},"Z-Axis":{"SenEvent":0,"OAVelocity":20,"Peakmg":7,"RMSmg":5,"Kurtosis":54,"CrestFactor":743,"Skewness":-12,"Deviation":0,"Peak-to-Peak Displacement":6},"LogIndex":0,"Time":1553145391},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553145392}},"datetime":"2023-02-16T11:28:33Z","devaddr":"FF69094D","fcnt":805,"lsnr":10.2,"port":1,"rssi":-38}
+
+%MQTTEVU:"PUBRCV",1,26301,"data",817
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":38,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23875},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":18,"Peakmg":5,"RMSmg":4,"Kurtosis":29,"CrestFactor":40,"Skewness":17,"Deviation":0,"Peak-to-Peak Displacement":6},"Y-Axis":{"SenEvent":0,"OAVelocity":18,"Peakmg":7,"RMSmg":5,"Kurtosis":-8,"CrestFactor":615,"Skewness":-2,"Deviation":0,"Peak-to-Peak Displacement":5},"Z-Axis":{"SenEvent":0,"OAVelocity":17,"Peakmg":7,"RMSmg":5,"Kurtosis":11,"CrestFactor":673,"Skewness":0,"Deviation":0,"Peak-to-Peak Displacement":4},"LogIndex":0,"Time":1553145511},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553145512}},"datetime":"2023-02-16T11:30:33Z","devaddr":"FF69094D","fcnt":806,"lsnr":11,"port":1,"rssi":-42}
+
+%MQTTEVU:"PUBRCV",1,26351,"data",819
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":39,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23875},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":12,"Peakmg":5,"RMSmg":4,"Kurtosis":11,"CrestFactor":43,"Skewness":11,"Deviation":0,"Peak-to-Peak Displacement":3},"Y-Axis":{"SenEvent":0,"OAVelocity":14,"Peakmg":5,"RMSmg":4,"Kurtosis":-8,"CrestFactor":594,"Skewness":-1,"Deviation":0,"Peak-to-Peak Displacement":4},"Z-Axis":{"SenEvent":0,"OAVelocity":19,"Peakmg":7,"RMSmg":5,"Kurtosis":59,"CrestFactor":748,"Skewness":-4,"Deviation":0,"Peak-to-Peak Displacement":5},"LogIndex":0,"Time":1553145631},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553145632}},"datetime":"2023-02-16T11:32:33Z","devaddr":"FF69094D","fcnt":807,"lsnr":9.5,"port":1,"rssi":-41}
+
+%MQTTEVU:"PUBRCV",1,26401,"data",815
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":40,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23812},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":16,"Peakmg":5,"RMSmg":4,"Kurtosis":23,"CrestFactor":21,"Skewness":15,"Deviation":0,"Peak-to-Peak Displacement":5},"Y-Axis":{"SenEvent":0,"OAVelocity":18,"Peakmg":5,"RMSmg":4,"Kurtosis":-5,"CrestFactor":544,"Skewness":4,"Deviation":0,"Peak-to-Peak Displacement":5},"Z-Axis":{"SenEvent":0,"OAVelocity":25,"Peakmg":7,"RMSmg":5,"Kurtosis":9,"CrestFactor":693,"Skewness":-9,"Deviation":0,"Peak-to-Peak Displacement":6},"LogIndex":0,"Time":1553145751},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553145752}},"datetime":"2023-02-16T11:34:33Z","devaddr":"FF69094D","fcnt":808,"lsnr":7,"port":1,"rssi":-45}
+
+%MQTTEVU:"PUBRCV",1,26451,"data",818
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":41,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23812},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":25,"Peakmg":7,"RMSmg":5,"Kurtosis":13,"CrestFactor":99,"Skewness":12,"Deviation":0,"Peak-to-Peak Displacement":8},"Y-Axis":{"SenEvent":0,"OAVelocity":21,"Peakmg":5,"RMSmg":4,"Kurtosis":-4,"CrestFactor":580,"Skewness":0,"Deviation":0,"Peak-to-Peak Displacement":6},"Z-Axis":{"SenEvent":0,"OAVelocity":28,"Peakmg":7,"RMSmg":5,"Kurtosis":25,"CrestFactor":616,"Skewness":3,"Deviation":0,"Peak-to-Peak Displacement":8},"LogIndex":0,"Time":1553145871},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553145872}},"datetime":"2023-02-16T11:36:33Z","devaddr":"FF69094D","fcnt":809,"lsnr":10.5,"port":1,"rssi":-39}
+
+%MQTTEVU:"PUBRCV",1,26501,"data",819
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":42,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23812},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":15,"Peakmg":5,"RMSmg":4,"Kurtosis":17,"CrestFactor":20,"Skewness":13,"Deviation":0,"Peak-to-Peak Displacement":4},"Y-Axis":{"SenEvent":0,"OAVelocity":16,"Peakmg":5,"RMSmg":4,"Kurtosis":-10,"CrestFactor":590,"Skewness":4,"Deviation":0,"Peak-to-Peak Displacement":4},"Z-Axis":{"SenEvent":0,"OAVelocity":21,"Peakmg":7,"RMSmg":5,"Kurtosis":43,"CrestFactor":823,"Skewness":-2,"Deviation":0,"Peak-to-Peak Displacement":6},"LogIndex":0,"Time":1553145991},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553145992}},"datetime":"2023-02-16T11:38:33Z","devaddr":"FF69094D","fcnt":810,"lsnr":7.8,"port":1,"rssi":-47}
+
+%MQTTEVU:"PUBRCV",1,26551,"data",820
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":43,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23750},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":12,"Peakmg":5,"RMSmg":4,"Kurtosis":20,"CrestFactor":166,"Skewness":12,"Deviation":0,"Peak-to-Peak Displacement":3},"Y-Axis":{"SenEvent":0,"OAVelocity":14,"Peakmg":5,"RMSmg":4,"Kurtosis":-12,"CrestFactor":631,"Skewness":2,"Deviation":0,"Peak-to-Peak Displacement":4},"Z-Axis":{"SenEvent":0,"OAVelocity":19,"Peakmg":7,"RMSmg":5,"Kurtosis":44,"CrestFactor":768,"Skewness":-9,"Deviation":0,"Peak-to-Peak Displacement":5},"LogIndex":0,"Time":1553146111},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553146112}},"datetime":"2023-02-16T11:40:33Z","devaddr":"FF69094D","fcnt":811,"lsnr":8.8,"port":1,"rssi":-41}
+
+%MQTTEVU:"PUBRCV",1,26601,"data",818
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":44,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23750},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":17,"Peakmg":5,"RMSmg":4,"Kurtosis":26,"CrestFactor":123,"Skewness":16,"Deviation":0,"Peak-to-Peak Displacement":7},"Y-Axis":{"SenEvent":0,"OAVelocity":19,"Peakmg":5,"RMSmg":4,"Kurtosis":2,"CrestFactor":564,"Skewness":-11,"Deviation":0,"Peak-to-Peak Displacement":6},"Z-Axis":{"SenEvent":0,"OAVelocity":20,"Peakmg":5,"RMSmg":4,"Kurtosis":26,"CrestFactor":649,"Skewness":-1,"Deviation":0,"Peak-to-Peak Displacement":5},"LogIndex":0,"Time":1553146231},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553146232}},"datetime":"2023-02-16T11:42:33Z","devaddr":"FF69094D","fcnt":812,"lsnr":8,"port":1,"rssi":-45}
+
+%MQTTEVU:"PUBRCV",1,26651,"data",817
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":45,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23750},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":17,"Peakmg":5,"RMSmg":4,"Kurtosis":13,"CrestFactor":0,"Skewness":13,"Deviation":0,"Peak-to-Peak Displacement":5},"Y-Axis":{"SenEvent":0,"OAVelocity":20,"Peakmg":5,"RMSmg":4,"Kurtosis":-9,"CrestFactor":565,"Skewness":0,"Deviation":0,"Peak-to-Peak Displacement":6},"Z-Axis":{"SenEvent":0,"OAVelocity":33,"Peakmg":7,"RMSmg":5,"Kurtosis":28,"CrestFactor":562,"Skewness":1,"Deviation":0,"Peak-to-Peak Displacement":9},"LogIndex":0,"Time":1553146351},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553146352}},"datetime":"2023-02-16T11:44:33Z","devaddr":"FF69094D","fcnt":813,"lsnr":10.8,"port":1,"rssi":-41}
+
+%MQTTEVU:"PUBRCV",1,26701,"data",818
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":46,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23750},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":18,"Peakmg":5,"RMSmg":4,"Kurtosis":19,"CrestFactor":216,"Skewness":8,"Deviation":0,"Peak-to-Peak Displacement":7},"Y-Axis":{"SenEvent":0,"OAVelocity":16,"Peakmg":5,"RMSmg":4,"Kurtosis":-6,"CrestFactor":584,"Skewness":0,"Deviation":0,"Peak-to-Peak Displacement":5},"Z-Axis":{"SenEvent":0,"OAVelocity":15,"Peakmg":7,"RMSmg":5,"Kurtosis":62,"CrestFactor":779,"Skewness":-11,"Deviation":0,"Peak-to-Peak Displacement":4},"LogIndex":0,"Time":1553146471},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553146472}},"datetime":"2023-02-16T11:46:33Z","devaddr":"FF69094D","fcnt":814,"lsnr":10,"port":1,"rssi":-41}
+
+%MQTTEVU:"PUBRCV",1,26751,"data",817
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":47,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23750},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":19,"Peakmg":5,"RMSmg":4,"Kurtosis":31,"CrestFactor":20,"Skewness":-4,"Deviation":0,"Peak-to-Peak Displacement":6},"Y-Axis":{"SenEvent":0,"OAVelocity":19,"Peakmg":5,"RMSmg":4,"Kurtosis":-12,"CrestFactor":536,"Skewness":0,"Deviation":0,"Peak-to-Peak Displacement":5},"Z-Axis":{"SenEvent":0,"OAVelocity":22,"Peakmg":7,"RMSmg":5,"Kurtosis":44,"CrestFactor":701,"Skewness":-6,"Deviation":0,"Peak-to-Peak Displacement":6},"LogIndex":0,"Time":1553146591},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553146592}},"datetime":"2023-02-16T11:48:33Z","devaddr":"FF69094D","fcnt":815,"lsnr":7,"port":1,"rssi":-42}
+
+%MQTTEVU:"PUBRCV",1,26801,"data",821
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":48,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23687},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":18,"Peakmg":5,"RMSmg":4,"Kurtosis":17,"CrestFactor":104,"Skewness":15,"Deviation":0,"Peak-to-Peak Displacement":7},"Y-Axis":{"SenEvent":0,"OAVelocity":29,"Peakmg":7,"RMSmg":5,"Kurtosis":-3,"CrestFactor":543,"Skewness":-1,"Deviation":0,"Peak-to-Peak Displacement":10},"Z-Axis":{"SenEvent":0,"OAVelocity":21,"Peakmg":7,"RMSmg":5,"Kurtosis":27,"CrestFactor":760,"Skewness":5,"Deviation":0,"Peak-to-Peak Displacement":5},"LogIndex":0,"Time":1553146711},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553146712}},"datetime":"2023-02-16T11:50:33Z","devaddr":"FF69094D","fcnt":816,"lsnr":10.2,"port":1,"rssi":-39}
+
+%MQTTEVU:"PUBRCV",1,26851,"data",821
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":49,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23687},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":20,"Peakmg":5,"RMSmg":4,"Kurtosis":24,"CrestFactor":122,"Skewness":19,"Deviation":0,"Peak-to-Peak Displacement":6},"Y-Axis":{"SenEvent":0,"OAVelocity":21,"Peakmg":7,"RMSmg":5,"Kurtosis":-12,"CrestFactor":537,"Skewness":-2,"Deviation":0,"Peak-to-Peak Displacement":6},"Z-Axis":{"SenEvent":0,"OAVelocity":30,"Peakmg":7,"RMSmg":5,"Kurtosis":53,"CrestFactor":640,"Skewness":1,"Deviation":0,"Peak-to-Peak Displacement":9},"LogIndex":0,"Time":1553146831},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553146831}},"datetime":"2023-02-16T11:52:33Z","devaddr":"FF69094D","fcnt":817,"lsnr":10.8,"port":1,"rssi":-39}
+
+%MQTTEVU:"PUBRCV",1,26901,"data",822
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":50,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23687},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":22,"Peakmg":5,"RMSmg":4,"Kurtosis":10,"CrestFactor":220,"Skewness":16,"Deviation":0,"Peak-to-Peak Displacement":7},"Y-Axis":{"SenEvent":0,"OAVelocity":25,"Peakmg":7,"RMSmg":5,"Kurtosis":-11,"CrestFactor":541,"Skewness":0,"Deviation":0,"Peak-to-Peak Displacement":8},"Z-Axis":{"SenEvent":0,"OAVelocity":36,"Peakmg":7,"RMSmg":5,"Kurtosis":77,"CrestFactor":573,"Skewness":-10,"Deviation":0,"Peak-to-Peak Displacement":10},"LogIndex":0,"Time":1553146951},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553146952}},"datetime":"2023-02-16T11:54:34Z","devaddr":"FF69094D","fcnt":818,"lsnr":9.8,"port":1,"rssi":-40}
+
+%MQTTEVU:"PUBRCV",1,26951,"data",817
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":51,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23625},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":15,"Peakmg":5,"RMSmg":4,"Kurtosis":17,"CrestFactor":61,"Skewness":18,"Deviation":0,"Peak-to-Peak Displacement":4},"Y-Axis":{"SenEvent":0,"OAVelocity":20,"Peakmg":5,"RMSmg":4,"Kurtosis":1,"CrestFactor":587,"Skewness":-7,"Deviation":0,"Peak-to-Peak Displacement":6},"Z-Axis":{"SenEvent":0,"OAVelocity":19,"Peakmg":5,"RMSmg":4,"Kurtosis":36,"CrestFactor":690,"Skewness":-13,"Deviation":0,"Peak-to-Peak Displacement":5},"LogIndex":0,"Time":1553147071},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553147072}},"datetime":"2023-02-16T11:56:34Z","devaddr":"FF69094D","fcnt":819,"lsnr":9,"port":1,"rssi":-47}
+
+%MQTTEVU:"PUBRCV",1,0,"data",43
+type:MSG_TEMPERATURE,user:1234,message:1.25
+
+%MQTTEVU:"PUBRCV",1,0,"data",44
+type:MSG_TEMPERATURE,user:1234,message:27.28
+
+%MQTTEVU:"PUBRCV",1,0,"data",44
+type:MSG_TEMPERATURE,user:1234,message:27.91
+
+%MQTTEVU:"PUBRCV",1,0,"data",44
+type:MSG_TEMPERATURE,user:1234,message:28.46
+
+%MQTTEVU:"PUBRCV",1,0,"data",44
+type:MSG_TEMPERATURE,user:1234,message:28.85
+
+%MQTTEVU:"PUBRCV",1,0,"data",44
+type:MSG_TEMPERATURE,user:1234,message:29.26
+
+%MQTTEVU:"PUBRCV",1,0,"data",44
+type:MSG_TEMPERATURE,user:1234,message:29.59
+
+%MQTTEVU:"PUBRCV",1,0,"data",44
+type:MSG_TEMPERATURE,user:1234,message:29.85
+
+%MQTTEVU:"PUBRCV",1,0,"data",44
+type:MSG_TEMPERATURE,user:1234,message:30.05
+
+%MQTTEVU:"PUBRCV",1,0,"data",44
+type:MSG_TEMPERATURE,user:1234,message:30.13
+
+%MQTTEVU:"PUBRCV",1,0,"data",44
+type:MSG_TEMPERATURE,user:1234,message:30.15
+
+%MQTTEVU:"PUBRCV",1,0,"data",44
+type:MSG_TEMPERATURE,user:1234,message:30.41
+
+%MQTTEVU:"PUBRCV",1,0,"data",44
+type:MSG_TEMPERATURE,user:1234,message:30.86
+
+%MQTTEVU:"PUBRCV",1,0,"data",44
+type:MSG_TEMPERATURE,user:1234,message:31.19
+
+%MQTTEVU:"PUBRCV",1,0,"data",44
+type:MSG_TEMPERATURE,user:1234,message:31.49
+
+%MQTTEVU:"PUBRCV",1,0,"data",44
+type:MSG_TEMPERATURE,user:1234,message:31.62
+
+%MQTTEVU:"PUBRCV",1,0,"data",44
+type:MSG_TEMPERATURE,user:1234,message:31.63
+
+%MQTTEVU:"PUBRCV",1,28701,"data",817
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":52,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23625},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":11,"Peakmg":5,"RMSmg":4,"Kurtosis":14,"CrestFactor":64,"Skewness":9,"Deviation":0,"Peak-to-Peak Displacement":3},"Y-Axis":{"SenEvent":0,"OAVelocity":15,"Peakmg":5,"RMSmg":4,"Kurtosis":-9,"CrestFactor":671,"Skewness":6,"Deviation":0,"Peak-to-Peak Displacement":4},"Z-Axis":{"SenEvent":0,"OAVelocity":10,"Peakmg":5,"RMSmg":4,"Kurtosis":50,"CrestFactor":755,"Skewness":-8,"Deviation":0,"Peak-to-Peak Displacement":2},"LogIndex":0,"Time":1553147191},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553147192}},"datetime":"2023-02-16T11:58:34Z","devaddr":"FF69094D","fcnt":820,"lsnr":9.8,"port":1,"rssi":-42}
+
+%MQTTEVU:"PUBRCV",1,28751,"data",816
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":53,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23562},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":10,"Peakmg":5,"RMSmg":4,"Kurtosis":12,"CrestFactor":428,"Skewness":14,"Deviation":0,"Peak-to-Peak Displacement":3},"Y-Axis":{"SenEvent":0,"OAVelocity":6,"Peakmg":5,"RMSmg":4,"Kurtosis":0,"CrestFactor":678,"Skewness":0,"Deviation":0,"Peak-to-Peak Displacement":1},"Z-Axis":{"SenEvent":0,"OAVelocity":7,"Peakmg":5,"RMSmg":4,"Kurtosis":47,"CrestFactor":712,"Skewness":-5,"Deviation":0,"Peak-to-Peak Displacement":2},"LogIndex":0,"Time":1553147311},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553147312}},"datetime":"2023-02-16T12:00:33Z","devaddr":"FF69094D","fcnt":821,"lsnr":9.2,"port":1,"rssi":-39}
+AT%MQTTCFG="nodes",1,"Client_name","9ddcb3026e83422f8c1bef3ddb5fff1c.s2.eu.hivemq.cloud"
+OK
+AT%MQTTCFG="PROTOCOL",1,0,1200,1
+OK
+AT%MQTTCMD="connect",1
+ERROR
+ERROR
+AT%MQTTCMD="connect",1
+ERROR
+AT%MQTTEV="all",1
+OK
+
+%MQTTEVU:"PUBRCV",1,28801,"data",816
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":54,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23562},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":11,"Peakmg":5,"RMSmg":4,"Kurtosis":42,"CrestFactor":61,"Skewness":15,"Deviation":0,"Peak-to-Peak Displacement":3},"Y-Axis":{"SenEvent":0,"OAVelocity":8,"Peakmg":5,"RMSmg":4,"Kurtosis":3,"CrestFactor":542,"Skewness":-9,"Deviation":0,"Peak-to-Peak Displacement":2},"Z-Axis":{"SenEvent":0,"OAVelocity":12,"Peakmg":5,"RMSmg":4,"Kurtosis":32,"CrestFactor":793,"Skewness":5,"Deviation":0,"Peak-to-Peak Displacement":3},"LogIndex":0,"Time":1553147431},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553147432}},"datetime":"2023-02-16T12:02:33Z","devaddr":"FF69094D","fcnt":822,"lsnr":9.5,"port":1,"rssi":-44}
+AT%MQTTEV="all",1
+OK
+
+%MQTTEVU:"PUBRCV",1,28851,"data",817
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":55,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23562},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":6,"Peakmg":5,"RMSmg":4,"Kurtosis":13,"CrestFactor":67,"Skewness":12,"Deviation":0,"Peak-to-Peak Displacement":1},"Y-Axis":{"SenEvent":0,"OAVelocity":9,"Peakmg":5,"RMSmg":4,"Kurtosis":-11,"CrestFactor":578,"Skewness":-5,"Deviation":0,"Peak-to-Peak Displacement":2},"Z-Axis":{"SenEvent":0,"OAVelocity":10,"Peakmg":5,"RMSmg":4,"Kurtosis":17,"CrestFactor":780,"Skewness":1,"Deviation":0,"Peak-to-Peak Displacement":2},"LogIndex":0,"Time":1553147551},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553147552}},"datetime":"2023-02-16T12:04:33Z","devaddr":"FF69094D","fcnt":823,"lsnr":9.5,"port":1,"rssi":-40}
+AT%MQTTCFG="nodes",1,"Client_name","9ddcb3026e83422f8c1bef3ddb5fff1c.s2.eu.hivemq.cloud"
+OK
+AT%MQTTCFG="PROTOCOL",1,0,1200,1
+OK
+AT%MQTTCMD="connect",1
+ERROR
+
+%MQTTEVU:"PUBRCV",1,28901,"data",816
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":56,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23500},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":10,"Peakmg":5,"RMSmg":4,"Kurtosis":30,"CrestFactor":355,"Skewness":20,"Deviation":0,"Peak-to-Peak Displacement":2},"Y-Axis":{"SenEvent":0,"OAVelocity":8,"Peakmg":5,"RMSmg":4,"Kurtosis":-1,"CrestFactor":635,"Skewness":-2,"Deviation":0,"Peak-to-Peak Displacement":2},"Z-Axis":{"SenEvent":0,"OAVelocity":10,"Peakmg":5,"RMSmg":4,"Kurtosis":28,"CrestFactor":710,"Skewness":8,"Deviation":0,"Peak-to-Peak Displacement":3},"LogIndex":0,"Time":1553147671},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553147672}},"datetime":"2023-02-16T12:06:33Z","devaddr":"FF69094D","fcnt":824,"lsnr":9,"port":1,"rssi":-41}
+AT%MQTTCFG="nodes",1,"Client_name","broker.hivemq.com"
+OK
+AT%MQTTCFG="PROTOCOL",1,0,1200,1
+OK
+AT%MQTTCMD="connect",1
+ERROR
+AT
+OK
+AT+GSN?
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+map
+
+ERROR
+map
+
+ERROR
+map
+
+ERROR
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+AT
+OK
+AT%MQTTEV="all",1
+OK
+AT%MQTTCFG="nodes",1,"adrastea","9ddcb3026e83422f8c1bef3ddb5fff1c.s2.eu.hivemq.cloud"
+OK
+AT%MQTTCFG="PROTOCOL",1,0,1200,1
+OK
+AT%MQTTCMD="connect",1
+OK
+
+%MQTTEVU:"CONCONF",1,1
+AT%MQTTCMD="subscribe",1,2,"data"
+ERROR
+AT%MQTTCFG="nodes",1,"adrastea","broker.hivemq.com"
+OK
+AT%MQTTCFG="PROTOCOL",1,0,1200,1
+OK
+AT%MQTTCMD="connect",1
+OK
+
+%MQTTEVU:"CONCONF",1,0
+AT%MQTTCMD="subscribe",1,2,"data"
+%MQTTCMD: 1
+OK
+
+%MQTTEVU:"SUBCONF",1,1,0
+
+%MQTTEVU:"PUBRCV",1,51,"data",817
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":61,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23437},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":8,"Peakmg":5,"RMSmg":4,"Kurtosis":38,"CrestFactor":210,"Skewness":16,"Deviation":0,"Peak-to-Peak Displacement":2},"Y-Axis":{"SenEvent":0,"OAVelocity":9,"Peakmg":5,"RMSmg":4,"Kurtosis":-11,"CrestFactor":540,"Skewness":0,"Deviation":0,"Peak-to-Peak Displacement":2},"Z-Axis":{"SenEvent":0,"OAVelocity":8,"Peakmg":5,"RMSmg":4,"Kurtosis":55,"CrestFactor":677,"Skewness":-7,"Deviation":0,"Peak-to-Peak Displacement":2},"LogIndex":0,"Time":1553148271},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553148272}},"datetime":"2023-02-16T12:16:33Z","devaddr":"FF69094D","fcnt":829,"lsnr":9.2,"port":1,"rssi":-45}
+
+%MQTTEVU:"PUBRCV",1,101,"data",816
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":62,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23437},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":8,"Peakmg":5,"RMSmg":4,"Kurtosis":27,"CrestFactor":43,"Skewness":6,"Deviation":0,"Peak-to-Peak Displacement":2},"Y-Axis":{"SenEvent":0,"OAVelocity":8,"Peakmg":5,"RMSmg":4,"Kurtosis":-14,"CrestFactor":597,"Skewness":0,"Deviation":0,"Peak-to-Peak Displacement":2},"Z-Axis":{"SenEvent":0,"OAVelocity":10,"Peakmg":5,"RMSmg":4,"Kurtosis":18,"CrestFactor":617,"Skewness":-5,"Deviation":0,"Peak-to-Peak Displacement":3},"LogIndex":0,"Time":1553148391},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553148392}},"datetime":"2023-02-16T12:18:33Z","devaddr":"FF69094D","fcnt":830,"lsnr":9.2,"port":1,"rssi":-40}
+
+%MQTTEVU:"PUBRCV",1,151,"data",818
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":63,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23375},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":10,"Peakmg":5,"RMSmg":4,"Kurtosis":38,"CrestFactor":129,"Skewness":15,"Deviation":0,"Peak-to-Peak Displacement":3},"Y-Axis":{"SenEvent":0,"OAVelocity":12,"Peakmg":5,"RMSmg":4,"Kurtosis":0,"CrestFactor":609,"Skewness":0,"Deviation":0,"Peak-to-Peak Displacement":4},"Z-Axis":{"SenEvent":0,"OAVelocity":11,"Peakmg":5,"RMSmg":4,"Kurtosis":49,"CrestFactor":794,"Skewness":-9,"Deviation":0,"Peak-to-Peak Displacement":3},"LogIndex":0,"Time":1553148511},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553148512}},"datetime":"2023-02-16T12:20:33Z","devaddr":"FF69094D","fcnt":831,"lsnr":9.8,"port":1,"rssi":-39}
+
+%MQTTEVU:"PUBRCV",1,201,"data",817
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":64,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23375},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":16,"Peakmg":5,"RMSmg":4,"Kurtosis":14,"CrestFactor":363,"Skewness":10,"Deviation":0,"Peak-to-Peak Displacement":6},"Y-Axis":{"SenEvent":0,"OAVelocity":12,"Peakmg":5,"RMSmg":4,"Kurtosis":-1,"CrestFactor":713,"Skewness":3,"Deviation":0,"Peak-to-Peak Displacement":4},"Z-Axis":{"SenEvent":0,"OAVelocity":17,"Peakmg":5,"RMSmg":4,"Kurtosis":39,"CrestFactor":713,"Skewness":-3,"Deviation":0,"Peak-to-Peak Displacement":6},"LogIndex":0,"Time":1553148631},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553148632}},"datetime":"2023-02-16T12:22:33Z","devaddr":"FF69094D","fcnt":832,"lsnr":8,"port":1,"rssi":-43}
+
+%MQTTEVU:"PUBRCV",1,251,"data",817
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":65,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23375},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":13,"Peakmg":5,"RMSmg":4,"Kurtosis":20,"CrestFactor":21,"Skewness":10,"Deviation":0,"Peak-to-Peak Displacement":4},"Y-Axis":{"SenEvent":0,"OAVelocity":7,"Peakmg":5,"RMSmg":4,"Kurtosis":-14,"CrestFactor":554,"Skewness":-2,"Deviation":0,"Peak-to-Peak Displacement":2},"Z-Axis":{"SenEvent":0,"OAVelocity":11,"Peakmg":5,"RMSmg":4,"Kurtosis":67,"CrestFactor":713,"Skewness":-4,"Deviation":0,"Peak-to-Peak Displacement":3},"LogIndex":0,"Time":1553148751},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553148752}},"datetime":"2023-02-16T12:24:33Z","devaddr":"FF69094D","fcnt":833,"lsnr":7,"port":1,"rssi":-45}
+
+%MQTTEVU:"PUBRCV",1,301,"data",817
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":66,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23375},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":6,"Peakmg":5,"RMSmg":4,"Kurtosis":23,"CrestFactor":21,"Skewness":15,"Deviation":0,"Peak-to-Peak Displacement":1},"Y-Axis":{"SenEvent":0,"OAVelocity":9,"Peakmg":5,"RMSmg":4,"Kurtosis":-12,"CrestFactor":657,"Skewness":3,"Deviation":0,"Peak-to-Peak Displacement":2},"Z-Axis":{"SenEvent":0,"OAVelocity":16,"Peakmg":5,"RMSmg":4,"Kurtosis":44,"CrestFactor":791,"Skewness":-4,"Deviation":0,"Peak-to-Peak Displacement":4},"LogIndex":0,"Time":1553148871},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553148872}},"datetime":"2023-02-16T12:26:33Z","devaddr":"FF69094D","fcnt":834,"lsnr":8.8,"port":1,"rssi":-47}
+
+%MQTTEVU:"PUBRCV",1,351,"data",818
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":67,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23375},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":8,"Peakmg":5,"RMSmg":4,"Kurtosis":24,"CrestFactor":202,"Skewness":16,"Deviation":0,"Peak-to-Peak Displacement":1},"Y-Axis":{"SenEvent":0,"OAVelocity":8,"Peakmg":5,"RMSmg":4,"Kurtosis":1,"CrestFactor":701,"Skewness":10,"Deviation":0,"Peak-to-Peak Displacement":2},"Z-Axis":{"SenEvent":0,"OAVelocity":11,"Peakmg":5,"RMSmg":4,"Kurtosis":27,"CrestFactor":691,"Skewness":-2,"Deviation":0,"Peak-to-Peak Displacement":3},"LogIndex":0,"Time":1553148991},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553148992}},"datetime":"2023-02-16T12:28:33Z","devaddr":"FF69094D","fcnt":835,"lsnr":11.2,"port":1,"rssi":-41}
+
+%MQTTEVU:"PUBRCV",1,401,"data",814
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":68,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23375},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":8,"Peakmg":5,"RMSmg":4,"Kurtosis":22,"CrestFactor":286,"Skewness":8,"Deviation":0,"Peak-to-Peak Displacement":2},"Y-Axis":{"SenEvent":0,"OAVelocity":8,"Peakmg":5,"RMSmg":4,"Kurtosis":3,"CrestFactor":573,"Skewness":-5,"Deviation":0,"Peak-to-Peak Displacement":2},"Z-Axis":{"SenEvent":0,"OAVelocity":10,"Peakmg":5,"RMSmg":4,"Kurtosis":41,"CrestFactor":610,"Skewness":-1,"Deviation":0,"Peak-to-Peak Displacement":2},"LogIndex":0,"Time":1553149111},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553149112}},"datetime":"2023-02-16T12:30:33Z","devaddr":"FF69094D","fcnt":836,"lsnr":9,"port":1,"rssi":-38}
+
+%MQTTEVU:"PUBRCV",1,451,"data",815
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":69,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23375},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":7,"Peakmg":5,"RMSmg":4,"Kurtosis":20,"CrestFactor":104,"Skewness":9,"Deviation":0,"Peak-to-Peak Displacement":2},"Y-Axis":{"SenEvent":0,"OAVelocity":7,"Peakmg":5,"RMSmg":4,"Kurtosis":9,"CrestFactor":639,"Skewness":4,"Deviation":0,"Peak-to-Peak Displacement":2},"Z-Axis":{"SenEvent":0,"OAVelocity":13,"Peakmg":5,"RMSmg":4,"Kurtosis":63,"CrestFactor":825,"Skewness":-3,"Deviation":0,"Peak-to-Peak Displacement":3},"LogIndex":0,"Time":1553149231},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553149232}},"datetime":"2023-02-16T12:32:33Z","devaddr":"FF69094D","fcnt":837,"lsnr":9.2,"port":1,"rssi":-38}
+
+%MQTTEVU:"PUBRCV",1,501,"data",817
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":70,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23312},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":12,"Peakmg":5,"RMSmg":4,"Kurtosis":3,"CrestFactor":65,"Skewness":12,"Deviation":0,"Peak-to-Peak Displacement":4},"Y-Axis":{"SenEvent":0,"OAVelocity":10,"Peakmg":5,"RMSmg":4,"Kurtosis":-2,"CrestFactor":674,"Skewness":2,"Deviation":0,"Peak-to-Peak Displacement":3},"Z-Axis":{"SenEvent":0,"OAVelocity":10,"Peakmg":5,"RMSmg":4,"Kurtosis":54,"CrestFactor":611,"Skewness":-6,"Deviation":0,"Peak-to-Peak Displacement":3},"LogIndex":0,"Time":1553149351},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553149352}},"datetime":"2023-02-16T12:34:33Z","devaddr":"FF69094D","fcnt":838,"lsnr":9.5,"port":1,"rssi":-41}
+AT%MQTTEV="all",1
+OK
+
+%MQTTEVU:"PUBRCV",1,551,"data",817
+{"appargs":"WISE-2410-TB","data":{"SequenceNumber":71,"TotalLength":88,"SourceAddress":null,"TempHumi":{"Range":0,"Status":0,"Event":0,"SenVal":23312},"Accelerometer":{"X-Axis":{"SenEvent":0,"OAVelocity":6,"Peakmg":5,"RMSmg":4,"Kurtosis":13,"CrestFactor":46,"Skewness":17,"Deviation":0,"Peak-to-Peak Displacement":1},"Y-Axis":{"SenEvent":0,"OAVelocity":8,"Peakmg":5,"RMSmg":4,"Kurtosis":-10,"CrestFactor":575,"Skewness":-1,"Deviation":0,"Peak-to-Peak Displacement":2},"Z-Axis":{"SenEvent":0,"OAVelocity":8,"Peakmg":5,"RMSmg":4,"Kurtosis":30,"CrestFactor":755,"Skewness":-1,"Deviation":0,"Peak-to-Peak Displacement":2},"LogIndex":0,"Time":1553149471},"Device":{"Events":0,"PowerSrc":1,"BatteryVolt":0,"Time":1553149472}},"datetime":"2023-02-16T12:36:33Z","devaddr":"FF69094D","fcnt":839,"lsnr":5.5,"port":1,"rssi":-45}
+AT%MQTTCFG="nodes",1,"adrastea","broker.hivemq.com"
+OK
+AT%MQTTCFG="PROTOCOL",1,0,1200,1
+OK
+AT%MQTTCMD="connect",1
+ERROR
+AT
+OK
+AT+GSN?
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+map
+
+ERROR
+map
+
+ERROR
+AT
+OK
+AT
+OK
+map
+
+ERROR
+map
+
+ERROR
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+AT
+OK
+AT%MQTTEV="all",1
+OK
+AT%MQTTCFG="nodes",1,"adrastea","broker.hivemq.com"
+OK
+AT%MQTTCFG="PROTOCOL",1,0,1200,1
+OK
+AT%MQTTCMD="connect",1
+OK
+
+%MQTTEVU:"CONCONF",1,0
+AT%MQTTCMD="subscribe",1,2,"data"
+%MQTTCMD: 1
+OK
+
+%MQTTEVU:"SUBCONF",1,1,0
+AT%MQTTCMD="publish",1,2,0,"data",5
+10101
+
+%MQTTCMD: 2
+OK
+
+ERROR
+
+%MQTTEVU:"PUBRCV",1,51,"data",5
+10101
+
+%MQTTEVU:"PUBCONF",1,2,0
+AT%MQTTCMD="connect",1
+ERROR
+AT
+OK
+AT+GSN?
+132001792
+
+OK
+AT+CPIN?
+AT
+OK
+AT+GSN?
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+map
+
+ERROR
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+AT%MQTTEV="all",1
+OK
+AT
+OK
+map
+
+ERROR
+AT%MQTTCFG="nodes",1,"Client_name","broker.hivemq.com"
+OK
+AT%MQTTCFG="PROTOCOL",1,0,1200,1
+OK
+AT%MQTTCMD="connect",1
+OK
+
+%MQTTEVU:"CONCONF",1,0
+AT%MQTTCMD="subscribe",1,2,"Topic_name"
+%MQTTCMD: 1
+OK
+
+%MQTTEVU:"SUBCONF",1,1,0
+AT%MQTTCMD="publish",1,2,0,"Topic_name",5
+11110
+
+%MQTTCMD: 2
+OK
+
+ERROR
+
+%MQTTEVU:"PUBRCV",1,51,"Topic_name",5
+11110
+
+%MQTTEVU:"PUBCONF",1,2,0
+AT%MQTTCMD="subscribe",1,2,"Topic_name"
+%MQTTCMD: 3
+OK
+
+%MQTTEVU:"SUBCONF",1,3,0
+AT%MQTTCMD="publish",1,2,0,"Topic_name",5
+00011
+
+%MQTTCMD: 4
+OK
+
+ERROR
+
+%MQTTEVU:"PUBRCV",1,101,"Topic_name",5
+00011
+
+%MQTTEVU:"PUBCONF",1,4,0
+AT%MQTTEV="all",1
+OK
+map
+
+ERROR
+map
+
+ERROR
+map
+
+ERROR
+map
+
+ERROR
+map
+
+ERROR
+map
+
+ERROR
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+AT
+OK
+AT%MQTTEV="all",1
+OK
+ERROR
+AT%MQTTEV="all",1
+OK
+AT%MQTTCFG="nodes",1,"Client_name","broker.mqtdashboard.com"
+OK
+AT%MQTTCFG="PROTOCOL",1,0,1200,1
+OK
+AT%MQTTCMD="connect",1
+OK
+
+%MQTTEVU:"CONCONF",1,1
+AT%MQTTCMD="subscribe",1,2,"Topic_name"
+ERROR
+map
+
+ERROR
+map
+
+ERROR
+AT
+OK
+AT
+OK
+AT
+OK
+AT
+OK
+AT+GSN?
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+map
+
+ERROR
+map
+
+ERROR
+AT
+OK
+map
+
+ERROR
+map
+
+ERROR
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,2
+
+OK
+
++CEREG: 5,"C936","01882517",7
+AT
+OK
+AT%MQTTEV="all",1
+OK
+AT%MQTTCFG="nodes",1,"Client_name","broker.hivemq.com"
+OK
+AT%MQTTCFG="PROTOCOL",1,0,1200,1
+OK
+AT%MQTTCMD="connect",1
+OK
+
+%MQTTEVU:"CONCONF",1,0
+AT%MQTTCMD="subscribe",1,2,"testing"
+%MQTTCMD: 1
+OK
+
+%MQTTEVU:"SUBCONF",1,1,0
+AT%MQTTCMD="publish",1,2,0,"testing",5
+11010
+
+%MQTTCMD: 2
+OK
+
+ERROR
+
+%MQTTEVU:"PUBRCV",1,51,"testing",5
+11010
+
+%MQTTEVU:"PUBCONF",1,2,0
+
++CEREG: 5,"C936","01882516",7
+
++CEREG: 5,"C936","01882517",7
+map
+
+ERROR
+AT
+unknown command (type ? for help): AT
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+AT
+OK
+AT%MQTTEV="all",1
+OK
+AT%MQTTCFG="nodes",1,"Client_name","9ddcb3026e83422f8c1bef3ddb5fff1c.s2.eu.hivemq.cloud"
+OK
+AT%MQTTCFG="PROTOCOL",1,0,1200,1
+OK
+AT%MQTTCMD="connect",1
+OK
+
+%MQTTEVU:"CONCONF",1,1
+AT%MQTTCMD="publish",1,2,0,"Topic_name",5
+11110
+
+ERROR
+
+ERROR
+
++CEREG: 5,"C936","01882516",7
+
++CEREG: 5,"C936","01882517",7
+
++CEREG: 5,"C936","01882516",7
+
++CEREG: 5,"C936","01882517",7
+
++CEREG: 5,"C936","01882516",7
+
++CEREG: 5,"C936","01882517",7
+
++CEREG: 5,"C936","01882516",7
+
++CEREG: 5,"C936","01882517",7
+
++CEREG: 5,"C936","01882516",7
+
++CEREG: 5,"C936","01882517",7
+
++CEREG: 5,"C936","01882516",7
+
++CEREG: 5,"C936","01882517",7
+
++CEREG: 5,"C936","01882516",7
+
++CEREG: 5,"C936","01882517",7
+
++CEREG: 5,"C936","01882516",7
+
++CEREG: 5,"C936","01882517",7
+
++CEREG: 5,"C936","01882516",7
+
++CEREG: 5,"C940","018B4A01",7
+
++CEREG: 5,"C936","01882516",7
+
++CEREG: 4
+
++CEREG: 5,"C936","01882516",7
+
++CEREG: 5,"C936","01882517",7
+
++CEREG: 5,"C936","01882516",7
+
++CEREG: 5,"C940","018B4A01",7
+
++CEREG: 5,"C936","01882516",7
+
++CEREG: 5,"C936","01882517",7
+
++CEREG: 4
+
++CEREG: 5,"C936","01882517",7
+
++CEREG: 5,"C936","01882516",7
+
++CEREG: 5,"C936","01882517",7
+
++CEREG: 5,"C936","01882516",7
+
++CEREG: 5,"C936","01882517",7
+
++CEREG: 5,"C936","01882516",7
+
++CEREG: 5,"C936","01882517",7
+
++CEREG: 5,"C936","01882516",7
+
++CEREG: 5,"C936","01882517",7
+
++CEREG: 5,"C936","01882516",7
+
++CEREG: 5,"C936","01882517",7
+
++CEREG: 5,"C936","01882516",7
+
++CEREG: 5,"C936","01882517",7
+
++CEREG: 5,"C936","01882516",7
+
++CEREG: 5,"C936","01882517",7

@@ -1,0 +1,29 @@
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132002562
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,2
+
+OK
+AT
+OK
+
++CEREG: 0
+
++CEREG: 2
+AT%SETBDELAY=6
+OK

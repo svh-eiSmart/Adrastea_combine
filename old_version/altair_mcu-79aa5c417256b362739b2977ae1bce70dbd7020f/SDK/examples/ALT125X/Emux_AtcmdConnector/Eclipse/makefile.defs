@@ -1,0 +1,3 @@
+VERSION_TAG := $(shell "$(PWD)/../../../../../utils/genver.sh" "--inverpath ../../../../../")
+
+EXTRA_CFLAGS += -DVERSION_TAG=\"$(VERSION_TAG)\"

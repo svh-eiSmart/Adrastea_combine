@@ -1,0 +1,840 @@
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+unknown command (type ? for help): map
+unknown command (type ? for help): map>> map
+unknown command (type ? for help): map
+unknown command (type ? for help): map>> AT
+unknown command (type ? for help): AT
+AT
+unknown command (type ? for help): AT
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+unknown command (type ? for help): map
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132005273
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,2
+
+OK
+AT
+OK
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132005273
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,2
+
+OK
+AT
+OK
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+
++CEREG: 2

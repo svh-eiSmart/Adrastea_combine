@@ -1,0 +1,355 @@
+Welcome to MiniConsole
+
+MCU_02_01_00_00_05_LO RD6005@041505
+PowerManager Compiled on Jun  4 2021 at 09:49:58
+
+MCU menu -- PowerManager
+========
+help or ? - Print this help menu
+read addr - Read address (hex format)
+write addr value - Write value (hex) to address (hex)
+ps - Print task list
+meminfo - Reports memory information
+ver - Show complitaion date and time
+hifc [status [clr]] [timer MS] [sus] [res]
+serialinfo [serial num]
+time [show | set Seconds(from epoch)]]
+reset [all] - Reset MCU or reset all cores if "all" arg is given
+map - Pipeline to MAP via internal UART
+pwrMode - Configure MCU sleep mode and duration (units: MSec). Usage:[stop | standby | shutdown] {<DURATION_VAL>}
+sleepSet - Enable or disable go to sleep. Usage:[enable | disable]
+gpioWkup - Configure gpio wakeup source pin. Usage:<PHYSICAL_GPIO_ID> [set [ h | l | r | f | rf] | del]
+gpioMon - Configure gpio monitored pin. Usage:<LOGICAL_GPIO_ID> [set <VALUE> | del]
+retMemTest - Read/Write a key-value pair to/from Retention Memory. Usage:[get [<KEY> | DUMPALL]| set <KEY> <VALUE>]
+setCRidMask - Configure the Content Retention section ID mask. Usage:<SECTION_ID_MASK>
+sleepStat - Print out or reset current statistics. Usage:[show | reset]
+wd - Watchdog control command. Usage:[enable | disable | testbark | timeleft | timeout <NEW_TIMEOUT_VAL>]
+inActTime - Configure the value of MCU CLI inactivity timeout in units of Sec. Usage:<NEW_TIMEOUT_VAL>
+mapMode - Switch to MAP mode when MCU wakeup from warm boot. Usage:[on | off]
+run - MCU change to run at full load.
+>> AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+AT
+OK
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT
+OK
+AT+GSN?
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+AT
+OK
+AT
+OK
+AT
+OK
+AT
+OK
+AT+GSN?
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+AT
+OK
+AT
+OK
+AT+GSN?
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+map
+
+ERROR
+AT
+OK
+map
+
+ERROR
+map
+
+ERROR
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,2
+
+OK
+
++CEREG: 5,"C936","01882517",7
+AT
+OK
+AT%CERTCMD="WRITE","Testshashank.pem",0,"−−−−−BEGIN CERTIFICATE------Just testing-----END CERTIFICATE-----"
+ERROR
+AT
+OK
+map
+
+ERROR
+map
+
+ERROR
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+AT
+OK
+AT%CERTCMD="WRITE","Testshashank.pem",0,"−−−−−BEGIN CERTIFICATE------Just testing-----END CERTIFICATE-----"
+ERROR
+at%certcmd="write","ca-certificate.pem.crt",0,"??????????BEGIN CERTIFICATE??????????*****************??????????END CERTIFICATE??????????"
+ERROR
+AT+CPIN?
++CPIN: READY
+
+OK
+AT%CERTCMD="WRITE","Testshashank.pem",0,"−−−−−BEGIN CERTIFICATE------Just testing-----END CERTIFICATE-----"
+ERROR
+AT%CERTCMD="WRITE","Testshashank.pem",0,"−−−−−BEGIN CERTIFICATE-----------END CERTIFICATE-----"
+ERROR
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,0
+
+OK
+
++CEREG: 2
+
++CEREG: 0
+AT
+OK
+
++CEREG: 2
+
++CEREG: 0
+Welcome to MiniConsole
+
+MCU_02_01_00_00_05_LO RD6005@041505
+PowerManager Compiled on Jun  4 2021 at 09:49:58
+
+MCU menu -- PowerManager
+========
+help or ? - Print this help menu
+read addr - Read address (hex format)
+write addr value - Write value (hex) to address (hex)
+ps - Print task list
+meminfo - Reports memory information
+ver - Show complitaion date and time
+hifc [status [clr]] [timer MS] [sus] [res]
+serialinfo [serial num]
+time [show | set Seconds(from epoch)]]
+reset [all] - Reset MCU or reset all cores if "all" arg is given
+map - Pipeline to MAP via internal UART
+pwrMode - Configure MCU sleep mode and duration (units: MSec). Usage:[stop | standby | shutdown] {<DURATION_VAL>}
+sleepSet - Enable or disable go to sleep. Usage:[enable | disable]
+gpioWkup - Configure gpio wakeup source pin. Usage:<PHYSICAL_GPIO_ID> [set [ h | l | r | f | rf] | del]
+gpioMon - Configure gpio monitored pin. Usage:<LOGICAL_GPIO_ID> [set <VALUE> | del]
+retMemTest - Read/Write a key-value pair to/from Retention Memory. Usage:[get [<KEY> | DUMPALL]| set <KEY> <VALUE>]
+setCRidMask - Configure the Content Retention section ID mask. Usage:<SECTION_ID_MASK>
+sleepStat - Print out or reset current statistics. Usage:[show | reset]
+wd - Watchdog control command. Usage:[enable | disable | testbark | timeleft | timeout <NEW_TIMEOUT_VAL>]
+inActTime - Configure the value of MCU CLI inactivity timeout in units of Sec. Usage:<NEW_TIMEOUT_VAL>
+mapMode - Switch to MAP mode when MCU wakeup from warm boot. Usage:[on | off]
+run - MCU change to run at full load.
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+map
+
+ERROR
+map
+
+ERROR
+AT
+OK
+map
+
+ERROR
+AT%CERTCMD="WRITE","Testshashank.pem",0,"−−−−−BEGIN CERTIFICATE------Just testing-----END CERTIFICATE-----"
+ERROR
+map
+
+ERROR
+AT
+OK
+AT
+OK
+AT+GSN?
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+AT%CERTCMD="DIR"
+%CERTCMD:
+OK
+AT%CERTCMD="DIR"
+%CERTCMD:
+OK
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+AT
+OK
+AT%CERTCMD="WRITE","Testshashank.pem",0,"-----BEGIN CERTIFICATE-----\n
+MIIBsDCCAVWgAwIBAgIJAKSbCh5kj2DqMAoGCCqGSM49BAMCMB8xCzAJBgNVBAYT\n
+AkRFMRAwDgYDVQQDEwdSb290IENBMB4XDTIzMDMwMTEzNDU0N1oXDTIzMDQwMjEz\n
+NDU0N1owHzELMAkGA1UEBhMCREUxEDAOBgNVBAMTB1Jvb3QgQ0EwWTATBgcqhkjO\n
+PQIBBggqhkjOPQMBBwNCAARMNtb2jjmUyAEVmvyPhiG6By9DGeqYsJ82eDCxZfEj\n
+F2KYAVLx+78DR/F6+BdljP4NFNGgpae1BSglP5FcXObGo3oweDASBgNVHRMBAf8E\n
+CDAGAQH/AgEDMA4GA1UdDwEB/wQEAwICBDAUBgNVHREEDTALgglsb2NhbGhvc3Qw\n
+HQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMB0GA1UdDgQWBBQLDqpMpd2z\n
+MD06sR2UyfPynNgRJDAKBggqhkjOPQQDAgNJADBGAiEA6tnngVQysGSFQIa63T2t\n
+X0Iy1EIrXlOI6zmNpPkvn3wCIQDWx1HONi9TuMuuITsQb39YrMmEfTLmHOdYi4J2\n
+wntmPw==\n
+-----END CERTIFICATE-----"
+OK
+AT%CERTCMD="DIR"
+%CERTCMD:Testshashank.pem
+OK

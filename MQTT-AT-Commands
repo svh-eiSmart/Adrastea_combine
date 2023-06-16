@@ -1,0 +1,192 @@
+MQTT Broker configuration and connection 
+ 
+To establish a MQTT Broker connection you need to: 
+• configure MQTT connection parameters like IP and NODES specifying: client ID, MQTT URL, username and password registration; 
+• connect to the Broker; 
+• subscribe to a specific Topic; 
+• enable receive messages to the above Topic; 
+• publish messages to the above Topic. 
+ 
+
+ ------------------------
+ Without Security:
+ ------------------------
+ 
+1) AT%MQTTEV="all",1
+OK
+
+2) AT%MQTTCFG="nodes",1,"Client_name","broker.hivemq.com"
+broker.mqtdashboard.com
+OK
+
+3) AT%MQTTCFG="PROTOCOL",1,0,1200,1
+OK
+
+4) AT%MQTTCMD="connect",1
+OK
+
+%MQTTEVU:"CONCONF",1,0
+
+5) AT%MQTTCMD="subscribe",1,2,"Topic_name"
+%MQTTCMD: 1
+OK
+
+%MQTTEVU:"SUBCONF",1,1,0
+
+%MQTTEVU:"PUBRCV",1,51,"Topic_name",16
+{
+  "msg": "7"
+}
+
+6) AT%MQTTCMD="publish",1,2,0,"Topic_name",5
+11111
+%MQTTCMD: 2
+OK
+
+%MQTTEVU:"PUBRCV",1,101,"Topic_name",5
+11111
+
+%MQTTEVU:"PUBCONF",1,2,0
+ 
+ 
+ 
+ 
+ -----------------------------
+ with Security
+ -----------------------------
+1. Load the User Certificate:
+
+at%certcmd="write","ca-certificate.pem.crt",0,"??????????BEGIN CERTIFICATE
+??????????*****************??????????END CERTIFICATE??????????"
+OK
+
+
+2. Load the user private key:
+
+at%certcmd="write","ca-private.pem.key",1,"??????????BEGIN RSA PRIVATE KEY
+??????????*****************??????????END RSA PRIVATE KEY??????????"
+OK
+
+3. Add certificates to the profile:
+
+AT%CERTCFG="ADD",1,,,"ca-certificate.pem.crt","ca-private.pem.key"
+OK
+
+4.Allow MQTT events:
+AT%MQTTEV="ALL",1
+
+5. Configure node parameters: 
+AT%MQTTCFG="NODES",1,"ALTTest","a2gn98vggcm0y9.iot.us-west2.amazonaws.com"
+
+6. Configure IP connection port is important since the default 1883. For secure connection port 8883 used (configurable):
+AT%MQTTCFG="IP",1,,0,8883
+
+7. Configure TLS:
+
+AT%MQTTCFG="TLS",1,0,0
+
+8. Connect to the server:
+
+AT%MQTTCMD="CONNECT",1
+
+9. Receive connection establishment confirmation URC:
+%MQTTEVU:"CONCONF",1,0
+10. Subscribe to topic "test":
+AT%MQTTCMD="SUBSCRIBE",1,1,"TESTTopic"
+8. Receive subscription confirmation URC:
+%MQTTEVU:"SUBCONF",1,1,0
+
+10.Publish some "DATA" to topic "test":
+
+AT%MQTTCMD="PUBLISH",1,0,0,"TESTTopic",10
+1234567890
+%MQTTCMD: 2
+OK
+//AT%MQTTCMD=="PUBLISH","test","DATA"
+
+
+===============================================================================================================
+
+                                                        TEST
+														
+-------------------------------------------------------------------------------------------------------------
+
+at%certcmd="write","ca-certificate.pem.crt",0,"-----BEGIN CERTIFICATE-----\r\n""MIIBzzCCAXWgAwIBAgIEZHWoazAKBggqhkjOPQQDAjAfMQswCQYDVQQGEwJERTEQ\r\n""MA4GA1UEAxMHUm9vdCBDQTAeFw0yMzA1MjkwNzQwMjZaFw0yMzA2MzAwNzQwMDha\r\n""MCcxJTAjBgNVBAMeHABhAGQAcgBhAHMAdABlAGEAXwBtAGEAcgBrADMwWTATBgcq\r\n""hkjOPQIBBggqhkjOPQMBBwNCAATu+c8yGX8CKoDiKeqNCOaKpmqgq3U9BSeHu+7Y\r\n""jm8c1E4QvZm/1lp3XObEP7Cyae71DpMSW7zhKlM2Ila0eOtbo4GWMIGTMAwGA1Ud\r\n""EwEB/wQCMAAwDgYDVR0PAQH/BAQDAgWgMB8GA1UdIwQYMBaAFA3UvQxAwwXcbXS/\r\n""pRQxzJ3GffN4MBQGA1UdEQQNMAuCCWxvY2FsaG9zdDAdBgNVHSUEFjAUBggrBgEF\r\n""BQcDAgYIKwYBBQUHAwEwHQYDVR0OBBYEFButy6SnA0skAsEjUkrH6xsykCvJMAoG\r\n""CCqGSM49BAMCA0gAMEUCIC5Muu74rxn0TrkHquzCD9yOmZJtyMCgSTn3FmUqA7Ju\r\n""AiEAyZD5Qjc+jahLluy9WcfkU03UCRy5LiTpcgl7wcIzl6w=\r\n""-----END CERTIFICATE-----\r\n"
+
+at%certcmd="write","ca-private.pem.key",1,"-----BEGIN EC PRIVATE KEY-----\r\n""MHcCAQEEIAC26/pr4wuLvOr2Z5py3Q8DunrDqhXtCmj111YHXUxEoAoGCCqGSM49AwEHoUQDQgAE\r\n""7vnPMhl/AiqA4inqjQjmiqZqoKt1PQUnh7vu2I5vHNROEL2Zv9Zad1zmxD+wsmnu9Q6TElu84SpT\r\n""NiJWtHjrWw==\r\n""-----END EC PRIVATE KEY-----\r\n"
+
+AT%CERTCMD="READ","ca-certificate.pem.crt"
+
+AT%CERTCMD="DIR"
+
+
+
+
+===============================================================================================================
+
+                                                        TEST
+														
+-------------------------------------------------------------------------------------------------------------
+
+1) AT%MQTTCFG="NODES",1,"Client_name","broker.hivemq.com"
+    AT%MQTTCFG="NODES",1,"Client_name","test.mosquitto.org"
+
+2) AT%MQTTCFG="PROTOCOL",1,0,600,1
+
+3) AT%MQTTCMD="CONNECT",1
+
+4) AT%MQTTCMD="subscribe",1,2,"Topic_name"
+
+5) AT%MQTTCMD="publish",1,2,0,"Topic_name",5
+
+
+
+===============================================================================================================
+
+                                                        COMMAND
+														
+-------------------------------------------------------------------------------------------------------------
+
+1) AT+COPN
+	Execute command returns the list of operator names from the MT (Mobile Terminal)
+	Returns big list of available network providers likie Airtel
+	
+2) AT+CSQ
+	returns received signal strength indication <rssi> & channel bit error rate from MT
+	Ex. - +CSQL 13,0
+
+3) AT+CESQ
+	+CESQ: 99,99,255,255,25,38
+
+
+
+
+1) npm config list
+shashank%2Ehegde:SVHhashank%40%21
+10.35.30.91:3128
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

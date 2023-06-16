@@ -1,0 +1,4 @@
+1. Where do the input commands on mini console go to? like how are they linked to the code? example if type "i2c bus 0" where is it connected on the eclipse code? how does it know to set bus 0
+2. How to set GPIO pin on Eclipse? which file, as I2C bus 0 pins havent been set
+
+3. While flashing bin files to Adrastea, PwrManagement.bin is the default bin file with all the AT commands like map, MQTT etc. But it wont work with the sensorDemo.bin or I2c file, so need to integrate these 2 files together in Eclipse?

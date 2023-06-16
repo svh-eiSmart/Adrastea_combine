@@ -1,0 +1,71 @@
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132002562
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,2
+
+OK
+AT
+OK
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+AT%RATACT="NBIOT",1
+OK
+
++CEREG: 2
+AT
+OK
+AT%RATACT?
+%RATACT: "NBIOT",1,1
+OK
+ATZ
+OK
+
++CEREG: 0
+Welcome to MiniConsole
+
+MCU_02_01_00_00_05_LO RD6005@041505
+PowerManager Compiled on Jun  4 2021 at 09:49:58
+
+MCU menu -- PowerManager
+========
+help or ? - Print this help menu
+read addr - Read address (hex format)
+write addr value - Write value (hex) to address (hex)
+ps - Print task list
+meminfo - Reports memory information
+ver - Show complitaion date and time
+hifc [status [clr]] [timer MS] [sus] [res]
+serialinfo [serial num]
+time [show | set Seconds(from epoch)]]
+reset [all] - Reset MCU or reset all cores if "all" arg is given
+map - Pipeline to MAP via internal UART
+pwrMode - Configure MCU sleep mode and duration (units: MSec). Usage:[stop | standby | shutdown] {<DURATION_VAL>}
+sleepSet - Enable or disable go to sleep. Usage:[enable | disable]
+gpioWkup - Configure gpio wakeup source pin. Usage:<PHYSICAL_GPIO_ID> [set [ h | l | r | f | rf] | del]
+gpioMon - Configure gpio monitored pin. Usage:<LOGICAL_GPIO_ID> [set <VALUE> | del]
+retMemTest - Read/Write a key-value pair to/from Retention Memory. Usage:[get [<KEY> | DUMPALL]| set <KEY> <VALUE>]
+setCRidMask - Configure the Content Retention section ID mask. Usage:<SECTION_ID_MASK>
+sleepStat - Print out or reset current statistics. Usage:[show | reset]
+wd - Watchdog control command. Usage:[enable | disable | testbark | timeleft | timeout <NEW_TIMEOUT_VAL>]
+inActTime - Configure the value of MCU CLI inactivity timeout in units of Sec. Usage:<NEW_TIMEOUT_VAL>
+mapMode - Switch to MAP mode when MCU wakeup from warm boot. Usage:[on | off]
+run - MCU change to run at full load.

@@ -1,0 +1,135 @@
+ 0
+# T
+Unknown command 'T' - try 'help'
+# help
+?       - alias for 'help'
+alt_halt- halts uboot operation and enters into appropriate shutdown mode
+base    - print or set address offset
+bdinfo  - print Board Info structure
+boot    - boot default, i.e., run 'bootcmd'
+boot2uart- Reboot device from UART (Bootrom prompt)
+cachebug- Recreate cache bug
+cft     - do flash stress tests while changing flash frequency from 156MHz to 26MHz and back
+cftlteonly- do flash stress tests LTE ONLY while changing flash frequency from 156MHz to 26MHz and back
+change_permission- change permission
+chipinfo- chipinfo
+chpart  - change active partition
+clocks  - print clock configuration
+cmp     - memory compare
+coninfo - print console devices and information
+cp      - memory copy
+create_bdinfo- Create Board info
+create_mmio_bdinfo- Create Module Maker (MM) IOs Board info
+create_pmio_bdinfo- Create Product Maker (PM) IOs Board info
+dump_production_ids- otp production ids verbose dump
+echo    - echo args to console
+editenv - edit environment variable
+env     - environment handling commands
+erase   - erase FLASH memory
+exit    - exit script
+false   - do nothing, unsuccessfully
+flashfillrand- Fill flash with random value
+flashtdm- control Flash TDM configuration
+flashwrite- copy to nor partition
+flclk   - control flash always-on clock
+flinfo  - print FLASH memory information
+fltype  - print FLASH memory type information
+ftest   - run flash test on specific area
+get_active_sysheader- sets active_sysheader env variable with corresponding value to indicate which SH was verified, processed and run:Primary/Backup/uart Recovery
+get_chip_revision- retrieve chip revision number
+getiseexceptioninfo- If occurred, reads exception debug data from Ise1/Ise2 MB to the screen. If not occurred, waits for the exception to occur...
+go      - start application at address '[*]addr' (possibly be indirect address)
+gpio    - input/set/clear/toggle/mux/pull gpio pins
+hbsb_ver_img- verifies and authenticates the flash images per HBSB scheme
+help    - print command description/usage
+hmac_calc- computes HMAC256 message on input data
+hwflow  - turn RTS/CTS hardware flow control in serial line on/off
+i2c     - I2C sub-system
+imei_dump- IMEI dump
+init_verify- Init variables for verification
+iotst   - Do analog IO testing
+itest   - return true/false on integer compare
+kermit_stat- Show statistics of the last Kermit session
+kermit_stat_print- print kermit statistics at the end of session
+loadb   - load binary file over serial line (kermit mode)
+loadise - loads Rescue Image by MailBox to Ise1/Ise2
+loadiseimage- loads and programs Operational Image to Ise1/Ise2 flash partitions
+loady   - load binary file over serial line (ymodem mode)
+loop    - infinite loop on address range
+loopw   - infinite write loop on address range
+mapprint- print map block variables
+mapsave - save map to flash
+mapset  - set map variable
+mcu_jtag- Enable MCU JTAG
+
+mcuclkdis- Disable the MCU clock
+md      - memory display
+md5sum  - compute MD5 message digest
+md5test - simple MD5 Checksum memory test
+mdc     - memory display cyclic
+mm      - memory modify (auto-incrementing address)
+mtdparts- define flash/nand partitions
+mtest   - simple RAM read/write test
+mw      - memory write (fill)
+mwc     - memory write cyclic
+nm      - memory modify (constant address)
+otpdump - otp memory dump
+otpinfo - get otp lock information
+otpread - otp read to memory
+otpsb   - otp set bit
+otpwm   - otp write memory
+pbprint - print power button variables
+printenv- print environment variables
+protect - enable or disable FLASH write protection
+rcclkcalib- Find RC clock 'trim' (0..255) parameter
+and output to RFFE_VDDIO pin
+rcclkout- Configure RC clock to clock 'freq' (Hz) with clock 'trim' (0..255)
+and output to RFFE_VDDIO pin
+readise - reads data from Ise1/Ise2 MB to the screen
+reset   - Perform RESET of the CPU
+rfdumpmem- dump RF mem
+rfgetbit- get rf bits
+rfgetld - get LD
+rfread  - Read RF
+rfsetbit- Write RF
+rfspi   - set RF SPI
+rfwrite - Write RF
+rom_otp_bp- Do warm reset with bypass bits overwrite
+romcfg  - print BOOTROM configuration
+rsa_verify- validates RSA signature against expected hash per PKCS1.5
+rstinfo - print reset cause
+run     - run commands in an environment variable
+saveenv - save environment variables to persistent storage
+set_bootargs- build the boot arguments to be passed to the Application core (RTOS), either directly via u-boot or indirectly via PMP firmware
+setenv  - set environment variables
+setexpr - set environment variable as the result of eval expression
+setupise- setups access to Ise1/Ise2 in secure environment
+sfgetf  - get serial flash high freq
+sfseth  - set flash high freq dummies
+sfsetn  - set serial flash normal freq dummies
+sha256  - calculates by hw the SHA256 value of the data of the given size at specified address
+sha256_sw- calculates by sw the SHA256 value of the data of the given size at specified address
+show_bdinfo- Show board info
+show_mmio_bdinfo- Show MM IOs board info
+show_pmio_bdinfo- Show PM IOs board info
+showvar - print local hushshell variables
+sleep   - delay execution for some time
+source  - run script from memory
+switch2phyrc- Switch to PHY RC clock
+switch2refclk- Switch to REF clock
+switch2usbref- Switch to USB REF clock
+tempstor- Temporary storage status
+test    - minimal test like /bin/sh
+timer   - access the system timer
+true    - do nothing, successfully
+unlocksec- Give I/O partition control to SOC
+upgrade - perform VRM upgrade
+urclkout- Calibrate the URCLK (~4MHz) with 'tune' value (0..7)
+and output to UART0_RTS pin
+usbifcdis- Disable the USB interface and USB clocks
+ver_img - verifies and authenticates the flash images to be running
+version - print monitor, compiler and linker version
+wakeupcore- wakeup a specific core processor at address 'addr'
+wakeupnet- wakeup NET processor at address 'addr' with optional wait forever
+writeisedata- loads Rescue Image by MailBox to Ise1/Ise2
+xospi   - set XO SPI

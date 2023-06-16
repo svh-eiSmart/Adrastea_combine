@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CommandList>
+	<Custom>
+		<Command data="serialSwitch" description="at commands over cli" />
+	</Custom>
+	<General>
+		<Command data="AT+CFUN?"  description="Get rf status"/>
+		<Command data="AT+CFUN=0"  description="Turn rf off"/>
+		<Command data="AT+CFUN=1"  description="Turn rf on"/>
+		<Command data="AT+CEREG?"  description="Get network status"/>
+		<Command data="AT+CPIN?"  description="Get PIN status"/>
+	</General>
+	<GNSS>
+		<Command data="AT%IGNSSACT?"  description="Get GNSS status"/>
+		<Command data="AT%IGNSSACT=0"  description="GNSS turn off"/>
+		<Command data="AT%IGNSSACT=1"  description="GNSS turn on"/>
+		<Command data="AT%IGNSSINFO=FIX"  description="Get Fix info"/>
+		<Command data='AT%IGNSSCFG="SET","NMEA","GGA","GSA","GSV","GNS","RMC"'  description="Enable NMEA messages"/>
+		<Command data='AT%IGNSSCFG="SET","SAT","GPS","GLONASS"'  description="Enable statellite systems"/>
+		<Command data='AT%IGNSSEV="NMEA",1'  description="Enable NMEA messages"/>
+		<Command data='AT%IGNSSEV="NMEA",0'  description="Disable NMEA messages"/>
+	</GNSS>
+</CommandList>

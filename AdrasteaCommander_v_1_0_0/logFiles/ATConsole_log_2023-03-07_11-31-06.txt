@@ -1,0 +1,157 @@
+AT
+unknown command (type ? for help): AT
+AT
+unknown command (type ? for help): AT
+AT
+unknown command (type ? for help): AT
+AT
+unknown command (type ? for help): AT
+AT
+unknown command (type ? for help): AT
+AT
+unknown command (type ? for help): AT
+AT
+unknown command (type ? for help): AT
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> AT
+unknown command (type ? for help): AT
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+map
+
+ERROR
+AT
+OK
+AT
+OK
+map
+
+ERROR
+map
+
+ERROR
+map
+
+ERROR
+AT
+OK
+AT+GSN?
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+AT
+OK
+map
+
+ERROR
+map
+
+ERROR
+AT
+unknown command (type ? for help): AT
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+AT
+OK
+map
+
+ERROR
+AT
+OK
+AT
+OK
+map
+
+ERROR
+AT
+OK
+AT%CERTCMD="WRITE","Testshashank.pem",0,"-----BEGIN CERTIFICATE-----\n
+MIIBsDCCAVWgAwIBAgIJAKSbCh5kj2DqMAoGCCqGSM49BAMCMB8xCzAJBgNVBAYT\n
+AkRFMRAwDgYDVQQDEwdSb290IENBMB4XDTIzMDMwMTEzNDU0N1oXDTIzMDQwMjEz\n
+NDU0N1owHzELMAkGA1UEBhMCREUxEDAOBgNVBAMTB1Jvb3QgQ0EwWTATBgcqhkjO\n
+PQIBBggqhkjOPQMBBwNCAARMNtb2jjmUyAEVmvyPhiG6By9DGeqYsJ82eDCxZfEj\n
+F2KYAVLx+78DR/F6+BdljP4NFNGgpae1BSglP5FcXObGo3oweDASBgNVHRMBAf8E\n
+CDAGAQH/AgEDMA4GA1UdDwEB/wQEAwICBDAUBgNVHREEDTALgglsb2NhbGhvc3Qw\n
+HQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMB0GA1UdDgQWBBQLDqpMpd2z\n
+MD06sR2UyfPynNgRJDAKBggqhkjOPQQDAgNJADBGAiEA6tnngVQysGSFQIa63T2t\n
+X0Iy1EIrXlOI6zmNpPkvn3wCIQDWx1HONi9TuMuuITsQb39YrMmEfTLmHOdYi4J2\n
+wntmPw==\n
+-----END CERTIFICATE-----"
+OK
+AT%CERTCMD="DIR"
+%CERTCMD:Testshashank.pem
+OK
+AT%CERTCMD="READ","ca−certificate.pem.crt"
+ERROR
+AT%CERTCMD="READ","Testshashank.pem"
+%CERTCMD:"-----BEGIN CERTIFICATE-----\n
+MIIBsDCCAVWgAwIBAgIJAKSbCh5kj2DqMAoGCCqGSM49BAMCMB8xCzAJBgNVBAYT\n
+AkRFMRAwDgYDVQQDEwdSb290IENBMB4XDTIzMDMwMTEzNDU0N1oXDTIzMDQwMjEz\n
+NDU0N1owHzELMAkGA1UEBhMCREUxEDAOBgNVBAMTB1Jvb3QgQ0EwWTATBgcqhkjO\n
+PQIBBggqhkjOPQMBBwNCAARMNtb2jjmUyAEVmvyPhiG6By9DGeqYsJ82eDCxZfEj\n
+F2KYAVLx+78DR/F6+BdljP4NFNGgpae1BSglP5FcXObGo3oweDASBgNVHRMBAf8E\n
+CDAGAQH/AgEDMA4GA1UdDwEB/wQEAwICBDAUBgNVHREEDTALgglsb2NhbGhvc3Qw\n
+HQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMB0GA1UdDgQWBBQLDqpMpd2z\n
+MD06sR2UyfPynNgRJDAKBggqhkjOPQQDAgNJADBGAiEA6tnngVQysGSFQIa63T2t\n
+X0Iy1EIrXlOI6zmNpPkvn3wCIQDWx1HONi9TuMuuITsQb39YrMmEfTLmHOdYi4J2\n
+wntmPw==\n
+-----END CERTIFICATE-----"
+
+OK
+AT%CERTCMD="WRITE","uno.txtt","0","hellothere"
+ERROR
+AT%CERTCMD="WRITE","ein.txt","0","hellother"
+ERROR

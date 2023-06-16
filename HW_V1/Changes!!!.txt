@@ -1,0 +1,6 @@
+all Done 19.04.2023 
+Push buttoms
+180° rotated!!! shall be rotate back to 0°. Bottom not looking to the outside of the board
+footprint altered!!!! shall be undone. keep original footprint
+silKscreen A0-A4, A5 does not exist
+Wakeup, reset, ADC are not shifted to 3,3V!!!

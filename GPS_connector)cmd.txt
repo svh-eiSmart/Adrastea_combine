@@ -1,0 +1,82 @@
+1) apitest gps act 1 1 0
+Number of arg = 6
+arg[0] = apitest
+arg[1] = gps
+arg[2] = act
+arg[3] = 1
+arg[4] = 1
+arg[5] = 0
+          >>
+Entering blocking by osMessageQueueGet.
+
+osMessageQueueGet success
+                         [1] [984]Module 0x05 version mismatched!
+                                                                 [1] [986]MCU: V0.4
+                                                                                   [1] [988]MAP: V0.1
+
+[API_NG] altcom_gps_activate return val : "0"
+                                             [1] [468]Unexpected length. datalen: 17, bufflen: 4
+          [1] [85]apicmdgw_send error: -28
+                                          [1] [174]altcom_gps_setnevent_req faile, ret = -1
+
+[API_NG] altcom_gps_setevent return val : "0"
+
+Entering blocking by osMessageQueueGet.
+
+unknown command (type ? for help):
+
+2) apitest gps act 1 1
+Number of arg = 5
+arg[0] = apitest
+arg[1] = gps
+arg[2] = act
+arg[3] = 1
+arg[4] = 1
+          >>
+osMessageQueueGet success
+
+[API_NG] altcom_gps_activate return val : "0"
+                                             [1] [468]Unexpected length. datalen: 17, bufflen: 4
+          [1] [85]apicmdgw_send error: -28
+                                          [1] [174]altcom_gps_setnevent_req faile, ret = -1
+
+[API_NG] altcom_gps_setevent return val : "0"
+
+Entering blocking by osMessageQueueGet.
+
+3) apitest gps act 1 1 0
+Number of arg = 6
+arg[0] = apitest
+arg[1] = gps
+arg[2] = act
+arg[3] = 1
+arg[4] = 1
+arg[5] = 0
+          >>
+osMessageQueueGet success
+
+[API_OK] altcom_gps_activate return val : "1"
+                                             [1] [468]Unexpected length. datalen: 17, bufflen: 4
+          [1] [85]apicmdgw_send error: -28
+                                          [1] [174]altcom_gps_setnevent_req faile, ret = -1
+
+[API_NG] altcom_gps_setevent return val : "0"
+
+Entering blocking by osMessageQueueGet.
+
+4) apitest gps setnmea
+Number of arg = 3
+arg[0] = apitest
+arg[1] = gps
+arg[2] = setnmea
+                >>
+osMessageQueueGet success
+
+[API_OK] altcom_gps_setnmeacfg return val : "1"
+
+Entering blocking by osMessageQueueGet.
+                                       [3] [105]Use application log lock interface.
+                                                                                   [3] [687]ALTCOM log level 3.
+                         [3] [305]Use default buffpool interface.
+                                                                 [3] [316]Use application block configuration.
+                        Welcome to MiniConsole

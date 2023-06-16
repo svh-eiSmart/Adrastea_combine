@@ -1,0 +1,1253 @@
+AT
+Unknown command 'AT' - try 'help'
+# ps
+Unknown command 'ps' - try 'help'
+# help
+?       - alias for 'help'
+alt_halt- halts uboot operation and enters into appropriate shutdown mode
+base    - print or set address offset
+bdinfo  - print Board Info structure
+boot    - boot default, i.e., run 'bootcmd'
+boot2uart- Reboot device from UART (Bootrom prompt)
+cachebug- Recreate cache bug
+cft     - do flash stress tests while changing flash frequency from 156MHz to 26MHz and back
+cftlteonly- do flash stress tests LTE ONLY while changing flash frequency from 156MHz to 26MHz and back
+change_permission- change permission
+chipinfo- chipinfo
+chpart  - change active partition
+clocks  - print clock configuration
+cmp     - memory compare
+coninfo - print console devices and information
+cp      - memory copy
+create_bdinfo- Create Board info
+create_mmio_bdinfo- Create Module Maker (MM) IOs Board info
+create_pmio_bdinfo- Create Product Maker (PM) IOs Board info
+dump_production_ids- otp production ids verbose dump
+echo    - echo args to console
+editenv - edit environment variable
+env     - environment handling commands
+erase   - erase FLASH memory
+exit    - exit script
+false   - do nothing, unsuccessfully
+flashfillrand- Fill flash with random value
+flashtdm- control Flash TDM configuration
+flashwrite- copy to nor partition
+flclk   - control flash always-on clock
+flinfo  - print FLASH memory information
+fltype  - print FLASH memory type information
+ftest   - run flash test on specific area
+get_active_sysheader- sets active_sysheader env variable with corresponding value to indicate which SH was verified, processed and run:Primary/Backup/uart Recovery
+get_chip_revision- retrieve chip revision number
+getiseexceptioninfo- If occurred, reads exception debug data from Ise1/Ise2 MB to the screen. If not occurred, waits for the exception to occur...
+go      - start application at address '[*]addr' (possibly be indirect address)
+gpio    - input/set/clear/toggle/mux/pull gpio pins
+hbsb_ver_img- verifies and authenticates the flash images per HBSB scheme
+help    - print command description/usage
+hmac_calc- computes HMAC256 message on input data
+hwflow  - turn RTS/CTS hardware flow control in serial line on/off
+i2c     - I2C sub-system
+imei_dump- IMEI dump
+init_verify- Init variables for verification
+iotst   - Do analog IO testing
+itest   - return true/false on integer compare
+kermit_stat- Show statistics of the last Kermit session
+kermit_stat_print- print kermit statistics at the end of session
+loadb   - load binary file over serial line (kermit mode)
+loadise - loads Rescue Image by MailBox to Ise1/Ise2
+loadiseimage- loads and programs Operational Image to Ise1/Ise2 flash partitions
+loady   - load binary file over serial line (ymodem mode)
+loop    - infinite loop on address range
+loopw   - infinite write loop on address range
+mapprint- print map block variables
+mapsave - save map to flash
+mapset  - set map variable
+mcu_jtag- Enable MCU JTAG
+
+mcuclkdis- Disable the MCU clock
+md      - memory display
+md5sum  - compute MD5 message digest
+md5test - simple MD5 Checksum memory test
+mdc     - memory display cyclic
+mm      - memory modify (auto-incrementing address)
+mtdparts- define flash/nand partitions
+mtest   - simple RAM read/write test
+mw      - memory write (fill)
+mwc     - memory write cyclic
+nm      - memory modify (constant address)
+otpdump - otp memory dump
+otpinfo - get otp lock information
+otpread - otp read to memory
+otpsb   - otp set bit
+otpwm   - otp write memory
+pbprint - print power button variables
+printenv- print environment variables
+protect - enable or disable FLASH write protection
+rcclkcalib- Find RC clock 'trim' (0..255) parameter
+and output to RFFE_VDDIO pin
+rcclkout- Configure RC clock to clock 'freq' (Hz) with clock 'trim' (0..255)
+and output to RFFE_VDDIO pin
+readise - reads data from Ise1/Ise2 MB to the screen
+reset   - Perform RESET of the CPU
+rfdumpmem- dump RF mem
+rfgetbit- get rf bits
+rfgetld - get LD
+rfread  - Read RF
+rfsetbit- Write RF
+rfspi   - set RF SPI
+rfwrite - Write RF
+rom_otp_bp- Do warm reset with bypass bits overwrite
+romcfg  - print BOOTROM configuration
+rsa_verify- validates RSA signature against expected hash per PKCS1.5
+rstinfo - print reset cause
+run     - run commands in an environment variable
+saveenv - save environment variables to persistent storage
+set_bootargs- build the boot arguments to be passed to the Application core (RTOS), either directly via u-boot or indirectly via PMP firmware
+setenv  - set environment variables
+setexpr - set environment variable as the result of eval expression
+setupise- setups access to Ise1/Ise2 in secure environment
+sfgetf  - get serial flash high freq
+sfseth  - set flash high freq dummies
+sfsetn  - set serial flash normal freq dummies
+sha256  - calculates by hw the SHA256 value of the data of the given size at specified address
+sha256_sw- calculates by sw the SHA256 value of the data of the given size at specified address
+show_bdinfo- Show board info
+show_mmio_bdinfo- Show MM IOs board info
+show_pmio_bdinfo- Show PM IOs board info
+showvar - print local hushshell variables
+sleep   - delay execution for some time
+source  - run script from memory
+switch2phyrc- Switch to PHY RC clock
+switch2refclk- Switch to REF clock
+switch2usbref- Switch to USB REF clock
+tempstor- Temporary storage status
+test    - minimal test like /bin/sh
+timer   - access the system timer
+true    - do nothing, successfully
+unlocksec- Give I/O partition control to SOC
+upgrade - perform VRM upgrade
+urclkout- Calibrate the URCLK (~4MHz) with 'tune' value (0..7)
+and output to UART0_RTS pin
+usbifcdis- Disable the USB interface and USB clocks
+ver_img - verifies and authenticates the flash images to be running
+version - print monitor, compiler and linker version
+wakeupcore- wakeup a specific core processor at address 'addr'
+wakeupnet- wakeup NET processor at address 'addr' with optional wait forever
+writeisedata- loads Rescue Image by MailBox to Ise1/Ise2
+xospi   - set XO SPI
+# printenv
+!pb_debounce=1
+!pb_enabled_env=disabled
+!pb_max_counter=1
+!pb_watchdog=2000
+active_modemfw=2
+active_uart=0
+afm=setexpr pyld_hdr pmp '+' 0xC; if itest.l *$pyld_hdr == 0xF1E0F1E0; then unlocksec; usbifcdis; run pmpfw; else run afm2nd; fi
+afm2nd=setexpr pmp_opcode *modem_fw '&' 0xFC000000; if itest.l 3C000000 == ${pmp_opcode}; then unlocksec; usbifcdis; run pmpfw2nd; else run appfw; fi
+appfw=if itest.l FFFFFFFF != *app_fw; then set_bootargs ;wakeupnet *app_fw 2 ;run boot_sflash_modemfw; else echo 'Cannot find entry point of App firmware'; fi
+appfw_core=net
+baudrate=115200
+boot_default=setenv pmpx_start *pmp;upgrade.auto; init_verify; get_chip_revision; if itest.l 4 < ${chip_revision}; then run hbsb_verify_images; else run verify_images; fi; change_permission; run afm;
+boot_option=boot_default
+boot_sflash_modemfw=if itest.l FFFFFFFF != *modem_fw; then go *modem_fw; else if itest.l FFFFFFFF != *app_fw; then wakeupnet *app_fw; echo 'Cannot find entry point of Modem firmware'; fi; fi
+boot_sflash_mtd_fast=run flash_set_bootargs; run sfm_chk; if test ${skip_lfw} = 1; then initfw; else run fastboot; fi; bootm ${kernel_sflash_addr} - ${dtb_sflash_addr}
+boot_sflash_mtd_normal=run flash_set_bootargs; run sfm_chk; if test ${skip_lfw} = 1; then initfw; fi; bootm ${kernel_sflash_addr} - ${dtb_sflash_addr}
+boot_sflash_ramfs=run ram_set_bootargs; bootm ${kernel_sflash_addr}
+boot_tftp_ramfs=run ram_set_bootargs; ${tftpbootcmd} vmlinux.uboot; bootm ${loadaddr}
+bootcmd=run ${boot_option}
+bootdelay=6
+\
+
+bootm_low=0x80b80000
+bootm_size=0x3500000
+consoledev=ttyS0
+en_usb_on_init=1
+env_check=if test ${env_saved} = 0; then setenv env_saved 1; sleep 1; saveenv; fi
+env_configured_size=0x2000
+env_saved=1
+fastboot=run loadotp0; run loadotp1; if run loadbsp;then run loadfw_rootfs; fi;
+fdt_high=0x81800000
+fdtdbg=no
+filesize=13270
+fixed_mtdparts=mtdparts=alt12xx_sflash:4k(systemHeader),4k(systemHeader_DH0),4k(hbsb_rom_puk1),4k(config_record),4k(config_record_backup),44k(reserved1),4k(systemHeader_backup),396k(uboot),228k(pmp),4k(io_par),4k(modem_sys_header),4k(mcu_sys_header),388k(uboot_backup),512k(config_fs),4k(modem_puk2),4k(bdinfo),8k(env),8k(backup_env),28k(reserved2),4k(map1),4k(map2),64k(vrm_scratchpad)
+flash_set_bootargs=setenv bootargs $ip root=${root} rw rootfstype=jffs2 console=$consoledev,$kernel_baudrate $othbootargs $kernellog $bootmode
+hbsb_verify_images=setexpr modem_sh modem_sys_header '+' 0; setexpr m_puk2 modem_puk2 '+' 0; setexpr mcu_sh mcu_sys_header '+' 0; setexpr m_puk3 mcu_puk3 '+' 0; hbsb_ver_img $modem_sh $m_puk2 $mcu_sh $m_puk3
+hwflow=no
+initrd_high=0x81800000
+io_par_conf_skip=yes
+is_secure=1000
+jtag_to_mcu=1
+kernel_baudrate=115200
+kernellog=quiet
+loadaddr=0x90040000
+loadaddr_high=0x901C0000
+loadbsp=chpart config_fs; fsloadbsp 1 a031c228 band_list bandbp file_list bspfilesbp
+loadfw= unlzo CONFIG_SYS_FLASH_MODEMFW_BASE ${unziped_fwaddr}; if test $? -eq 0; then initfw; bootfw ${unziped_fwaddr}; fi
+loadfw_rootfs=chpart rootfs; fsload ${loadaddr} /lib/firmware/ue_lte.fw.gz; unzip ${loadaddr} ${unziped_fwaddr}; if test $? -eq 0; then initfw; bootfw ${unziped_fwaddr}; fi
+loadotp0=otpread -l -s 0xa031c000 0 512
+loadotp1=otpread -l -s 0xa031c204 5888 32
+mac_log_uartbaudrate=921600
+modemfw=if itest.l FFFFFFFF != *modem_fw; then set_bootargs pmp; go *modem_fw; else run appfw; fi
+mtddevname=systemHeader
+mtddevnum=0
+mtdids=nor0=alt12xx_sflash
+partition=nor0,0
+phy_dbgstreamer=0
+phy_sniffer=0
+pll0skip=no
+pll2skip=no
+pmpfw=set_bootargs pmp; go $pmpx_start
+pmpfw2nd=set_bootargs pmp; if test -n ${active_modemfw}; then if itest.b ${active_modemfw} == 2 ; then go modem_fw2; else go modem_fw; fi; else go modem_fw; fi
+pmpfw_old=set_bootargs pmp; if test -n ${active_modemfw}; then if itest.b ${active_modemfw} == 2 ; then go *modem_fw2; else go *modem_fw; fi; else go *modem_fw; fi
+preboot=run env_check; if test -n $prebootcmd; then echo; echo Running pre-boot command; run prebootcmd;fi;
+probe=mw.l 0xbf010170 0x7
+puk2addr=get_active_sysheader; if itest.l 2 == ${active_sysheader}; then setexpr activeHeader systemHeader_backup '+' 0; else setexpr activeHeader systemHeader '+' 0; fi; setexpr puk2_addr ${activeHeader} '+' 8; setexpr puk2_addr *${puk2_addr} '+' 0; setexpr puk2_addr ${puk2_addr} '*' 4C; setexpr puk2_addr ${puk2_addr} '+' 10C; setexpr puk2_addr ${activeHeader} '+' ${puk2_addr}
+ram_set_bootargs=setenv bootargs $ip root=/dev/ram rw console=$consoledev,$kernel_baudrate $othbootargs $kernellog $bootmode
+sfm_chk=setenv skip_lfw 0; if test -n ${bootmode}; then if test ${bootmode} = "nomodem" || test ${bootmode} = "netonly"; then setenv skip_lfw 1; fi; fi;
+skip_erase_end=n
+stderr=serial,usbtty
+stdin=serial,usbtty
+stdout=serial,usbtty
+testdramaddress=no
+testdramcache=yes
+testdramcount=1
+testdramdata=no
+testdramsize=0x00280000
+testdramstart=0x90080000
+testdramwalk=no
+unziped_fwaddr=0x82800000
+update_appfw=run update_appfw_ser
+update_appfw_ser=loadb app_fw
+update_configfs=run update_configfs_ser
+update_configfs_ser=loadb config_fs
+update_modemfw=run update_modemfw_ser
+update_modemfw_ser=loadb modem_fw
+update_sysheader=run update_sysheader_ser
+update_sysheader_backup=run update_sysheader_backup_ser
+update_sysheader_backup_ser=loadb 0xB8010000
+update_sysheader_ser=loadb 0xB8000000
+update_uboot=run update_uboot_ser
+update_uboot_backup=run update_uboot_backup_ser
+update_uboot_backup_ser=loadb 0xB80B0000
+update_uboot_ser=loadb 0xB8011000
+usbtty=cdc_acm
+ver=U-Boot 2012.10 (Feb 07 2021 - 15:24:35) ALT1250_03_00_00_00_10611_UB
+verify_images=setexpr tmp1 modem_sys_header '+' 0; run puk2addr; ver_img $tmp1 $puk2_addr
+
+Environment size: 5777/8187 bytes
+# lsgpio
+Unknown command 'lsgpio' - try 'help'
+#  
+NOR boot spl: Uncompressing u-boot image ... OK (136696 => 250128 54%)
+Transferring control to u-boot ...
+
+
+U-Boot 2012.10 (Feb 07 2021 - 15:24:35) ALT1250_03_00_00_00_10611_UB
+
+Board: ALT1250 Ver: 0.32-BZ-E0 (PMP CPU Speed 120 MHz)
+DRAM:  2.5 MiB
+Now running in RAM - U-Boot at: 902a8000
+Boot mode 3
+Flash Manufacturer/Device ID is: 0x20bb18
+Enable QUAD mode
+Flash: 16 MiB
+map import OK
+USB CTRL has been successfully initialized!
+In:    usbtty
+Out:   usbtty
+Err:   usbtty
+Configuring Flash Write Protection (offset 0x192e00)
+new_ce_val = 0x3a00f9f0
+Rst info: shutdown
+Hit any key to stop autoboot:  6  5  4  3  0
+# sgpio
+Unknown command 'sgpio' - try 'help'
+# d
+Lot ID:   "    UAFV45005"
+Wafer ID: 0x10
+IC ID:
+0xa70e7f02
+0x8d412926
+0x7040b888
+0x60bc5836
+# lsgpio
+Unknown command 'lsgpio' - try 'help'
+# help
+?       - alias for 'help'
+alt_halt- halts uboot operation and enters into appropriate shutdown mode
+base    - print or set address offset
+bdinfo  - print Board Info structure
+boot    - boot default, i.e., run 'bootcmd'
+boot2uart- Reboot device from UART (Bootrom prompt)
+cachebug- Recreate cache bug
+cft     - do flash stress tests while changing flash frequency from 156MHz to 26MHz and back
+cftlteonly- do flash stress tests LTE ONLY while changing flash frequency from 156MHz to 26MHz and back
+change_permission- change permission
+chipinfo- chipinfo
+chpart  - change active partition
+clocks  - print clock configuration
+cmp     - memory compare
+coninfo - print console devices and information
+cp      - memory copy
+create_bdinfo- Create Board info
+create_mmio_bdinfo- Create Module Maker (MM) IOs Board info
+create_pmio_bdinfo- Create Product Maker (PM) IOs Board info
+dump_production_ids- otp production ids verbose dump
+echo    - echo args to console
+editenv - edit environment variable
+env     - environment handling commands
+erase   - erase FLASH memory
+exit    - exit script
+false   - do nothing, unsuccessfully
+flashfillrand- Fill flash with random value
+flashtdm- control Flash TDM configuration
+flashwrite- copy to nor partition
+flclk   - control flash always-on clock
+flinfo  - print FLASH memory information
+fltype  - print FLASH memory type information
+ftest   - run flash test on specific area
+get_active_sysheader- sets active_sysheader env variable with corresponding value to indicate which SH was verified, processed and run:Primary/Backup/uart Recovery
+get_chip_revision- retrieve chip revision number
+getiseexceptioninfo- If occurred, reads exception debug data from Ise1/Ise2 MB to the screen. If not occurred, waits for the exception to occur...
+go      - start application at address '[*]addr' (possibly be indirect address)
+gpio    - input/set/clear/toggle/mux/pull gpio pins
+hbsb_ver_img- verifies and authenticates the flash images per HBSB scheme
+help    - print command description/usage
+hmac_calc- computes HMAC256 message on input data
+hwflow  - turn RTS/CTS hardware flow control in serial line on/off
+i2c     - I2C sub-system
+imei_dump- IMEI dump
+init_verify- Init variables for verification
+iotst   - Do analog IO testing
+itest   - return true/false on integer compare
+kermit_stat- Show statistics of the last Kermit session
+kermit_stat_print- print kermit statistics at the end of session
+loadb   - load binary file over serial line (kermit mode)
+loadise - loads Rescue Image by MailBox to Ise1/Ise2
+loadiseimage- loads and programs Operational Image to Ise1/Ise2 flash partitions
+loady   - load binary file over serial line (ymodem mode)
+loop    - infinite loop on address range
+loopw   - infinite write loop on address range
+mapprint- print map block variables
+mapsave - save map to flash
+mapset  - set map variable
+mcu_jtag- Enable MCU JTAG
+
+mcuclkdis- Disable the MCU clock
+md      - memory display
+md5sum  - compute MD5 message digest
+md5test - simple MD5 Checksum memory test
+mdc     - memory display cyclic
+mm      - memory modify (auto-incrementing address)
+mtdparts- define flash/nand partitions
+mtest   - simple RAM read/write test
+mw      - memory write (fill)
+mwc     - memory write cyclic
+nm      - memory modify (constant address)
+otpdump - otp memory dump
+otpinfo - get otp lock information
+otpread - otp read to memory
+otpsb   - otp set bit
+otpwm   - otp write memory
+pbprint - print power button variables
+printenv- print environment variables
+protect - enable or disable FLASH write protection
+rcclkcalib- Find RC clock 'trim' (0..255) parameter
+and output to RFFE_VDDIO pin
+rcclkout- Configure RC clock to clock 'freq' (Hz) with clock 'trim' (0..255)
+and output to RFFE_VDDIO pin
+readise - reads data from Ise1/Ise2 MB to the screen
+reset   - Perform RESET of the CPU
+rfdumpmem- dump RF mem
+rfgetbit- get rf bits
+rfgetld - get LD
+rfread  - Read RF
+rfsetbit- Write RF
+rfspi   - set RF SPI
+rfwrite - Write RF
+rom_otp_bp- Do warm reset with bypass bits overwrite
+romcfg  - print BOOTROM configuration
+rsa_verify- validates RSA signature against expected hash per PKCS1.5
+rstinfo - print reset cause
+run     - run commands in an environment variable
+saveenv - save environment variables to persistent storage
+set_bootargs- build the boot arguments to be passed to the Application core (RTOS), either directly via u-boot or indirectly via PMP firmware
+setenv  - set environment variables
+setexpr - set environment variable as the result of eval expression
+setupise- setups access to Ise1/Ise2 in secure environment
+sfgetf  - get serial flash high freq
+sfseth  - set flash high freq dummies
+sfsetn  - set serial flash normal freq dummies
+sha256  - calculates by hw the SHA256 value of the data of the given size at specified address
+sha256_sw- calculates by sw the SHA256 value of the data of the given size at specified address
+show_bdinfo- Show board info
+show_mmio_bdinfo- Show MM IOs board info
+show_pmio_bdinfo- Show PM IOs board info
+showvar - print local hushshell variables
+sleep   - delay execution for some time
+source  - run script from memory
+switch2phyrc- Switch to PHY RC clock
+switch2refclk- Switch to REF clock
+switch2usbref- Switch to USB REF clock
+tempstor- Temporary storage status
+test    - minimal test like /bin/sh
+timer   - access the system timer
+true    - do nothing, successfully
+unlocksec- Give I/O partition control to SOC
+upgrade - perform VRM upgrade
+urclkout- Calibrate the URCLK (~4MHz) with 'tune' value (0..7)
+and output to UART0_RTS pin
+usbifcdis- Disable the USB interface and USB clocks
+ver_img - verifies and authenticates the flash images to be running
+version - print monitor, compiler and linker version
+wakeupcore- wakeup a specific core processor at address 'addr'
+wakeupnet- wakeup NET processor at address 'addr' with optional wait forever
+writeisedata- loads Rescue Image by MailBox to Ise1/Ise2
+xospi   - set XO SPI
+# map
+Unknown command 'map' - try 'help'
+# map
+Unknown command 'map' - try 'help'
+AT
+Unknown command 'AT' - try 'help'
+# map
+Unknown command 'map' - try 'help'
+#  
+NOR boot spl: Uncompressing u-boot image ... OK (136696 => 250128 54%)
+Transferring control to u-boot ...
+
+
+U-Boot 2012.10 (Feb 07 2021 - 15:24:35) ALT1250_03_00_00_00_10611_UB
+
+Board: ALT1250 Ver: 0.32-BZ-E0 (PMP CPU Speed 120 MHz)
+DRAM:  2.5 MiB
+Now running in RAM - U-Boot at: 902a8000
+Boot mode 3
+Flash Manufacturer/Device ID is: 0x20bb18
+Enable QUAD mode
+Flash: 16 MiB
+map import OK
+USB CTRL has been successfully initialized!
+In:    usbtty
+Out:   usbtty
+Err:   usbtty
+Configuring Flash Write Protection (offset 0x192e00)
+new_ce_val = 0x3a00f9f0
+Rst info: shutdown
+Hit any key to stop autoboot:  6  5  4  3  0
+# T
+Unknown command 'T' - try 'help'
+# AT
+Unknown command 'AT' - try 'help'
+# AT
+Unknown command 'AT' - try 'help'
+# map
+Unknown command 'map' - try 'help'
+# AT
+Unknown command 'AT' - try 'help'
+#  
+NOR boot spl: Uncompressing u-boot image ... OK (136696 => 250128 54%)
+Transferring control to u-boot ...
+
+
+U-Boot 2012.10 (Feb 07 2021 - 15:24:35) ALT1250_03_00_00_00_10611_UB
+
+Board: ALT1250 Ver: 0.32-BZ-E0 (PMP CPU Speed 120 MHz)
+DRAM:  2.5 MiB
+Now running in RAM - U-Boot at: 902a8000
+Boot mode 3
+Flash Manufacturer/Device ID is: 0x20bb18
+Enable QUAD mode
+Flash: 16 MiB
+map import OK
+USB CTRL has been successfully initialized!
+In:    usbtty
+Out:   usbtty
+Err:   usbtty
+Configuring Flash Write Protection (offset 0x192e00)
+new_ce_val = 0x3a00f9f0
+Rst info: shutdown
+Hit any key to stop autoboot:  6  5  0
+# T
+Unknown command 'T' - try 'help'
+# AT
+Unknown command 'AT' - try 'help'
+# AT
+Unknown command 'AT' - try 'help'
+# AT%BOOTDELAY=6
+Unknown command 'AT%BOOTDELAY=6' - try 'help'
+Dev resume thread rc=-1 cnt=2
+Dev resume thread rc=-1 cnt=3
+Dev resume thread rc=-1 cnt=4
+ 
+NOR boot spl: Uncompressing u-boot image ... OK (136696 => 250128 54%)
+Transferring control to u-boot ...
+
+
+U-Boot 2012.10 (Feb 07 2021 - 15:24:35) ALT1250_03_00_00_00_10611_UB
+
+Board: ALT1250 Ver: 0.32-BZ-E0 (PMP CPU Speed 120 MHz)
+DRAM:  2.5 MiB
+Now running in RAM - U-Boot at: 902a8000
+Boot mode 3
+Flash Manufacturer/Device ID is: 0x20bb18
+Enable QUAD mode
+Flash: 16 MiB
+map import OK
+USB CTRL has been successfully initialized!
+In:    usbtty
+Out:   usbtty
+Err:   usbtty
+Configuring Flash Write Protection (offset 0x192e00)
+new_ce_val = 0x3a00f9f0
+Rst info: shutdown
+Hit any key to stop autoboot:  6  5  4  0
+# T
+Unknown command 'T' - try 'help'
+#  
+NOR boot spl: Uncompressing u-boot image ... OK (136696 => 250128 54%)
+Transferring control to u-boot ...
+
+
+U-Boot 2012.10 (Feb 07 2021 - 15:24:35) ALT1250_03_00_00_00_10611_UB
+
+Board: ALT1250 Ver: 0.32-BZ-E0 (PMP CPU Speed 120 MHz)
+DRAM:  2.5 MiB
+Now running in RAM - U-Boot at: 902a8000
+Boot mode 3
+Flash Manufacturer/Device ID is: 0x20bb18
+Enable QUAD mode
+Flash: 16 MiB
+map import OK
+USB CTRL has been successfully initialized!
+In:    usbtty
+Out:   usbtty
+Err:   usbtty
+Configuring Flash Write Protection (offset 0x192e00)
+new_ce_val = 0x3a00f9f0
+Rst info: shutdown
+Hit any key to stop autoboot:  6  5  4  3  2  1  0
+Version: 2.0
+
+Nothing to upgrade...
+hbsb ok. 3 ms
+## Starting ������initGnssAppWithLogicalSerialPort lsid=27
+eLC_app_entry
+
+Skip audio hub init - I2C BUS0 is not enabled
+Config: uiCrc32 		            = -1113042822
+Config: uiMaxSpeedKPH				= 0
+Config: bUseBSA 					= 0
+Config: uyOutputBwPrb  	= 20
+
+Init logs:
+Jan 01 00:00:00.000 [D4]  [INIT][    0.37552] Starting PM
+Jan 01 00:00:00.000 [D4]  [INIT][    0.37660] Starting SM
+Jan 01 00:00:00.000 [D4]  [INIT][    0.37799] Normal boot from u-boot
+Jan 01 00:00:00.000 [D4]  [INIT][    0.37819] Cold boot
+Jan 01 00:00:00.021 [D4]  [INIT][    0.59163] Error [5] failed to open file: d:/resetcause
+Jan 01 00:00:00.021 [D4]  [INIT][    0.59273] MAP reset cause: 0
+Jan 01 00:00:00.021 [D4]  [INIT][    0.59363] MCU present: 1
+Jan 01 00:00:00.028 [D4]  [INIT][    0.65836] Host Interface port not present UARTB mapped to [N]
+Jan 01 00:00:00.044 [D4]  [INIT][    0.82438] RAM start = 901ec000
+Jan 01 00:00:00.045 [D4]  [INIT][    0.82466] heap start = 901ec000
+Jan 01 00:00:00.045 [D4]  [INIT][    0.82488] Computed heap size=1130496
+Jan 01 00:00:00.057 [D4]  [INIT][    0.95107] Calling lte driver with uart:C baudrate:921600 flow_ctrl:0
+Jan 01 00:00:00.058 [D4]  [INIT][    0.95664] LTE driver init complete
+Jan 01 00:00:00.060 [D4]  [INIT][    0.97687] alt1250_usb wasn't loaded!
+Jan 01 00:00:00.061 [D4]  [INIT][    0.98489] Setup AT/PPP [UART0] & CLI/AT [A] & AT [N] & AT_2 [N] & ALTCOM [N]!
+Jan 01 00:00:00.061 [D4]  [INIT][    0.98516] Setup TCP dump [N] & SFP logger [N] & LTE driver FW [N] & MUX A [N] & MUX B [N] !
+Jan 01 00:00:00.061 [D4]  [INIT][    0.98565] Open UART-0 base = 0xbf0a3000 cfg =0x0 intrp=123
+Jan 01 00:00:00.061 [D4]  [INIT][    0.98623] serialMngrOpen:430, device=UART0 0x9c0ca030
+Jan 01 00:00:00.061 [D4]  [INIT][    0.98649] Setup UART UART0 BUT don't connect to pin out
+Jan 01 00:00:00.064 [D4]  [INIT][    0.102045] Setup UART UART0 in Tx blocking ON SW FIFO mode
+Jan 01 00:00:00.064 [D4]  [INIT][    0.102075] Setup rx_tx_interrupt_ for uart 4
+Jan 01 00:00:00.064 [D4]  [INIT][    0.102101] Calling irq_moveInterruptToHW2() with uart id=4
+Jan 01 00:00:00.064 [D4]  [INIT][    0.102135] Open UART-A base = 0xbc118000 cfg =0x0 intrp=72
+Jan 01 00:00:00.064 [D4]  [INIT][    0.102172] Setup rx_interrupt_only for uart 0
+Jan 01 00:00:00.064 [D4]  [INIT][    0.102225] serialMngrOpen:430, device=A 0x9c0ca500
+Jan 01 00:00:00.070 [D4]  [INIT][    0.107692] Setup UART A in Tx blocking mode
+Jan 01 00:00:00.070 [D4]  [INIT][    0.107730] hifc_register_uart_CBs was called for internal HIFC
+Jan 01 00:00:00.074 [D4]  [INIT][    0.112307] Calling main app init
+Jan 01 00:00:00.075 [D4]  [INIT][    0.112816]
+CLI is disabled!
+Jan 01 00:00:00.076 [D4]  [INIT][    0.114212] Calling i2s_test_app_entry
+
+Jan 01 00:00:00.077 [D4]  [INIT][    0.114651] lwip_stats ready
+Jan 01 00:00:00.077 [D4]  [INIT][    0.114702] lwip_ipsec ready
+Jan 01 00:00:00.087 [D4]  [INIT][    0.125304] Starting Watchdog timer
+Jan 01 00:00:00.089 [D4]  [INIT][    0.126571] Internal MCU is detected - Setting HIFC to mode B
+Jan 01 00:00:00.089 [D4]  [INIT][    0.127335] HIFC HOST_TO_MODEM LINE is LOW
+Jan 01 00:00:00.089 [D4]  [INIT][    0.127449] HIFC configured line HOST_TO_MODEM=0, MODEM_TO_HOST=1 mode=B
+Jan 01 00:00:00.153 [D4]  [INIT][    0.191116] LteDriver - init task ended
+Jan 01 00:00:00.211 [D4]  [INIT][    0.247719] 1st AT cmd: AT%RMEV=1,99,1
+- sent/rcv -> 7728/7835 Msec
+
+Jan 01 00:00:00.212 [D4]  [INIT][    0.247298] 1st AT cmd: ATFW%RATSW?
+- sent/rcv -> 7728/7835 Msec
+
+Dev resume thread rc=-1 cnt=0
+Dev resume thread rc=-1 cnt=1
+Dev resume thread rc=-1 cnt=2
+Dev resume thread rc=-1 cnt=3
+Dev resume thread rc=-1 cnt=4
+Dev resume thread rc=-1 cnt=5
+Dev resume thread rc=-1 cnt=6
+Dev resume thread rc=-1 cnt=7
+Dev resume thread rc=-1 cnt=8
+Dev resume thread rc=-1 cnt=9
+Dev resume thread rc=-1 cnt=10
+Dev resume thread rc=-1 cnt=11
+Dev resume thread rc=-1 cnt=12
+Dev resume thread rc=-1 cnt=13
+Dev resume thread rc=-1 cnt=14
+Dev resume thread rc=-1 cnt=15
+Dev resume thread rc=-1 cnt=16
+Dev resume thread rc=-1 cnt=17
+Dev resume thread rc=-1 cnt=18
+Dev resume thread rc=-1 cnt=19
+Dev resume thread rc=-1 cnt=20
+Dev resume thread rc=-1 cnt=21
+Dev resume thread rc=-1 cnt=22
+Dev resume thread rc=-1 cnt=23
+Dev resume thread rc=-1 cnt=24
+Dev resume thread rc=-1 cnt=25
+Dev resume thread rc=-1 cnt=26
+Dev resume thread rc=-1 cnt=27
+Dev resume thread rc=-1 cnt=28
+Dev resume thread rc=-1 cnt=29
+Dev resume thread rc=-1 cnt=30
+Dev resume thread rc=-1 cnt=31
+Dev resume thread rc=-1 cnt=32
+Dev resume thread rc=-1 cnt=33
+Dev resume thread rc=-1 cnt=34
+Dev resume thread rc=-1 cnt=35
+Dev resume thread rc=-1 cnt=36
+Dev resume thread rc=-1 cnt=37
+Dev resume thread rc=-1 cnt=38
+Dev resume thread rc=-1 cnt=39
+Dev resume thread rc=-1 cnt=40
+Dev resume thread rc=-1 cnt=41
+Dev resume thread rc=-1 cnt=42
+Dev resume thread rc=-1 cnt=43
+Dev resume thread rc=-1 cnt=44
+Dev resume thread rc=-1 cnt=45
+Dev resume thread rc=-1 cnt=46
+Dev resume thread rc=-1 cnt=47
+Dev resume thread rc=-1 cnt=48
+Dev resume thread rc=-1 cnt=49
+Dev resume thread rc=-1 cnt=50
+Dev resume thread rc=-1 cnt=51
+Dev resume thread rc=-1 cnt=52
+Dev resume thread rc=-1 cnt=53
+Dev resume thread rc=-1 cnt=54
+Dev resume thread rc=-1 cnt=55
+Dev resume thread rc=-1 cnt=56
+Dev resume thread rc=-1 cnt=57
+Dev resume thread rc=-1 cnt=58
+Dev resume thread rc=-1 cnt=59
+Dev resume thread rc=-1 cnt=60
+Dev resume thread rc=-1 cnt=61
+Dev resume thread rc=-1 cnt=62
+Dev resume thread rc=-1 cnt=63
+Dev resume thread rc=-1 cnt=64
+Dev resume thread rc=-1 cnt=65
+Dev resume thread rc=-1 cnt=66
+Dev resume thread rc=-1 cnt=67
+Dev resume thread rc=-1 cnt=68
+Dev resume thread rc=-1 cnt=69
+Dev resume thread rc=-1 cnt=70
+Dev resume thread rc=-1 cnt=71
+Dev resume thread rc=-1 cnt=72
+Dev resume thread rc=-1 cnt=73
+Dev resume thread rc=-1 cnt=74
+Dev resume thread rc=-1 cnt=75
+Dev resume thread rc=-1 cnt=76
+Dev resume thread rc=-1 cnt=77
+Dev resume thread rc=-1 cnt=78
+Dev resume thread rc=-1 cnt=79
+Dev resume thread rc=-1 cnt=80
+Dev resume thread rc=-1 cnt=81
+Dev resume thread rc=-1 cnt=82
+Dev resume thread rc=-1 cnt=83
+Dev resume thread rc=-1 cnt=84
+Dev resume thread rc=-1 cnt=85
+Dev resume thread rc=-1 cnt=86
+Dev resume thread rc=-1 cnt=87
+Dev resume thread rc=-1 cnt=88
+Dev resume thread rc=-1 cnt=89
+Dev resume thread rc=-1 cnt=90
+Dev resume thread rc=-1 cnt=91
+Dev resume thread rc=-1 cnt=92
+Dev resume thread rc=-1 cnt=93
+Dev resume thread rc=-1 cnt=94
+Dev resume thread rc=-1 cnt=95
+Dev resume thread rc=-1 cnt=96
+Dev resume thread rc=-1 cnt=97
+Dev resume thread rc=-1 cnt=98
+Dev resume thread rc=-1 cnt=99
+Dev resume thread rc=-1 cnt=100
+Dev resume thread rc=-1 cnt=101
+Dev resume thread rc=-1 cnt=102
+Dev resume thread rc=-1 cnt=103
+Dev resume thread rc=-1 cnt=104
+Dev resume thread rc=-1 cnt=105
+Dev resume thread rc=-1 cnt=106
+Dev resume thread rc=-1 cnt=107
+Dev resume thread rc=-1 cnt=108
+Dev resume thread rc=-1 cnt=109
+Dev resume thread rc=-1 cnt=110
+Dev resume thread rc=-1 cnt=111
+Dev resume thread rc=-1 cnt=112
+Dev resume thread rc=-1 cnt=113
+Dev resume thread rc=-1 cnt=114
+Dev resume thread rc=-1 cnt=115
+Dev resume thread rc=-1 cnt=116
+Dev resume thread rc=-1 cnt=117
+Dev resume thread rc=-1 cnt=118
+Dev resume thread rc=-1 cnt=119
+Dev resume thread rc=-1 cnt=120
+Dev resume thread rc=-1 cnt=121
+Dev resume thread rc=-1 cnt=122
+Dev resume thread rc=-1 cnt=123
+Dev resume thread rc=-1 cnt=124
+Dev resume thread rc=-1 cnt=125
+Dev resume thread rc=-1 cnt=126
+Dev resume thread rc=-1 cnt=127
+Dev resume thread rc=-1 cnt=128
+Dev resume thread rc=-1 cnt=129
+Dev resume thread rc=-1 cnt=130
+Dev resume thread rc=-1 cnt=131
+Dev resume thread rc=-1 cnt=132
+Dev resume thread rc=-1 cnt=133
+Dev resume thread rc=-1 cnt=134
+Dev resume thread rc=-1 cnt=135
+Dev resume thread rc=-1 cnt=136
+Dev resume thread rc=-1 cnt=137
+Dev resume thread rc=-1 cnt=138
+Dev resume thread rc=-1 cnt=139
+Dev resume thread rc=-1 cnt=140
+Dev resume thread rc=-1 cnt=141
+Dev resume thread rc=-1 cnt=142
+Dev resume thread rc=-1 cnt=143
+Dev resume thread rc=-1 cnt=144
+Dev resume thread rc=-1 cnt=145
+Dev resume thread rc=-1 cnt=146
+Dev resume thread rc=-1 cnt=147
+Dev resume thread rc=-1 cnt=148
+Dev resume thread rc=-1 cnt=149
+Dev resume thread rc=-1 cnt=150
+Dev resume thread rc=-1 cnt=151
+Dev resume thread rc=-1 cnt=152
+Dev resume thread rc=-1 cnt=153
+Dev resume thread rc=-1 cnt=154
+Dev resume thread rc=-1 cnt=155
+Dev resume thread rc=-1 cnt=156
+Dev resume thread rc=-1 cnt=157
+Dev resume thread rc=-1 cnt=158
+Dev resume thread rc=-1 cnt=159
+Dev resume thread rc=-1 cnt=160
+Dev resume thread rc=-1 cnt=161
+Dev resume thread rc=-1 cnt=162
+Dev resume thread rc=-1 cnt=163
+Dev resume thread rc=-1 cnt=164
+Dev resume thread rc=-1 cnt=165
+Dev resume thread rc=-1 cnt=166
+Dev resume thread rc=-1 cnt=167
+Dev resume thread rc=-1 cnt=168
+Dev resume thread rc=-1 cnt=169
+Dev resume thread rc=-1 cnt=170
+Dev resume thread rc=-1 cnt=171
+Dev resume thread rc=-1 cnt=172
+Dev resume thread rc=-1 cnt=173
+Dev resume thread rc=-1 cnt=174
+Dev resume thread rc=-1 cnt=175
+Dev resume thread rc=-1 cnt=176
+Dev resume thread rc=-1 cnt=177
+Dev resume thread rc=-1 cnt=178
+Dev resume thread rc=-1 cnt=179
+Dev resume thread rc=-1 cnt=180
+Dev resume thread rc=-1 cnt=181
+Dev resume thread rc=-1 cnt=182
+Dev resume thread rc=-1 cnt=183
+Dev resume thread rc=-1 cnt=184
+Dev resume thread rc=-1 cnt=185
+Dev resume thread rc=-1 cnt=186
+Dev resume thread rc=-1 cnt=187
+Dev resume thread rc=-1 cnt=188
+Dev resume thread rc=-1 cnt=189
+Dev resume thread rc=-1 cnt=190
+Dev resume thread rc=-1 cnt=191
+Dev resume thread rc=-1 cnt=192
+Dev resume thread rc=-1 cnt=193
+Dev resume thread rc=-1 cnt=194
+Dev resume thread rc=-1 cnt=195
+Dev resume thread rc=-1 cnt=196
+Dev resume thread rc=-1 cnt=197
+Dev resume thread rc=-1 cnt=198
+Dev resume thread rc=-1 cnt=199
+Dev resume thread rc=-1 cnt=200
+Dev resume thread rc=-1 cnt=201
+Dev resume thread rc=-1 cnt=202
+Dev resume thread rc=-1 cnt=203
+Dev resume thread rc=-1 cnt=204
+Dev resume thread rc=-1 cnt=205
+Dev resume thread rc=-1 cnt=206
+Dev resume thread rc=-1 cnt=207
+Dev resume thread rc=-1 cnt=208
+Dev resume thread rc=-1 cnt=209
+Dev resume thread rc=-1 cnt=210
+Dev resume thread rc=-1 cnt=211
+Dev resume thread rc=-1 cnt=212
+Dev resume thread rc=-1 cnt=213
+Dev resume thread rc=-1 cnt=214
+Dev resume thread rc=-1 cnt=215
+Dev resume thread rc=-1 cnt=216
+Dev resume thread rc=-1 cnt=217
+Dev resume thread rc=-1 cnt=218
+Dev resume thread rc=-1 cnt=219
+Dev resume thread rc=-1 cnt=220
+Dev resume thread rc=-1 cnt=221
+Dev resume thread rc=-1 cnt=222
+Dev resume thread rc=-1 cnt=223
+Dev resume thread rc=-1 cnt=224
+Dev resume thread rc=-1 cnt=225
+Dev resume thread rc=-1 cnt=226
+Dev resume thread rc=-1 cnt=227
+Dev resume thread rc=-1 cnt=228
+Dev resume thread rc=-1 cnt=229
+Dev resume thread rc=-1 cnt=230
+Dev resume thread rc=-1 cnt=231
+Dev resume thread rc=-1 cnt=232
+Dev resume thread rc=-1 cnt=233
+Dev resume thread rc=-1 cnt=234
+Dev resume thread rc=-1 cnt=235
+Dev resume thread rc=-1 cnt=236
+Dev resume thread rc=-1 cnt=237
+Dev resume thread rc=-1 cnt=238
+Dev resume thread rc=-1 cnt=239
+Dev resume thread rc=-1 cnt=240
+Dev resume thread rc=-1 cnt=241
+Dev resume thread rc=-1 cnt=242
+Dev resume thread rc=-1 cnt=243
+Dev resume thread rc=-1 cnt=244
+Dev resume thread rc=-1 cnt=245
+Dev resume thread rc=-1 cnt=246
+Dev resume thread rc=-1 cnt=247
+Dev resume thread rc=-1 cnt=248
+Dev resume thread rc=-1 cnt=249
+Dev resume thread rc=-1 cnt=250
+Dev resume thread rc=-1 cnt=251
+Dev resume thread rc=-1 cnt=252
+Dev resume thread rc=-1 cnt=253
+Dev resume thread rc=-1 cnt=254
+Dev resume thread rc=-1 cnt=255
+Dev resume thread rc=-1 cnt=256
+Dev resume thread rc=-1 cnt=257
+Dev resume thread rc=-1 cnt=258
+Dev resume thread rc=-1 cnt=259
+Dev resume thread rc=-1 cnt=260
+Dev resume thread rc=-1 cnt=261
+Dev resume thread rc=-1 cnt=262
+Dev resume thread rc=-1 cnt=263
+Dev resume thread rc=-1 cnt=264
+Dev resume thread rc=-1 cnt=265
+Dev resume thread rc=-1 cnt=266
+Dev resume thread rc=-1 cnt=267
+Dev resume thread rc=-1 cnt=268
+Dev resume thread rc=-1 cnt=269
+Dev resume thread rc=-1 cnt=270
+Dev resume thread rc=-1 cnt=271
+Dev resume thread rc=-1 cnt=272
+Dev resume thread rc=-1 cnt=273
+Dev resume thread rc=-1 cnt=274
+Dev resume thread rc=-1 cnt=275
+Dev resume thread rc=-1 cnt=276
+Dev resume thread rc=-1 cnt=277
+Dev resume thread rc=-1 cnt=278
+Dev resume thread rc=-1 cnt=279
+Dev resume thread rc=-1 cnt=280
+Dev resume thread rc=-1 cnt=281
+Dev resume thread rc=-1 cnt=282
+Dev resume thread rc=-1 cnt=283
+Dev resume thread rc=-1 cnt=284
+Dev resume thread rc=-1 cnt=285
+Dev resume thread rc=-1 cnt=286
+Dev resume thread rc=-1 cnt=287
+Dev resume thread rc=-1 cnt=288
+Dev resume thread rc=-1 cnt=289
+Dev resume thread rc=-1 cnt=290
+Dev resume thread rc=-1 cnt=291
+Dev resume thread rc=-1 cnt=292
+Dev resume thread rc=-1 cnt=293
+Dev resume thread rc=-1 cnt=294
+Dev resume thread rc=-1 cnt=295
+Dev resume thread rc=-1 cnt=296
+Dev resume thread rc=-1 cnt=297
+Dev resume thread rc=-1 cnt=298
+Dev resume thread rc=-1 cnt=299
+Dev resume thread rc=-1 cnt=300
+Dev resume thread rc=-1 cnt=301
+Dev resume thread rc=-1 cnt=302
+Dev resume thread rc=-1 cnt=303
+Dev resume thread rc=-1 cnt=304
+Dev resume thread rc=-1 cnt=305
+Dev resume thread rc=-1 cnt=306
+Dev resume thread rc=-1 cnt=307
+Dev resume thread rc=-1 cnt=308
+Dev resume thread rc=-1 cnt=309
+Dev resume thread rc=-1 cnt=310
+Dev resume thread rc=-1 cnt=311
+Dev resume thread rc=-1 cnt=312
+Dev resume thread rc=-1 cnt=313
+Dev resume thread rc=-1 cnt=314
+Dev resume thread rc=-1 cnt=315
+Dev resume thread rc=-1 cnt=316
+Dev resume thread rc=-1 cnt=317
+Dev resume thread rc=-1 cnt=318
+Dev resume thread rc=-1 cnt=319
+Dev resume thread rc=-1 cnt=320
+Dev resume thread rc=-1 cnt=321
+Dev resume thread rc=-1 cnt=322
+Dev resume thread rc=-1 cnt=323
+Dev resume thread rc=-1 cnt=324
+Dev resume thread rc=-1 cnt=325
+Dev resume thread rc=-1 cnt=326
+Dev resume thread rc=-1 cnt=327
+Dev resume thread rc=-1 cnt=328
+Dev resume thread rc=-1 cnt=329
+Dev resume thread rc=-1 cnt=330
+Dev resume thread rc=-1 cnt=331
+Dev resume thread rc=-1 cnt=332
+Dev resume thread rc=-1 cnt=333
+Dev resume thread rc=-1 cnt=334
+Dev resume thread rc=-1 cnt=335
+Dev resume thread rc=-1 cnt=336
+Dev resume thread rc=-1 cnt=337
+Dev resume thread rc=-1 cnt=338
+Dev resume thread rc=-1 cnt=339
+Dev resume thread rc=-1 cnt=340
+Dev resume thread rc=-1 cnt=341
+Dev resume thread rc=-1 cnt=342
+Dev resume thread rc=-1 cnt=343
+Dev resume thread rc=-1 cnt=344
+Dev resume thread rc=-1 cnt=345
+Dev resume thread rc=-1 cnt=346
+Dev resume thread rc=-1 cnt=347
+Dev resume thread rc=-1 cnt=348
+Dev resume thread rc=-1 cnt=349
+Dev resume thread rc=-1 cnt=350
+Dev resume thread rc=-1 cnt=351
+Dev resume thread rc=-1 cnt=352
+Dev resume thread rc=-1 cnt=353
+Dev resume thread rc=-1 cnt=354
+Dev resume thread rc=-1 cnt=355
+Dev resume thread rc=-1 cnt=356
+Dev resume thread rc=-1 cnt=357
+Dev resume thread rc=-1 cnt=358
+Dev resume thread rc=-1 cnt=359
+Dev resume thread rc=-1 cnt=360
+Dev resume thread rc=-1 cnt=361
+Dev resume thread rc=-1 cnt=362
+Dev resume thread rc=-1 cnt=363
+Dev resume thread rc=-1 cnt=364
+Dev resume thread rc=-1 cnt=365
+Dev resume thread rc=-1 cnt=366
+Dev resume thread rc=-1 cnt=367
+Dev resume thread rc=-1 cnt=368
+Dev resume thread rc=-1 cnt=369
+Dev resume thread rc=-1 cnt=370
+Dev resume thread rc=-1 cnt=371
+Dev resume thread rc=-1 cnt=372
+Dev resume thread rc=-1 cnt=373
+Dev resume thread rc=-1 cnt=374
+Dev resume thread rc=-1 cnt=375
+Dev resume thread rc=-1 cnt=376
+Dev resume thread rc=-1 cnt=377
+Dev resume thread rc=-1 cnt=378
+Dev resume thread rc=-1 cnt=379
+Dev resume thread rc=-1 cnt=380
+Dev resume thread rc=-1 cnt=381
+Dev resume thread rc=-1 cnt=382
+Dev resume thread rc=-1 cnt=383
+Dev resume thread rc=-1 cnt=384
+Dev resume thread rc=-1 cnt=385
+Dev resume thread rc=-1 cnt=386
+Dev resume thread rc=-1 cnt=387
+Dev resume thread rc=-1 cnt=388
+Dev resume thread rc=-1 cnt=389
+Dev resume thread rc=-1 cnt=390
+Dev resume thread rc=-1 cnt=391
+Dev resume thread rc=-1 cnt=392
+Dev resume thread rc=-1 cnt=393
+Dev resume thread rc=-1 cnt=394
+Dev resume thread rc=-1 cnt=395
+Dev resume thread rc=-1 cnt=396
+Dev resume thread rc=-1 cnt=397
+Dev resume thread rc=-1 cnt=398
+Dev resume thread rc=-1 cnt=399
+Dev resume thread rc=-1 cnt=400
+Dev resume thread rc=-1 cnt=401
+Dev resume thread rc=-1 cnt=402
+Dev resume thread rc=-1 cnt=403
+Dev resume thread rc=-1 cnt=404
+Dev resume thread rc=-1 cnt=405
+Dev resume thread rc=-1 cnt=406
+Dev resume thread rc=-1 cnt=407
+Dev resume thread rc=-1 cnt=408
+Dev resume thread rc=-1 cnt=409
+Dev resume thread rc=-1 cnt=410
+Dev resume thread rc=-1 cnt=411
+Dev resume thread rc=-1 cnt=412
+Dev resume thread rc=-1 cnt=413
+Dev resume thread rc=-1 cnt=414
+Dev resume thread rc=-1 cnt=415
+Dev resume thread rc=-1 cnt=416
+Dev resume thread rc=-1 cnt=417
+Dev resume thread rc=-1 cnt=418
+Dev resume thread rc=-1 cnt=419
+Dev resume thread rc=-1 cnt=420
+Dev resume thread rc=-1 cnt=421
+Dev resume thread rc=-1 cnt=422
+Dev resume thread rc=-1 cnt=423
+Dev resume thread rc=-1 cnt=424
+Dev resume thread rc=-1 cnt=425
+Dev resume thread rc=-1 cnt=426
+Dev resume thread rc=-1 cnt=427
+Dev resume thread rc=-1 cnt=428
+Dev resume thread rc=-1 cnt=429
+Dev resume thread rc=-1 cnt=430
+Dev resume thread rc=-1 cnt=431
+Dev resume thread rc=-1 cnt=432
+Dev resume thread rc=-1 cnt=433
+Dev resume thread rc=-1 cnt=434
+Dev resume thread rc=-1 cnt=435
+Dev resume thread rc=-1 cnt=436
+Dev resume thread rc=-1 cnt=437
+Dev resume thread rc=-1 cnt=438
+Dev resume thread rc=-1 cnt=439
+Dev resume thread rc=-1 cnt=440
+Dev resume thread rc=-1 cnt=441
+Dev resume thread rc=-1 cnt=442
+Dev resume thread rc=-1 cnt=443
+Dev resume thread rc=-1 cnt=444
+Dev resume thread rc=-1 cnt=445
+Dev resume thread rc=-1 cnt=446
+Dev resume thread rc=-1 cnt=447
+Dev resume thread rc=-1 cnt=448
+Dev resume thread rc=-1 cnt=449
+Dev resume thread rc=-1 cnt=450
+Dev resume thread rc=-1 cnt=451
+Dev resume thread rc=-1 cnt=452
+Dev resume thread rc=-1 cnt=453
+Dev resume thread rc=-1 cnt=454
+Dev resume thread rc=-1 cnt=455
+Dev resume thread rc=-1 cnt=456
+Dev resume thread rc=-1 cnt=457
+Dev resume thread rc=-1 cnt=458
+Dev resume thread rc=-1 cnt=459
+Dev resume thread rc=-1 cnt=460
+Dev resume thread rc=-1 cnt=461
+Dev resume thread rc=-1 cnt=462
+Dev resume thread rc=-1 cnt=463
+Dev resume thread rc=-1 cnt=464
+Dev resume thread rc=-1 cnt=465
+Dev resume thread rc=-1 cnt=466
+Dev resume thread rc=-1 cnt=467
+Dev resume thread rc=-1 cnt=468
+Dev resume thread rc=-1 cnt=469
+Dev resume thread rc=-1 cnt=470
+Dev resume thread rc=-1 cnt=471
+Dev resume thread rc=-1 cnt=472
+Dev resume thread rc=-1 cnt=473
+Dev resume thread rc=-1 cnt=474
+Dev resume thread rc=-1 cnt=475
+Dev resume thread rc=-1 cnt=476
+Dev resume thread rc=-1 cnt=477
+Dev resume thread rc=-1 cnt=478
+Dev resume thread rc=-1 cnt=479
+Dev resume thread rc=-1 cnt=480
+Dev resume thread rc=-1 cnt=481
+Dev resume thread rc=-1 cnt=482
+Dev resume thread rc=-1 cnt=483
+Dev resume thread rc=-1 cnt=484
+Dev resume thread rc=-1 cnt=485
+Dev resume thread rc=-1 cnt=486
+Dev resume thread rc=-1 cnt=487
+Dev resume thread rc=-1 cnt=488
+Dev resume thread rc=-1 cnt=489
+Dev resume thread rc=-1 cnt=490
+Dev resume thread rc=-1 cnt=491
+Dev resume thread rc=-1 cnt=492
+Dev resume thread rc=-1 cnt=493
+Dev resume thread rc=-1 cnt=494
+Dev resume thread rc=-1 cnt=495
+Dev resume thread rc=-1 cnt=496
+Dev resume thread rc=-1 cnt=497
+Dev resume thread rc=-1 cnt=498
+Dev resume thread rc=-1 cnt=499
+Dev resume thread rc=-1 cnt=500
+Dev resume thread rc=-1 cnt=501
+Dev resume thread rc=-1 cnt=502
+Dev resume thread rc=-1 cnt=503
+Dev resume thread rc=-1 cnt=504
+Dev resume thread rc=-1 cnt=505
+Dev resume thread rc=-1 cnt=506
+Dev resume thread rc=-1 cnt=507
+Dev resume thread rc=-1 cnt=508
+Dev resume thread rc=-1 cnt=509
+Dev resume thread rc=-1 cnt=510
+ 
+NOR boot spl: Uncompressing u-boot image ... OK (136696 => 250128 54%)
+Transferring control to u-boot ...
+
+
+U-Boot 2012.10 (Feb 07 2021 - 15:24:35) ALT1250_03_00_00_00_10611_UB
+
+Board: ALT1250 Ver: 0.32-BZ-E0 (PMP CPU Speed 120 MHz)
+DRAM:  2.5 MiB
+Now running in RAM - U-Boot at: 902a8000
+Boot mode 3
+Flash Manufacturer/Device ID is: 0x20bb18
+Enable QUAD mode
+Flash: 16 MiB
+map import OK
+USB CTRL has been successfully initialized!
+In:    usbtty
+Out:   usbtty
+Err:   usbtty
+Configuring Flash Write Protection (offset 0x192e00)
+new_ce_val = 0x3a00f9f0
+Rst info: shutdown
+Hit any key to stop autoboot:  6  5  4  3  2  1  0
+Version: 2.0
+
+Nothing to upgrade...
+hbsb ok. 3 ms
+## Starting ������initGnssAppWithLogicalSerialPort lsid=27
+eLC_app_entry
+
+Skip audio hub init - I2C BUS0 is not enabled
+Config: uiCrc32 		            = -1113042822
+Config: uiMaxSpeedKPH				= 0
+Config: bUseBSA 					= 0
+Config: uyOutputBwPrb  	= 20
+
+Init logs:
+Jan 01 00:00:00.000 [D4]  [INIT][    0.37546] Starting PM
+Jan 01 00:00:00.000 [D4]  [INIT][    0.37654] Starting SM
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132005273
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,2
+
+OK
+AT
+OK
+AT%SETBDELAY=6
+OK
+Welcome to MiniConsole
+
+MCU_02_01_00_00_05_LO RD6005@041505
+PowerManager Compiled on Jun  4 2021 at 09:49:58
+
+MCU menu -- PowerManager
+========
+help or ? - Print this help menu
+read addr - Read address (hex format)
+write addr value - Write value (hex) to address (hex)
+ps - Print task list
+meminfo - Reports memory information
+ver - Show complitaion date and time
+hifc [status [clr]] [timer MS] [sus] [res]
+serialinfo [serial num]
+time [show | set Seconds(from epoch)]]
+reset [all] - Reset MCU or reset all cores if "all" arg is given
+map - Pipeline to MAP via internal UART
+pwrMode - Configure MCU sleep mode and duration (units: MSec). Usage:[stop | standby | shutdown] {<DURATION_VAL>}
+sleepSet - Enable or disable go to sleep. Usage:[enable | disable]
+gpioWkup - Configure gpio wakeup source pin. Usage:<PHYSICAL_GPIO_ID> [set [ h | l | r | f | rf] | del]
+gpioMon - Configure gpio monitored pin. Usage:<LOGICAL_GPIO_ID> [set <VALUE> | del]
+retMemTest - Read/Write a key-value pair to/from Retention Memory. Usage:[get [<KEY> | DUMPALL]| set <KEY> <VALUE>]
+setCRidMask - Configure the Content Retention section ID mask. Usage:<SECTION_ID_MASK>
+sleepStat - Print out or reset current statistics. Usage:[show | reset]
+wd - Watchdog control command. Usage:[enable | disable | testbark | timeleft | timeout <NEW_TIMEOUT_VAL>]
+inActTime - Configure the value of MCU CLI inactivity timeout in units of Sec. Usage:<NEW_TIMEOUT_VAL>
+mapMode - Switch to MAP mode when MCU wakeup from warm boot. Usage:[on | off]
+run - MCU change to run at full load.
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> ATZ
+unknown command (type ? for help): ATZ
+unknown command (type ? for help): ATZ>> AT%SETBDELAY=6
+unknown command (type ? for help): AT%SETBDELAY=6
+unknown command (type ? for help): AT%SETBDELAY=6>>
+unknown command (type ? for help):
+unknown command (type ? for help): >> ?
+help or ? - Print this help menu
+read addr - Read address (hex format)
+write addr value - Write value (hex) to address (hex)
+ps - Print task list
+meminfo - Reports memory information
+ver - Show complitaion date and time
+hifc [status [clr]] [timer MS] [sus] [res]
+serialinfo [serial num]
+time [show | set Seconds(from epoch)]]
+reset [all] - Reset MCU or reset all cores if "all" arg is given
+map - Pipeline to MAP via internal UART
+pwrMode - Configure MCU sleep mode and duration (units: MSec). Usage:[stop | standby | shutdown] {<DURATION_VAL>}
+sleepSet - Enable or disable go to sleep. Usage:[enable | disable]
+gpioWkup - Configure gpio wakeup source pin. Usage:<PHYSICAL_GPIO_ID> [set [ h | l | r | f | rf] | del]
+gpioMon - Configure gpio monitored pin. Usage:<LOGICAL_GPIO_ID> [set <VALUE> | del]
+retMemTest - Read/Write a key-value pair to/from Retention Memory. Usage:[get [<KEY> | DUMPALL]| set <KEY> <VALUE>]
+setCRidMask - Configure the Content Retention section ID mask. Usage:<SECTION_ID_MASK>
+sleepStat - Print out or reset current statistics. Usage:[show | reset]
+wd - Watchdog control command. Usage:[enable | disable | testbark | timeleft | timeout <NEW_TIMEOUT_VAL>]
+inActTime - Configure the value of MCU CLI inactivity timeout in units of Sec. Usage:<NEW_TIMEOUT_VAL>
+mapMode - Switch to MAP mode when MCU wakeup from warm boot. Usage:[on | off]
+run - MCU change to run at full load.
+>> AT%SETBDELAY=6
+unknown command (type ? for help): AT%SETBDELAY=6
+unknown command (type ? for help): AT%SETBDELAY=6>> Welcome to MiniConsole
+
+MCU_02_01_00_00_05_LO RD6005@041505
+PowerManager Compiled on Jun  4 2021 at 09:49:58
+
+MCU menu -- PowerManager
+========
+help or ? - Print this help menu
+read addr - Read address (hex format)
+write addr value - Write value (hex) to address (hex)
+ps - Print task list
+meminfo - Reports memory information
+ver - Show complitaion date and time
+hifc [status [clr]] [timer MS] [sus] [res]
+serialinfo [serial num]
+time [show | set Seconds(from epoch)]]
+reset [all] - Reset MCU or reset all cores if "all" arg is given
+map - Pipeline to MAP via internal UART
+pwrMode - Configure MCU sleep mode and duration (units: MSec). Usage:[stop | standby | shutdown] {<DURATION_VAL>}
+sleepSet - Enable or disable go to sleep. Usage:[enable | disable]
+gpioWkup - Configure gpio wakeup source pin. Usage:<PHYSICAL_GPIO_ID> [set [ h | l | r | f | rf] | del]
+gpioMon - Configure gpio monitored pin. Usage:<LOGICAL_GPIO_ID> [set <VALUE> | del]
+retMemTest - Read/Write a key-value pair to/from Retention Memory. Usage:[get [<KEY> | DUMPALL]| set <KEY> <VALUE>]
+setCRidMask - Configure the Content Retention section ID mask. Usage:<SECTION_ID_MASK>
+sleepStat - Print out or reset current statistics. Usage:[show | reset]
+wd - Watchdog control command. Usage:[enable | disable | testbark | timeleft | timeout <NEW_TIMEOUT_VAL>]
+inActTime - Configure the value of MCU CLI inactivity timeout in units of Sec. Usage:<NEW_TIMEOUT_VAL>
+mapMode - Switch to MAP mode when MCU wakeup from warm boot. Usage:[on | off]
+run - MCU change to run at full load.

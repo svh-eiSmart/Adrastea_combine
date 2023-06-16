@@ -1,0 +1,103 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+-include ../makefile.init
+
+RM := rm -rf
+
+# All of the sources participating in the build are defined here
+-include sources.mk
+-include serial/subdir.mk
+-include printf/subdir.mk
+-include osal/Source/subdir.mk
+-include miniconsole/subdir.mk
+-include hifc/mi/subdir.mk
+-include hifc/core/subdir.mk
+-include example/subdir.mk
+-include applib/subdir.mk
+-include altcomlib/util/subdir.mk
+-include altcomlib/opt/subdir.mk
+-include altcomlib/altcom/gw/subdir.mk
+-include altcomlib/altcom/evtdisp/subdir.mk
+-include altcomlib/altcom/common/subdir.mk
+-include altcomlib/altcom/builder/subdir.mk
+-include altcomlib/altcom/api/gps/subdir.mk
+-include altcomlib/altcom/api/common/subdir.mk
+-include FreeRTOS/FreeRTOS/portable/MemMang/subdir.mk
+-include FreeRTOS/FreeRTOS/portable/GCC/ARM_CM3/subdir.mk
+-include FreeRTOS/FreeRTOS/subdir.mk
+-include Driver/Source/Private/ALT1250/subdir.mk
+-include Driver/Source/Private/subdir.mk
+-include Driver/Source/subdir.mk
+-include Chipset/Source/subdir.mk
+-include CMSIS-FreeRTOS/Source/subdir.mk
+-include subdir.mk
+-include objects.mk
+
+ifneq ($(MAKECMDGOALS),clean)
+ifneq ($(strip $(ASM_DEPS)),)
+-include $(ASM_DEPS)
+endif
+ifneq ($(strip $(S_UPPER_DEPS)),)
+-include $(S_UPPER_DEPS)
+endif
+ifneq ($(strip $(C_DEPS)),)
+-include $(C_DEPS)
+endif
+endif
+
+-include ../makefile.defs
+
+OPTIONAL_TOOL_DEPS := \
+$(wildcard ../makefile.defs) \
+$(wildcard ../makefile.init) \
+$(wildcard ../makefile.targets) \
+
+
+BUILD_ARTIFACT_NAME := GpsConnector
+BUILD_ARTIFACT_EXTENSION := elf
+BUILD_ARTIFACT_PREFIX :=
+BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
+
+# Add inputs and outputs from these tool invocations to the build variables 
+SECONDARY_SIZE += \
+GpsConnector.siz \
+
+
+# All Target
+all:
+	+@$(MAKE) --no-print-directory main-build && $(MAKE) --no-print-directory post-build
+
+# Main-build Target
+main-build: GpsConnector.elf secondary-outputs
+
+# Tool invocations
+GpsConnector.elf: $(OBJS) $(USER_OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
+	@echo 'Building target: $@'
+	@echo 'Invoking: GNU ARM Cross C Linker'
+	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -Og -ffunction-sections -fdata-sections -Wall -Wextra -Wno-unused-parameter -g -T "C:\Users\shashank.hegde\Desktop\Adrastea\old_version\altair_mcu-79aa5c417256b362739b2977ae1bce70dbd7020f\SDK\ALT125x\Chipset\Source\GCC\ALT1250_defs.ld" -T "C:\Users\shashank.hegde\Desktop\Adrastea\old_version\altair_mcu-79aa5c417256b362739b2977ae1bce70dbd7020f\SDK\ALT125x\Chipset\Source\GCC\ALT125x_flash.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"GpsConnector.map" --specs=nano.specs --specs=nosys.specs -Wl,--undefined=uxTopUsedPriority -o "GpsConnector.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	@echo 'Finished building target: $@'
+	@echo ' '
+
+GpsConnector.siz: GpsConnector.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
+	@echo 'Invoking: GNU ARM Cross Print Size'
+	arm-none-eabi-size --format=berkeley "GpsConnector.elf"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+# Other Targets
+clean:
+	-$(RM) $(OBJS)$(SECONDARY_SIZE)$(ASM_DEPS)$(S_UPPER_DEPS)$(C_DEPS) GpsConnector.elf
+	-@echo ' '
+
+post-build:
+	-@echo 'Create Flash Image'
+	-"C:/Users/shashank.hegde/Desktop/Adrastea/old_version/altair_mcu-79aa5c417256b362739b2977ae1bce70dbd7020f/SDK/examples/ALT125X/GpsConnector/Eclipse/../../../../utils/genfw.sh" "GpsConnector.bin"
+	-@echo ' '
+
+secondary-outputs: $(SECONDARY_SIZE)
+
+.PHONY: all clean dependents main-build post-build
+
+-include ../makefile.targets

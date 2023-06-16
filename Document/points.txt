@@ -1,0 +1,33 @@
+1) Was testing SPI and I2C done using only Adrastea or using it on a Adrastea Evaluation kit or with M0?
+
+just to be sure is the manual sent by ravindra corerect for reference
+show code by adi on vscode
+2) Why to use SDK? What part of the SDK development to be done using SDK and what part directly from the VS Code platform?
+
+3) was sensor feather wings module data collected by the adrastea mod? As in github
+
+3) Create files on Adrastea using functions by Adi
+
+4) what is the connection between adrastea and M0?
+https://github.com/WE-eiSmart/IoT-design-kit/blob/FEGA-SCHMITT/GW/platformio.ini
+
+
+
+
+
+
+
+
+AT%CERTCMD="WRITE","Testshashank.pem",0,"−−−−−BEGIN CERTIFICATE------Just testing-----END CERTIFICATE-----"
+
+
+
+
+
+
+-------------------------PnP Horti -----------------------------
+1)in cfg file from certgen tool, "modelId": "dtmi:we:sensor:SensorFeatherWing;1",
+2) upload all 6 files including azdevrootca to calypso after connecting to its SSID
+3) In IoT Central -> permissions > Dewvice connection groups add the azdevcert (Root CA will appear after uploading)
+4) Maybe use same name in device connection group as deviceID and template
+5) change SCOPE_ID in PnP_device.h and model_ID to dtmi:we:sensor:SensorFeatherWing;1

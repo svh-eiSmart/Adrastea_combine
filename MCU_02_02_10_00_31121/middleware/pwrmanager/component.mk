@@ -1,0 +1,7 @@
+PWRMANAGER_DIR = $(PWRMANAGER_ROOT)
+
+PWRMANAGER_SRC_DIR = $(PWRMANAGER_DIR)/src
+
+INC_DIRS += $(PWRMANAGER_DIR)/inc $(PWRMANAGER_DIR)/src
+
+$(eval $(call component_compile_rules,PWRMANAGER))

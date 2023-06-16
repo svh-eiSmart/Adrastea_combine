@@ -1,0 +1,105 @@
+MQTT Broker configuration and connection 
+ 
+To establish a MQTT Broker connection you need to: 
+• configure MQTT connection parameters like IP and NODES specifying: client ID, MQTT URL, username and password registration; 
+• connect to the Broker; 
+• subscribe to a specific Topic; 
+• enable receive messages to the above Topic; 
+• publish messages to the above Topic. 
+ 
+
+ ------------------------
+ Without Security:
+ ------------------------
+ 
+1) AT%MQTTEV="all",1
+OK
+
+2) AT%MQTTCFG="nodes",1,"Client_name","broker.hivemq.com"
+broker.mqtdashboard.com
+OK
+
+3) AT%MQTTCFG="PROTOCOL",1,0,1200,1
+OK
+
+4) AT%MQTTCMD="connect",1
+OK
+
+%MQTTEVU:"CONCONF",1,0
+
+5) AT%MQTTCMD="subscribe",1,2,"Topic_name"
+%MQTTCMD: 1
+OK
+
+%MQTTEVU:"SUBCONF",1,1,0
+
+%MQTTEVU:"PUBRCV",1,51,"Topic_name",16
+{
+  "msg": "7"
+}
+
+6) AT%MQTTCMD="publish",1,2,0,"Topic_name",5
+11111
+%MQTTCMD: 2
+OK
+
+%MQTTEVU:"PUBRCV",1,101,"Topic_name",5
+11111
+
+%MQTTEVU:"PUBCONF",1,2,0
+ 
+ 
+ 
+ 
+ -----------------------------
+ with Security
+ -----------------------------
+1. Load the User Certificate:
+
+at%certcmd="write","ca-certificate.pem.crt",0,"??????????BEGIN CERTIFICATE
+??????????*****************??????????END CERTIFICATE??????????"
+OK
+
+
+2. Load the user private key:
+
+at%certcmd="write","ca-private.pem.key",1,"??????????BEGIN RSA PRIVATE KEY
+??????????*****************??????????END RSA PRIVATE KEY??????????"
+OK
+
+3. Add certificates to the profile:
+
+AT%CERTCFG="ADD",1,,,"ca-certificate.pem.crt","ca-private.pem.key"
+OK
+
+4.Allow MQTT events:
+AT%MQTTEV="ALL",1
+
+5. Configure node parameters:
+AT%MQTTCFG="NODES",1,"ALTTest","a2gn98vggcm0y9.iot.us-west2.amazonaws.com"
+
+6. Configure IP connection port is important since the default 1883. For secure connection port 8883 used (configurable):
+AT%MQTTCFG="IP",1,,0,8883
+
+7. Configure TLS:
+
+AT%MQTTCFG="TLS",1,0,0
+
+8. Connect to the server:
+
+AT%MQTTCMD="CONNECT",1
+
+6. Receive connection establishment confirmation URC:
+%MQTTEVU:"CONCONF",1,0
+9. Subscribe to topic "test":
+AT%MQTTCMD="SUBSCRIBE",1,1,"TESTTopic"
+8. Receive subscription confirmation URC:
+%MQTTEVU:"SUBCONF",1,1,0
+
+10.Publish some "DATA" to topic "test":
+
+AT%MQTTCMD="PUBLISH",1,0,0,"TESTTopic",10
+1234567890
+%MQTTCMD: 2
+OK
+//AT%MQTTCMD=="PUBLISH","test","DATA"

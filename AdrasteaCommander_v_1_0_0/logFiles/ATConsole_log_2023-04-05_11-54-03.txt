@@ -1,0 +1,1768 @@
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+AT
+OK
+AT%MQTTEV="all",1
+OK
+AT%MQTTCFG="nodes",1,"Client_name","test.mosquitto.org"
+OK
+AT%MQTTCFG="MQTT",1,0,1200,1
+ERROR
+AT%MQTTCFG="PROTOCOL",1,0,1200,1
+OK
+AT%MQTTCMD="connect",1
+OK
+
+%MQTTEVU:"CONCONF",1,0
+
+%MQTTEVU:"CONFAIL",1
+AT%MQTTCFG=?
+%MQTTCFG: ("NODES","TLS","IP","WILLMSG","PROTOCOL","CLEAR"),(0-5)
+OK
+AT%MQTTCFG="nodes",1,"Client_name","test.mosquitto.org"
+OK
+AT%MQTTCFG="PROTOCOL",1,0,1200,1
+OK
+AT%MQTTCMD="connect",1
+OK
+
+%MQTTEVU:"CONCONF",1,0
+AT%MQTTCMD="subscribe",1,2,"Topic_name"
+%MQTTCMD: 1
+OK
+
+%MQTTEVU:"SUBCONF",1,1,0
+AT%MQTTCMD="publish",1,2,0,"Topic_name",5
+11111
+
+%MQTTCMD: 2
+OK
+
+ERROR
+
+%MQTTEVU:"PUBRCV",1,1,"Topic_name",5
+11111
+
+%MQTTEVU:"PUBCONF",1,2,0
+AT%MQTTCMD="publish",1,2,0,"Topic_name",5
+10010
+
+%MQTTCMD: 3
+OK
+
+ERROR
+
+%MQTTEVU:"PUBRCV",1,2,"Topic_name",5
+10010
+
+%MQTTEVU:"PUBCONF",1,3,0
+AT%MQTTCMD="publish",1,2,0,"Topic_name",32
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,2
+
+OK
+
++CEREG: 5,"C936","01882517",7
+AT
+OK
+AT%MQTTCMD="publish",1,2,0,"Topic_name",5
+ERROR
+
++CEREG: 5,"C936","01871D17",7
+
++CEREG: 5,"C936","01882517",7
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+AT
+OK
+AT%MQTTEV="all",1
+OK
+AT%MQTTCFG="nodes",1,"Client_name","test.mosquitto.org"
+OK
+AT%MQTTCFG="PROTOCOL",1,0,1200,1
+OK
+AT%MQTTCMD="connect",1
+OK
+
+%MQTTEVU:"CONCONF",1,0
+AT%MQTTCMD="subscribe",1,2,"Topic_name"
+%MQTTCMD: 1
+OK
+
+%MQTTEVU:"SUBCONF",1,1,0
+AT%MQTTCMD="publish",1,2,0,"Topic_name",5
+10110
+
+%MQTTCMD: 2
+OK
+
+ERROR
+
+%MQTTEVU:"PUBRCV",1,1,"Topic_name",5
+10110
+
+%MQTTEVU:"PUBCONF",1,2,0
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> AT%MQTTEV="all",1
+unknown command (type ? for help): AT%MQTTEV="all",1
+unknown command (type ? for help): AT%MQTTEV="all",1>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+AT
+OK
+AT%MQTTEV="all",1
+OK
+AT%MQTTCFG="nodes",1,"Client_name","broker.hivemqgergf.com"
+OK
+AT%MQTTCFG="PROTOCOL",1,0,1200,1
+OK
+AT%MQTTCMD="connect",1
+OK
+
+%MQTTEVU:"CONCONF",1,1
+AT%MQTTCMD="subscribe",1,2,"Topic_name"
+ERROR
+AT%MQTTEV="all",1
+OK
+AT%MQTTCFG="nodes",1,"Client_name","broker.hivemq.com"
+OK
+AT%MQTTCFG="PROTOCOL",1,0,1200,1
+OK
+AT%MQTTCMD="connect",1
+OK
+
+%MQTTEVU:"CONCONF",1,0
+AT%MQTTCMD="subscribe",1,2,0,"Topic_name",1
+ERROR
+AT%MQTTCMD="subscribe",1,2,0,"Topic_name"
+%MQTTCMD: 1
+OK
+
+%MQTTEVU:"SUBCONF",1,1,0
+
++CEREG: 4
+
++CEREG: 5,"C936","01882517",7
+
++CEREG: 4
+
++CEREG: 4
+
+%MQTTEVU:"CONFAIL",1
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+AT
+OK
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+AT
+OK
+AT%MQTTCFG="NODES",1,"Client_name","broker.hivemq.com"
+OK
+AT%MQTTCFG="PROTOCOL",1,0,600,1
+OK
+AT%MQTTCMD="CONNECT",1
+OK
+AT%MQTTCMD="subscribe",1,2,"Topic_name"
+%MQTTCMD: 1
+OK
+AT%MQTTCMD="publish",1,2,0,"Topic_name",5
+01010
+
+%MQTTCMD: 2
+OK
+
+ERROR
+AT%MQTTCFG="PROTOCOL",1,0,1200,1
+OK
+AT%MQTTCMD="connect",1
+ERROR
+AT
+OK
+AT%MQTTCFG="nodes",1,"Client_name","broker.hivemq.com"
+OK
+AT%MQTTCFG="PROTOCOL",1,0,1200,1
+OK
+AT%MQTTCMD="connect",1
+ERROR
+AT%MQTTCMD="CONNECTt",1
+ERROR
+AT%MQTTCMD="CONNECT",1
+ERROR
+AT%MQTTEV="all",1
+OK
+AT%MQTTCFG="nodes",1,"Client_name","broker.hivemq.com"
+OK
+AT%MQTTCFG="PROTOCOL",1,0,1200,1
+OK
+AT%MQTTCMD="connect",1
+ERROR
+AT%MQTTCFG="NODES",1,"Client_name","test.mosquitto.org"
+OK
+AT%MQTTCFG="PROTOCOL",1,0,600,1
+OK
+AT%MQTTCMD="CONNECT",1
+ERROR
+AT
+OK
+AT+GSN?
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+AT
+OK
+AT%MQTTCFG="NODES",1,"Client_name","test.mosquitto.org"
+OK
+AT%MQTTCFG="PROTOCOL",1,0,600,1
+OK
+AT%MQTTCMD="CONNECT",1
+OK
+AT%MQTTCMD="subscribe",1,2,"Topic_name"
+%MQTTCMD: 1
+OK
+AT%MQTTCMD="publish",1,2,0,"Topic_name",5
+01011
+
+%MQTTCMD: 2
+OK
+
+ERROR
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,2
+
+OK
+AT
+OK
+
++CEREG: 5,"C936","01882517",7
+AT%MQTTCFG="nodes",1,"Client_name","test.mosquitto.org"
+OK
+AT%MQTTCFG="PROTOCOL",1,0,1200,1
+OK
+AT%MQTTCMD="connect",1
+OK
+AT%MQTTCMD="subscribe",1,2,"Topic_name"
+%MQTTCMD: 1
+OK
+AT%MQTTCMD="publish",1,2,0,"Topic_name",5
+10001
+
+%MQTTCMD: 2
+OK
+
+ERROR
+1001
+
+ERROR
+11001
+
+ERROR
+jfvjkfiopgvkjfpdogv
+
+ERROR
+AT
+OK
+AT+GSN?
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+AT
+OK
+AT%MQTTEV="all",1
+OK
+AT%MQTTCFG="NODES",1,"Client_name","test.mosquitto.org"
+OK
+AT%MQTTCFG="PROTOCOL",1,0,1200,1
+OK
+AT%MQTTCMD="connect",1
+ERROR
+
++CEREG: 4
+
++CEREG: 5,"C936","01882517",7
+
++CEREG: 4
+
++CEREG: 5,"C936","01882517",7
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+AT
+OK
+AT+CSQ
++CSQ: 8,0
+
+OK
+AT+CESQ=?
+ERROR
+AT+CESQ=
+ERROR
+AT+CESQ
++CESQ: 99,99,255,255,6,37
+
+OK
+AT+COPN
++COPN: "90115", "OnAir"
++COPN: "90114", "AeroMobile"
++COPN: "90112", "Telenor Maritime"
++COPN: "90146", "Telecom26"
++COPN: "24299", "Tampnet"
++COPN: "311170", "Tampnet"
++COPN: "90111", "Inmarsat"
++COPN: "90150", "EchoStar Mobile"
++COPN: "36302", "AW Digicel"
++COPN: "36301", "SETAR"
++COPN: "41250", "Etisalat Af"
++COPN: "41240", "MTN AF"
++COPN: "41220", "ROSHAN"
++COPN: "41201", "AF AWCC"
++COPN: "63104", "MOVICEL"
++COPN: "63102", "UNITEL"
++COPN: "365840", "FLOW"
++COPN: "27603", "ALBtelecom"
++COPN: "27602", "Voda AL"
++COPN: "27601", "Telekom.al"
++COPN: "21303", "AndorraTelecom"
++COPN: "36291", "CHIPPIE"
++COPN: "36251", "Telcell GSM"
++COPN: "36269", "Digicel"
++COPN: "36278", "Kla"
++COPN: "42403", "du"
++COPN: "42402", "ETISALAT"
++COPN: "722310", "CLARO ARGENTINA"
++COPN: "722010", "AR - TEFMVNO"
++COPN: "72207", "AR - Movistar"
++COPN: "72234", "AR PERSONAL"
++COPN: "72236", "AR PERSONAL"
++COPN: "28310", "Ucom AM"
++COPN: "28305", "MTS ARM"
++COPN: "28301", "Beeline AM"
++COPN: "544110", "Bluesky Communications"
++COPN: "344920", "FLOW"
++COPN: "344930", "Cingular"
++COPN: "34403", "APUA inet"
++COPN: "50503", "vodafone AU"
++COPN: "50571", "Telstra Mobile"
++COPN: "50572", "Telstra Mobile"
++COPN: "50501", "Telstra Mobile"
++COPN: "50502", "Optus AU"
++COPN: "50550", "Pivotel"
++COPN: "23205", "3 AT"
++COPN: "23210", "3 AT"
++COPN: "23201", "A1"
++COPN: "23213", "Magenta-T-"
++COPN: "23203", "Magenta-T-"
++COPN: "23207", "telering"
++COPN: "23217", "spusu"
++COPN: "40004", "AZ Nar"
++COPN: "40002", "BAKCELL AZ"
++COPN: "40001", "AZEAC"
++COPN: "64207", "SMART"
++COPN: "64203", "ONATEL BDI"
++COPN: "64282", "TELECEL-BDI"
++COPN: "20620", "BASE"
++COPN: "20610", "Orange B"
++COPN: "20601", "Proximus"
++COPN: "61602", "ETISALAT BENIN"
++COPN: "61603", "MTN BENIN"
++COPN: "61302", "Orange BF"
++COPN: "61301", "ONATEL"
++COPN: "47007", "Airtel"
++COPN: "47004", "BGD bMobile"
++COPN: "47003", "Banglalink"
++COPN: "47002", "robi axiata"
++COPN: "470001", "Grameenphone"
++COPN: "28403", "Vivacom BG"
++COPN: "28405", "Telenor BG"
++COPN: "28401", "A1 BG"
++COPN: "42604", "stc"
++COPN: "42602", "Zain BH"
++COPN: "42601", "BATELCO"
++COPN: "36439", "BTC"
++COPN: "36449", "aliv"
++COPN: "21803", "HT ERONET"
++COPN: "21805", "m:tel"
++COPN: "21890", "BH Mobile"
++COPN: "25704", "life:) BY"
++COPN: "25702", "MTS BY"
++COPN: "25701", "BY VELCOM"
++COPN: "70267", "BTL"
++COPN: "70269", "Smart"
++COPN: "350000", "CELLONE"
++COPN: "73602", "BOMOV"
++COPN: "73601", "VIVA"
++COPN: "73603", "TIGO"
++COPN: "72439", "Nextel Brasil"
++COPN: "72423", "VIVO"
++COPN: "72410", "VIVO"
++COPN: "72406", "VIVO"
++COPN: "72411", "VIVO"
++COPN: "72433", "Algar Telecom"
++COPN: "72434", "Algar Telecom"
++COPN: "72432", "Algar Telecom"
++COPN: "72405", "Claro BRA"
++COPN: "72404", "TIM BRA"
++COPN: "72402", "TIM BRA"
++COPN: "72403", "TIM BRA"
++COPN: "72424", "Oi"
++COPN: "72416", "Oi"
++COPN: "72431", "Oi"
++COPN: "342750", "DIGICEL"
++COPN: "342600", "FLOW"
++COPN: "52802", "PCSB"
++COPN: "52811", "BRU-DSTCom"
++COPN: "40277", "TASHICELL"
++COPN: "40211", "BT B-Mobile"
++COPN: "65204", "BTC"
++COPN: "65202", "Orange"
++COPN: "65201", "BW MASCOM"
++COPN: "62301", "ETISALAT RCA"
++COPN: "62302", "Telecel"
++COPN: "302380", "KNET"
++COPN: "302340", "Execulink Telecom"
++COPN: "302940", "Wightman"
++COPN: "302270", "Eastlink"
++COPN: "302880", "FastRoam"
++COPN: "302780", "SaskTel"
++COPN: "302520", "Videotron"
++COPN: "302500", "Videotron"
++COPN: "302610", "Bell"
++COPN: "302490", "Freedom"
++COPN: "302220", "TELUS"
++COPN: "302620", "Ice Wireless Inc"
++COPN: "302370", "Fido"
++COPN: "302720", "Rogers Wireless"
++COPN: "302480", "SSi"
++COPN: "302130", "Xplore"
++COPN: "22803", "Salt"
++COPN: "22802", "Sunrise"
++COPN: "22801", "Swisscom"
++COPN: "73009", "WOM"
++COPN: "73001", "ENTEL PCS"
++COPN: "73010", "ENTEL PCS"
++COPN: "73003", "CLARO CHL"
++COPN: "73007", "Movistar"
++COPN: "73002", "Movistar"
++COPN: "46003", "CHN-CT"
++COPN: "46011", "CHN-CT"
++COPN: "46004", "CHINA MOBILE"
++COPN: "46008", "CHINA MOBILE"
++COPN: "46002", "CHINA MOBILE"
++COPN: "46000", "CHINA MOBILE"
++COPN: "46007", "CHINA MOBILE"
++COPN: "46009", "CHN-UNICOM"
++COPN: "46001", "CHN-UNICOM"
++COPN: "61204", "KoZ"
++COPN: "61202", "MOOV CI"
++COPN: "61203", "Orange"
++COPN: "61205", "MTN CI"
++COPN: "62401", "MTN CAM"
++COPN: "62402", "Orange CM"
++COPN: "62404", "Nexttel"
++COPN: "63090", "Africell RDC"
++COPN: "63086", "Orange RDC"
++COPN: "63089", "TIGO DRC"
++COPN: "63002", "Airtel"
++COPN: "63001", "Vodacom Congo"
++COPN: "62910", "COG MTN"
++COPN: "62901", "Airtel"
++COPN: "54801", "CK KOKANET"
++COPN: "732123", "Movistar"
++COPN: "732111", "TIGO"
++COPN: "732103", "TIGO"
++COPN: "732101", "Claro"
++COPN: "732130", "Avantel"
++COPN: "732187", "ETB 4G"
++COPN: "65401", "HURI"
++COPN: "65402", "TELCO"
++COPN: "62502", "Unitel T+"
++COPN: "62501", "CVMOVEL"
++COPN: "71203", "CLARO CR"
++COPN: "71204", "Movistar"
++COPN: "71202", "I.C.E."
++COPN: "71201", "I.C.E."
++COPN: "36801", "CUBACEL"
++COPN: "346140", "FLOW"
++COPN: "28020", "PrimeTel PLC"
++COPN: "28010", "epic"
++COPN: "28001", "Cyta-Voda"
++COPN: "23003", "Vodafone CZ"
++COPN: "23001", "T-Mobile CZ"
++COPN: "23002", "O2 - CZ"
++COPN: "26203", "o2 - de"
++COPN: "26207", "o2 - de"
++COPN: "26202", "Vodafone.de"
++COPN: "26201", "Telekom.de"
++COPN: "63801", "DJ EVATIS"
++COPN: "366110", "FLOW"
++COPN: "23806", "3 DK"
++COPN: "23866", "Telia-Telenor DK"
++COPN: "23820", "Telia DK"
++COPN: "23801", "TDC"
++COPN: "23802", "Telenor DK"
++COPN: "23877", "Telenor DK"
++COPN: "37004", "Viva DO"
++COPN: "37002", "CLARO DOM"
++COPN: "37001", "ALTICE"
++COPN: "37005", "Wind Telecom DO"
++COPN: "60302", "Djezzy"
++COPN: "60301", "ALG Mobilis"
++COPN: "60303", "ooredoo Algeria"
++COPN: "74000", "Movistar"
++COPN: "74001", "CLARO"
++COPN: "74002", "CNT"
++COPN: "60203", "Etisalat"
++COPN: "60202", "vodafone EG"
++COPN: "60201", "Orange EG"
++COPN: "60204", "EGYwe"
++COPN: "65701", "EriTel"
++COPN: "21404", "YOIGO"
++COPN: "21403", "Orange SP"
++COPN: "21407", "Movistar"
++COPN: "21401", "vodafone ES"
++COPN: "24803", "Tele2 EE"
++COPN: "24802", "Elisa EE"
++COPN: "24801", "Telia"
++COPN: "63601", "ETH MTN"
++COPN: "24436", "DNA - Telia FI"
++COPN: "24412", "FI DNA"
++COPN: "24403", "FI DNA"
++COPN: "24491", "Telia FI"
++COPN: "24421", "FI elisa"
++COPN: "24405", "FI elisa"
++COPN: "24414", "FI AMT"
++COPN: "54202", "DIGICEL"
++COPN: "54201", "FJ VODAFONE"
++COPN: "750001", "Sure FLK"
++COPN: "20815", "Free"
++COPN: "20816", "Free"
++COPN: "20813", "F - Contact"
++COPN: "20811", "SFR FEMTO"
++COPN: "20809", "F SFR"
++COPN: "20810", "F SFR"
++COPN: "20802", "F-Contact"
++COPN: "20801", "Orange F"
++COPN: "20888", "F - Contact"
++COPN: "20820", "F-Bouygues Telecom"
++COPN: "28802", "VODAFONE FO"
++COPN: "28801", "Foroya Tele"
++COPN: "55001", "FSM Telecom"
++COPN: "62801", "LIBERTIS"
++COPN: "62802", "ETISALAT GAB"
++COPN: "23428", "Marathon"
++COPN: "23455", "Sure"
++COPN: "23403", "Airtel-Vodafone"
++COPN: "23415", "vodafone UK"
++COPN: "23458", "Manx Telecom"
++COPN: "23450", "JT"
++COPN: "23410", "O2 - UK"
++COPN: "23430", "EE"
++COPN: "23433", "EE"
++COPN: "23420", "3 UK"
++COPN: "28204", "BEELINE"
++COPN: "28202", "MAGTI-GSM-GEO"
++COPN: "28201", "GEO-GEOCELL"
++COPN: "62007", "Glo Ghana"
++COPN: "62002", "GH Vodafone"
++COPN: "62001", "GH MTN"
++COPN: "62003", "AirtelTigo"
++COPN: "62006", "AirtelTigo"
++COPN: "26601", "GIBTEL"
++COPN: "61105", "GINCL"
++COPN: "61104", "GNMTN"
++COPN: "61101", "Orange GN"
++COPN: "34002", "SFR"
++COPN: "34020", "Digicel"
++COPN: "34001", "F-Orange"
++COPN: "34009", "Free"
++COPN: "60703", "GM COMIUM"
++COPN: "60702", "AFRICELL"
++COPN: "60701", "GAMCEL"
++COPN: "60704", "Qcell"
++COPN: "63202", "MTN"
++COPN: "63203", "Orange GB"
++COPN: "62703", "GNQ-Muni"
++COPN: "62701", "GETESA"
++COPN: "20209", "WIND GR"
++COPN: "20210", "WIND GR"
++COPN: "20205", "vodafone GR"
++COPN: "20201", "GR COSMOTE"
++COPN: "20217", "NOVA GR"
++COPN: "352030", "DIGICEL"
++COPN: "352110", "FLOW"
++COPN: "29001", "TELE Greenland"
++COPN: "70402", "TIGO"
++COPN: "70401", "CLARO GTM"
++COPN: "70403", "CLARO GTM"
++COPN: "310110", "IT&E"
++COPN: "310032", "IT&E"
++COPN: "310140", "GTA"
++COPN: "310370", "DOCOMO PACIFIC"
++COPN: "310470", "DOCOMO PACIFIC"
++COPN: "738002", "GUY GTT + Do More"
++COPN: "73801", "Digicel"
++COPN: "45402", "CSL"
++COPN: "45418", "CSL"
++COPN: "45420", "CSL"
++COPN: "45419", "CSL"
++COPN: "45416", "CSL"
++COPN: "45410", "CSL"
++COPN: "45400", "CSL"
++COPN: "45415", "SmarTone HK"
++COPN: "45417", "SmarTone HK"
++COPN: "45406", "SmarTone HK"
++COPN: "45412", "China Mobile HK"
++COPN: "45413", "China Mobile HK"
++COPN: "45403", "3"
++COPN: "45404", "3"
++COPN: "708030", "HND"
++COPN: "70802", "TIGOHND"
++COPN: "708001", "CLARO HND"
++COPN: "21902", "Tele2 HR"
++COPN: "21910", "A1 HR"
++COPN: "21901", "HT HR"
++COPN: "37203", "Natcom"
++COPN: "21670", "vodafone HU"
++COPN: "21630", "Telekom HU"
++COPN: "21601", "Telenor HU"
++COPN: "21603", "Digi.Mobil HU"
++COPN: "51089", "3"
++COPN: "51010", "IND TELKOMSEL"
++COPN: "51011", "IND XL"
++COPN: "51008", "IND XL"
++COPN: "51021", "IND INDOSAT"
++COPN: "51001", "IND INDOSAT"
++COPN: "51009", "Smartfren"
++COPN: "51028", "Smartfren"
++COPN: "40554", "IND airtel"
++COPN: "40553", "IND airtel"
++COPN: "40552", "IND airtel"
++COPN: "40555", "IND airtel"
++COPN: "40551", "IND airtel"
++COPN: "40556", "IND airtel"
++COPN: "40492", "IND airtel"
++COPN: "40490", "IND airtel"
++COPN: "40498", "IND airtel"
++COPN: "40494", "IND airtel"
++COPN: "40496", "IND airtel"
++COPN: "40497", "IND airtel"
++COPN: "40495", "IND airtel"
++COPN: "40493", "IND airtel"
++COPN: "40402", "IND airtel"
++COPN: "40410", "IND airtel"
++COPN: "40403", "IND airtel"
++COPN: "40445", "IND airtel"
++COPN: "40449", "IND airtel"
++COPN: "40431", "IND airtel"
++COPN: "40440", "IND airtel"
++COPN: "40479", "CellOne"
++COPN: "40473", "CellOne"
++COPN: "40438", "CellOne"
++COPN: "40475", "CellOne"
++COPN: "40481", "CellOne"
++COPN: "40464", "CellOne"
++COPN: "40457", "CellOne"
++COPN: "40451", "CellOne"
++COPN: "40434", "CellOne"
++COPN: "40462", "CellOne"
++COPN: "40472", "CellOne"
++COPN: "40471", "CellOne"
++COPN: "40466", "CellOne"
++COPN: "40458", "CellOne"
++COPN: "40477", "CellOne"
++COPN: "40476", "CellOne"
++COPN: "40453", "CellOne"
++COPN: "40459", "CellOne"
++COPN: "40480", "CellOne"
++COPN: "40455", "CellOne"
++COPN: "40454", "CellOne"
++COPN: "40474", "CellOne"
++COPN: "40468", "IN-DOLPHIN"
++COPN: "40469", "IN-DOLPHIN"
++COPN: "40416", "IND airtel"
++COPN: "40470", "IND airtel"
++COPN: "40407", "IDEA"
++COPN: "405845", "IDEA"
++COPN: "40424", "IDEA"
++COPN: "40422", "IDEA"
++COPN: "40412", "IDEA"
++COPN: "40419", "IDEA"
++COPN: "40456", "IDEA"
++COPN: "40570", "IDEA"
++COPN: "40404", "IDEA"
++COPN: "405849", "IDEA"
++COPN: "40482", "IDEA"
++COPN: "405846", "IDEA"
++COPN: "405848", "IDEA"
++COPN: "405799", "IDEA"
++COPN: "405850", "IDEA"
++COPN: "40487", "IDEA"
++COPN: "405852", "IDEA"
++COPN: "40489", "IDEA"
++COPN: "405853", "IDEA"
++COPN: "40478", "IDEA"
++COPN: "40444", "IDEA"
++COPN: "40414", "IDEA"
++COPN: "405823", "VIDEOCON"
++COPN: "405831", "VIDEOCON"
++COPN: "405832", "VIDEOCON"
++COPN: "405838", "VIDEOCON"
++COPN: "405834", "VIDEOCON"
++COPN: "405835", "VIDEOCON"
++COPN: "405836", "VIDEOCON"
++COPN: "405841", "VIDEOCON"
++COPN: "405842", "VIDEOCON"
++COPN: "405827", "VIDEOCON"
++COPN: "405825", "VIDEOCON"
++COPN: "405828", "VIDEOCON"
++COPN: "405829", "VIDEOCON"
++COPN: "405833", "VIDEOCON"
++COPN: "405824", "VIDEOCON"
++COPN: "405830", "VIDEOCON"
++COPN: "405837", "VIDEOCON"
++COPN: "405839", "VIDEOCON"
++COPN: "405843", "VIDEOCON"
++COPN: "405840", "IND-JIO"
++COPN: "405854", "IND-JIO"
++COPN: "405855", "IND-JIO"
++COPN: "405856", "IND-JIO"
++COPN: "405857", "IND-JIO"
++COPN: "405858", "IND-JIO"
++COPN: "405859", "IND-JIO"
++COPN: "405860", "IND-JIO"
++COPN: "405861", "IND-JIO"
++COPN: "405862", "IND-JIO"
++COPN: "405863", "IND-JIO"
++COPN: "405864", "IND-JIO"
++COPN: "405865", "IND-JIO"
++COPN: "405866", "IND-JIO"
++COPN: "405867", "IND-JIO"
++COPN: "405868", "IND-JIO"
++COPN: "405869", "IND-JIO"
++COPN: "405870", "IND-JIO"
++COPN: "405871", "IND-JIO"
++COPN: "405872", "IND-JIO"
++COPN: "405873", "IND-JIO"
++COPN: "405874", "IND-JIO"
++COPN: "27202", "3"
++COPN: "27205", "3"
++COPN: "27203", "IRL - METEOR"
++COPN: "27201", "vodafone IE"
++COPN: "41840", "KOREK"
++COPN: "41820", "zain IQ"
++COPN: "41830", "IRAQNA"
++COPN: "41805", "ASIACELL"
++COPN: "27411", "NOVA IS"
++COPN: "27402", "Vodafone"
++COPN: "27404", "Viking"
++COPN: "27408", "IS OnWaves"
++COPN: "27401", "IS SIMINN"
++COPN: "42528", "Hot Mobile Ltd."
++COPN: "42507", "Hot Mobile Ltd."
++COPN: "42503", "IL Pelephone"
++COPN: "42502", "Cellcom IL"
++COPN: "42501", "Partner IL"
++COPN: "42508", "Golan IL"
++COPN: "22288", "WINDTRE"
++COPN: "90126", "TIM@sea"
++COPN: "22201", "I TIM"
++COPN: "22210", "vodafone IT"
++COPN: "22250", "ILIAD"
++COPN: "338180", "FLOW"
++COPN: "338050", "Digicel"
++COPN: "41603", "UMNIAH"
++COPN: "41677", "Orange JO"
++COPN: "41601", "Zain JO"
++COPN: "44050", "KDDI"
++COPN: "44051", "KDDI"
++COPN: "44020", "SoftBank"
++COPN: "44010", "JP DOCOMO"
++COPN: "22102", "IPKO"
++COPN: "22101", "vala"
++COPN: "40177", "Tele2"
++COPN: "40107", "ALTEL"
++COPN: "40101", "Beeline KZ"
++COPN: "40102", "Kcell"
++COPN: "63907", "Telkom"
++COPN: "63903", "Airtel"
++COPN: "63902", "Safaricom"
++COPN: "63910", "FAIBA"
++COPN: "43709", "O!"
++COPN: "43705", "MegaCom"
++COPN: "43701", "Beeline KG"
++COPN: "45608", "Metfone"
++COPN: "45602", "Smart"
++COPN: "45606", "Smart"
++COPN: "45605", "Smart"
++COPN: "45604", "qb"
++COPN: "45601", "Cellcard"
++COPN: "45611", "KH SEATEL"
++COPN: "356110", "FLOW"
++COPN: "45006", "KOR LG Uplus"
++COPN: "45010", "KOR LG Uplus"
++COPN: "45005", "KOR SK Telecom"
++COPN: "45008", "KT"
++COPN: "41904", "stc Kuwait"
++COPN: "41903", "Ooredoo"
++COPN: "41902", "Zain KW"
++COPN: "45703", "Unitel"
++COPN: "45708", "TPLUS"
++COPN: "45702", "ETL MOBILE NETWORK"
++COPN: "45701", "LAO GSM"
++COPN: "41505", "LBN OGERO Mobile"
++COPN: "41503", "touch"
++COPN: "41501", "alfa"
++COPN: "61807", "Orange LBR"
++COPN: "61804", "Novafone 4G"
++COPN: "61801", "LBR Lonestar Cell"
++COPN: "60600", "Libyana"
++COPN: "60601", "Al Madar"
++COPN: "358110", "FLOW"
++COPN: "358050", "DIGICEL"
++COPN: "29501", "SwisscomFL"
++COPN: "29502", "Salt.li"
++COPN: "29505", "FL1"
++COPN: "41305", "SRI AIRTEL"
++COPN: "41301", "Mobitel LK"
++COPN: "41308", "Hutch"
++COPN: "41303", "SRI Etisalat"
++COPN: "41302", "DIALOG"
++COPN: "65102", "LS-ETL"
++COPN: "65101", "Vodacom Lesotho"
++COPN: "24603", "Tele2 LT"
++COPN: "24602", "LT BITE GSM"
++COPN: "24601", "Telia LT"
++COPN: "27099", "L Orange-LU"
++COPN: "27077", "L TANGO"
++COPN: "27001", "POST"
++COPN: "24705", "BITE LV"
++COPN: "24701", "LV LMT"
++COPN: "24702", "Tele2 LV"
++COPN: "45500", "SmarTone MAC"
++COPN: "45505", "3 Macau"
++COPN: "45503", "3 Macau"
++COPN: "45504", "CTM"
++COPN: "45501", "CTM"
++COPN: "60402", "inwi"
++COPN: "60400", "Orange MA"
++COPN: "60401", "MOR IAM"
++COPN: "21201", "vala"
++COPN: "21210", "Monaco"
++COPN: "25905", "UNITE"
++COPN: "25902", "Moldcell"
++COPN: "25901", "Orange MD"
++COPN: "25915", "IDC"
++COPN: "64604", "TELMA"
++COPN: "64602", "Orange"
++COPN: "64601", "Airtel"
++COPN: "64605", "Bip"
++COPN: "47202", "Ooredoo Maldives PVT LTD"
++COPN: "47201", "DHIRAAGU"
++COPN: "33490", "AT&T"
++COPN: "90144", "AT&T"
++COPN: "334070", "AT&T"
++COPN: "334050", "AT&T"
++COPN: "33403", "Movistar"
++COPN: "334020", "TELCEL"
++COPN: "29403", "A1 MK"
++COPN: "29401", "Telekom MK"
++COPN: "61002", "ORANGE ML"
++COPN: "61001", "MALITEL ML"
++COPN: "61003", "TELECEL ML"
++COPN: "27877", "Melita Mobile"
++COPN: "27821", "go mobile"
++COPN: "27801", "vodafone MT"
++COPN: "41401", "MM 900"
++COPN: "41406", "Telenor"
++COPN: "41405", "Ooredoo"
++COPN: "41409", "MYTEL"
++COPN: "29703", "MTEL"
++COPN: "29702", "Telekom.me"
++COPN: "29701", "Telenor"
++COPN: "42899", "MN MobiCom"
++COPN: "42888", "MONGOLIA UNITEL LLC"
++COPN: "42801", "Skytel MN"
++COPN: "64304", "VodaCom-MZ"
++COPN: "64301", "MOZ - mCel"
++COPN: "60902", "MR Expresso"
++COPN: "60901", "MR MATTEL"
++COPN: "60910", "MAURITEL"
++COPN: "354860", "FLOW"
++COPN: "61703", "MTML"
++COPN: "61710", "EMTEL-MRU"
++COPN: "61701", "CELLPLUS-MRU"
++COPN: "65001", "TNM"
++COPN: "65010", "Airtel"
++COPN: "50218", "U MOBILE"
++COPN: "50212", "MY MAXIS"
++COPN: "50216", "Digi"
++COPN: "50219", "MY CELCOM"
++COPN: "50213", "MY CELCOM 3G"
++COPN: "502152", "Yes 4G"
++COPN: "502153", "unifi"
++COPN: "64701", "MAORE MOBILE"
++COPN: "64903", "tnmobile"
++COPN: "64901", "MTC NAMIBIA"
++COPN: "54601", "NCL MOBILIS"
++COPN: "61404", "Orange"
++COPN: "61402", "Airtel"
++COPN: "61403", "ETISALAT NER"
++COPN: "50510", "Norfolk Telecom"
++COPN: "62150", "Glo NG"
++COPN: "62120", "Airtel"
++COPN: "62130", "MTN - NG"
++COPN: "62140", "ntel"
++COPN: "710300", "Movistar"
++COPN: "71021", "CLARO NIC"
++COPN: "71073", "CLARO NIC"
++COPN: "20416", "T-Mobile NL"
++COPN: "20408", "NL KPN"
++COPN: "20412", "NL Telfort"
++COPN: "20404", "vodafone NL"
++COPN: "24201", "N Telenor"
++COPN: "24202", "N NetCom"
++COPN: "24214", "N ice"
++COPN: "42902", "Ncell"
++COPN: "42901", "Nepal Telecom"
++COPN: "42904", "SmartCell"
++COPN: "53601", "PacCell"
++COPN: "53024", "2degrees"
++COPN: "53005", "Spark NZ"
++COPN: "53001", "vodafone NZ"
++COPN: "42203", "Ooredoo Oman"
++COPN: "42202", "Omantel"
++COPN: "41006", "Telenor PK"
++COPN: "41004", "ZONG"
++COPN: "41003", "PK-UFONE"
++COPN: "41001", "Jazz"
++COPN: "41007", "Jazz"
++COPN: "41005", "SCOM-PK"
++COPN: "71403", "CLARO PA"
++COPN: "71404", "DIGICEL"
++COPN: "71401", "+Movil - C&W PAN"
++COPN: "714020", "Movistar"
++COPN: "71615", "Viettel Peru"
++COPN: "71617", "Entel"
++COPN: "71610", "CLARO PER"
++COPN: "71606", "MOVISTAR"
++COPN: "51505", "PH Sun Cellular"
++COPN: "51503", "SMART"
++COPN: "51502", "Globe Telecom-PH"
++COPN: "55201", "PalauCel"
++COPN: "53703", "DIGICEL"
++COPN: "53701", "bmobile"
++COPN: "26006", "Play"
++COPN: "26003", "Orange PL"
++COPN: "26002", "T-Mobile.pl"
++COPN: "26001", "Plus"
++COPN: "330110", "PR Claro"
++COPN: "330120", "Open Mob PRI"
++COPN: "26803", "NOS"
++COPN: "26806", "MEO"
++COPN: "26801", "vodafone P"
++COPN: "74405", "PY Personal"
++COPN: "74404", "TIGO PY"
++COPN: "74401", "HOLA PARAGUAY S.A."
++COPN: "74402", "CLARO PY"
++COPN: "42506", "Ooredoo Palestine"
++COPN: "42505", "JAWWAL-PALESTINE"
++COPN: "54720", "F-VINI"
++COPN: "54715", "VODAFONE PF"
++COPN: "54705", "VITI"
++COPN: "42702", "vodafone"
++COPN: "42701", "Ooredoo"
++COPN: "64703", "FREE MOBILE RE"
++COPN: "64702", "TELCO OI"
++COPN: "64700", "Orange re"
++COPN: "64710", "SRR"
++COPN: "64704", "ZEOP"
++COPN: "22605", "RO Digi.Mobil"
++COPN: "22603", "TELEKOM.RO"
++COPN: "22610", "RO ORANGE"
++COPN: "22601", "RO Vodafone RO"
++COPN: "25035", "MOTIV"
++COPN: "25020", "Tele2 RU"
++COPN: "25099", "Beeline"
++COPN: "25002", "MegaFon RUS"
++COPN: "25001", "MTS RUS"
++COPN: "25027", "LETAI"
++COPN: "25028", "voda"
++COPN: "63514", "Airtel"
++COPN: "63510", "MTN RWANDA"
++COPN: "42004", "Zain KSA"
++COPN: "42003", "Mobily-KSA"
++COPN: "42001", "stc"
++COPN: "63401", "Zain SDN"
++COPN: "63402", "MTN"
++COPN: "60802", "SEN"
++COPN: "60801", "Orange SN"
++COPN: "60803", "SEN expresso"
++COPN: "52508", "StarHub"
++COPN: "52505", "StarHub"
++COPN: "52507", "SGP Call Zone"
++COPN: "52502", "Singtel"
++COPN: "52501", "Singtel"
++COPN: "52503", "SGP-M1"
++COPN: "52510", "TPG SG"
++COPN: "65801", "Sure"
++COPN: "54001", "Our Telekom"
++COPN: "54002", "bmobile"
++COPN: "61905", "Africell"
++COPN: "61901", "Orange SL"
++COPN: "61907", "QCell"
++COPN: "70604", "Movistar"
++COPN: "70603", "Tigo SV"
++COPN: "70602", "Digicel"
++COPN: "70601", "CLARO SLV"
++COPN: "63730", "Som Golis"
++COPN: "63701", "SO Telesom"
++COPN: "63750", "Hormuud Telecom"
++COPN: "30801", "SPM AMERIS"
++COPN: "22005", "Vip SRB"
++COPN: "22003", "mt:s"
++COPN: "22001", "Telenor SRB"
++COPN: "65902", "MTN"
++COPN: "65906", "ZAIN SS"
++COPN: "62601", "STP CSTmovel"
++COPN: "62602", "Unitel STP"
++COPN: "74603", "DIGICEL"
++COPN: "74602", "SR.TELESUR.GSM"
++COPN: "23106", "O2 - SK"
++COPN: "23101", "Orange SK"
++COPN: "23102", "Telekom SK"
++COPN: "23103", "SWAN SK"
++COPN: "29364", "T-2"
++COPN: "29370", "TELEMACH"
++COPN: "29340", "A1 SI"
++COPN: "29341", "MOBITEL"
++COPN: "24004", "SWEDEN"
++COPN: "24002", "3 SE"
++COPN: "24005", "Sweden 3G"
++COPN: "24001", "TELIA S"
++COPN: "24024", "Sweden Mobile"
++COPN: "24008", "Telenor SE"
++COPN: "24007", "Tele2"
++COPN: "65310", "Swazi-MTN"
++COPN: "65302", "Swazi Mobile"
++COPN: "63310", "Airtel"
++COPN: "63301", "C&W SEY"
++COPN: "41702", "MTN"
++COPN: "376350", "FLOW"
++COPN: "62203", "Tigo TD"
++COPN: "62201", "Airtel"
++COPN: "61503", "ETISALAT TOGO"
++COPN: "61501", "TG-TOGO CELL"
++COPN: "52000", "TH 3G+"
++COPN: "52015", "TOT Mobile"
++COPN: "52047", "TOT Mobile"
++COPN: "90145", "AISatSea"
++COPN: "52001", "AIS"
++COPN: "52003", "AIS"
++COPN: "52004", "TRUE-H"
++COPN: "52099", "TRUE-H"
++COPN: "52005", "dtac TriNet"
++COPN: "43605", "ZET-MOBILE"
++COPN: "43601", "TCELL"
++COPN: "43602", "TCELL"
++COPN: "43604", "Babilon-M"
++COPN: "43603", "MegaFon TJK"
++COPN: "55401", "Teletok"
++COPN: "43802", "TM CELL"
++COPN: "51402", "TLS-TT"
++COPN: "51401", "TLS-TC"
++COPN: "53988", "Digicel Tonga"
++COPN: "53901", "U-CALL"
++COPN: "374130", "Digicel"
++COPN: "37412", "TSTT"
++COPN: "60503", "TUNISIANA"
++COPN: "60502", "TUNISIE TELECOM"
++COPN: "60501", "Orange TN"
++COPN: "28603", "AVEA"
++COPN: "28602", "Vodafone T?rkiye"
++COPN: "28601", "TR TURKCELL"
++COPN: "46601", "Far EasTone"
++COPN: "46688", "KGT-Online"
++COPN: "46692", "Chunghwa Telecom"
++COPN: "46699", "TWM TransAsi"
++COPN: "46697", "TW Mobile"
++COPN: "46693", "TWN MOBITAI"
++COPN: "46689", "T Star"
++COPN: "46605", "TWN APT"
++COPN: "46612", "TWN APT"
++COPN: "64005", "Airtel"
++COPN: "64002", "TIGO - TZ"
++COPN: "64004", "VodaCom"
++COPN: "64003", "ZANTEL-TZ"
++COPN: "64118", "Suretelcom"
++COPN: "64114", "Africell Uganda"
++COPN: "64111", "Uganda Telecom"
++COPN: "64110", "MTN-UGANDA"
++COPN: "64101", "Airtel"
++COPN: "64122", "Airtel"
++COPN: "64104", "UG TANG"
++COPN: "25507", "TriMob"
++COPN: "25506", "life:)"
++COPN: "25503", "UA-KYIVSTAR"
++COPN: "25502", "Beeline UA"
++COPN: "25501", "VODAFONE"
++COPN: "74807", "Movistar"
++COPN: "74810", "CLARO URUGUAY"
++COPN: "74801", "Antel"
++COPN: "311740", "TCI"
++COPN: "310120", "Sprint"
++COPN: "311580", "U.S.Cellular"
++COPN: "310730", "U.S.Cellular"
++COPN: "310840", "telna Mobile"
++COPN: "311990", "VTW US"
++COPN: "311270", "Verizon"
++COPN: "311480", "Verizon"
++COPN: "310740", "USA OTZ"
++COPN: "310460", "USA1L"
++COPN: "312260", "USACL"
++COPN: "311530", "USANW"
++COPN: "310190", "USA Dutch Harbor"
++COPN: "310050", "GCI"
++COPN: "311370", "GCI"
++COPN: "311240", "USACWCI"
++COPN: "310300", "BigSkyUS"
++COPN: "310570", "Cell One"
++COPN: "311190", "USAC1ECI"
++COPN: "311080", "Pine Cellular"
++COPN: "311040", "USA - Commnet"
++COPN: "311030", "Indigo"
++COPN: "310180", "West Central Wireless"
++COPN: "310450", "Cell One of NE Colorado"
++COPN: "310020", "US - Union Telephone"
++COPN: "310320", "USA - CellularOne"
++COPN: "310630", "USA AmeriLink"
++COPN: "310530", "Iowa Wireless USA"
++COPN: "310770", "Iowa Wireless USA"
++COPN: "310690", "Limitless Mobile"
++COPN: "311600", "Limitless Mobile"
++COPN: "310340", "Limitless Mobile"
++COPN: "312180", "Limitless Mobile"
++COPN: "310660", "T-Mobile"
++COPN: "311660", "Metro PCS"
++COPN: "310160", "T-Mobile"
++COPN: "310270", "T-Mobile"
++COPN: "310310", "T-Mobile"
++COPN: "310490", "T-Mobile"
++COPN: "310800", "T-Mobile"
++COPN: "310200", "T-Mobile"
++COPN: "310210", "T-Mobile"
++COPN: "310220", "T-Mobile"
++COPN: "310230", "T-Mobile"
++COPN: "310240", "T-Mobile"
++COPN: "310250", "T-Mobile"
++COPN: "310260", "T-Mobile"
++COPN: "310380", "AT&T"
++COPN: "310150", "AT&T"
++COPN: "310030", "AT&T"
++COPN: "310410", "AT&T"
++COPN: "310280", "AT&T"
++COPN: "310170", "AT&T"
++COPN: "311710", "Northeast Wireless"
++COPN: "312480", "Nemont"
++COPN: "312630", "NetGenuity"
++COPN: "312420", "Nex-Tech Wireless USA"
++COPN: "311810", "Bluegrass Wireless"
++COPN: "31058", "Inland Cellular"
++COPN: "310990", "Worldcall"
++COPN: "312870", "GigSky"
++COPN: "312720", "Southern Linc"
++COPN: "312280", "Pioneer"
++COPN: "313070", "MNSHub"
++COPN: "312290", "Strata Networks USA"
++COPN: "311630", "C Spire"
++COPN: "311230", "C Spire"
++COPN: "313380", "OptimERA"
++COPN: "43404", "Beeline UZ"
++COPN: "43405", "UZB Ucell"
++COPN: "43407", "UMS-UZB"
++COPN: "43408", "UzMobile"
++COPN: "360110", "FLOW"
++COPN: "360070", "DIGICEL"
++COPN: "73404", "Movistar"
++COPN: "73402", "DIGITEL"
++COPN: "348170", "FLOW"
++COPN: "348570", "CCT Boatphone"
++COPN: "45205", "Vietnamobile"
++COPN: "45201", "VN Mobifone"
++COPN: "45204", "VIETTEL"
++COPN: "45202", "VN VINAPHONE"
++COPN: "54105", "Digicel"
++COPN: "54101", "VUT SMILE"
++COPN: "54301", "Manuia"
++COPN: "54900", "DIGICEL"
++COPN: "54927", "Bluesky"
++COPN: "42101", "SabaFon"
++COPN: "42102", "MTN"
++COPN: "65505", "TelkomSA-R"
++COPN: "65502", "TelkomSA"
++COPN: "65507", "Cell C"
++COPN: "65501", "VodaCom-SA"
++COPN: "65510", "MTN-SA"
++COPN: "65538", "rain"
++COPN: "64503", "ZAMTEL"
++COPN: "64502", "MTN ZM"
++COPN: "64501", "Airtel"
++COPN: "64801", "ZW NET*ONE"
++COPN: "64804", "ZW ECONET"
++COPN: "64803", "TELECEL ZW"
++COPN: "00101", "Test Usim"
++COPN: "44004", "SoftBank"
++COPN: "44006", "SoftBank"
++COPN: "44020", "SoftBank"
++COPN: "44040", "SoftBank"
++COPN: "44041", "SoftBank"
++COPN: "44042", "SoftBank"
++COPN: "44043", "SoftBank"
++COPN: "44044", "SoftBank"
++COPN: "44045", "SoftBank"
++COPN: "44046", "SoftBank"
++COPN: "44047", "SoftBank"
++COPN: "44048", "SoftBank"
++COPN: "44090", "SoftBank"
++COPN: "44092", "SoftBank"
++COPN: "44093", "SoftBank"
++COPN: "44094", "SoftBank"
++COPN: "44095", "SoftBank"
++COPN: "44096", "SoftBank"
++COPN: "44097", "SoftBank"
++COPN: "44098", "SoftBank"
++COPN: "44161", "SoftBank"
++COPN: "44162", "SoftBank"
++COPN: "44163", "SoftBank"
++COPN: "44164", "SoftBank"
++COPN: "44165", "SoftBank"
++COPN: "44052", "KDDI"
++COPN: "25011", "Yota"
+
+OK
+AT+CSQ
++CSQ: 13,0
+
+OK
+AT+CESQ
++CESQ: 99,99,255,255,25,38
+
+OK
+AT+CESQ
++CESQ: 99,99,255,255,0,30
+
+OK
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,5,"C936","01882517",7
+
+OK
+AT
+OK
+AT%HTTPEV="ALL",1
+OK
+AT%HTTPCFG="NODES",1,"http://httpbin.org/ip"
+OK
+AT%HTTPCMD="GET",1,"http://httpbin.org/ip"
+OK
+
+%HTTPEVU:"GETRCV",1,0,261,32
+AT%HTTPREAD=1
+%HTTPREAD: 261,261
+HTTP/1.1 200 OK
+Date: Thu, 13 Apr 2023 08:28:05 GMT
+Content-Type: application/json
+Content-Length: 32
+Connection: keep-alive
+Server: gunicorn/19.9.0
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Credentials: true
+
+{
+  "origin": "62.133.85.217"
+}
+OK
+AT+CSQ
++CSQ: 15,0
+
+OK
+AT+CESQ
++CESQ: 99,99,255,255,0,25
+
+OK
+AT%MQTTCFG="NODES",1,"Client_name","test.mosquitto.org"
+OK
+AT%MQTTCFG="PROTOCOL",1,0,600,1
+OK
+AT%MQTTCMD="CONNECT",1
+OK
+AT%MQTTCMD="subscribe",1,2,"Topic_name"
+%MQTTCMD: 1
+OK
+AT%MQTTCMD="publish",1,2,0,"Topic_name",5
+01010
+
+%MQTTCMD: 2
+OK
+
+ERROR
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,2
+
+OK
+AT
+OK
+AT%SETBDELAY=6
+OK
+
++CEREG: 0
+
++CEREG: 2
+
++CEREG: 0
+AT
+OK
+AT+GSN?
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,0
+
+OK
+AT
+OK
+ATZ
+OK
+Welcome to MiniConsole
+
+MCU_02_01_00_00_05_LO RD6005@041505
+PowerManager Compiled on Jun  4 2021 at 09:49:58
+
+MCU menu -- PowerManager
+========
+help or ? - Print this help menu
+read addr - Read address (hex format)
+write addr value - Write value (hex) to address (hex)
+ps - Print task list
+meminfo - Reports memory information
+ver - Show complitaion date and time
+hifc [status [clr]] [timer MS] [sus] [res]
+serialinfo [serial num]
+time [show | set Seconds(from epoch)]]
+reset [all] - Reset MCU or reset all cores if "all" arg is given
+map - Pipeline to MAP via internal UART
+pwrMode - Configure MCU sleep mode and duration (units: MSec). Usage:[stop | standby | shutdown] {<DURATION_VAL>}
+sleepSet - Enable or disable go to sleep. Usage:[enable | disable]
+gpioWkup - Configure gpio wakeup source pin. Usage:<PHYSICAL_GPIO_ID> [set [ h | l | r | f | rf] | del]
+gpioMon - Configure gpio monitored pin. Usage:<LOGICAL_GPIO_ID> [set <VALUE> | del]
+retMemTest - Read/Write a key-value pair to/from Retention Memory. Usage:[get [<KEY> | DUMPALL]| set <KEY> <VALUE>]
+setCRidMask - Configure the Content Retention section ID mask. Usage:<SECTION_ID_MASK>
+sleepStat - Print out or reset current statistics. Usage:[show | reset]
+wd - Watchdog control command. Usage:[enable | disable | testbark | timeleft | timeout <NEW_TIMEOUT_VAL>]
+inActTime - Configure the value of MCU CLI inactivity timeout in units of Sec. Usage:<NEW_TIMEOUT_VAL>
+mapMode - Switch to MAP mode when MCU wakeup from warm boot. Usage:[on | off]
+run - MCU change to run at full load.
+>> ATZ
+unknown command (type ? for help): ATZ
+AT
+unknown command (type ? for help): AT
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> AT
+unknown command (type ? for help): AT
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,0
+
+OK
+AT
+OK
+
++CEREG: 2
+
++CEREG: 0
+AT
+OK
+
++CEREG: 2
+AT
+OK
+
++CEREG: 0
+AT
+OK
+AT
+OK
+ATZ
+OK
+Welcome to MiniConsole
+
+MCU_02_01_00_00_05_LO RD6005@041505
+PowerManager Compiled on Jun  4 2021 at 09:49:58
+
+MCU menu -- PowerManager
+========
+help or ? - Print this help menu
+read addr - Read address (hex format)
+write addr value - Write value (hex) to address (hex)
+ps - Print task list
+meminfo - Reports memory information
+ver - Show complitaion date and time
+hifc [status [clr]] [timer MS] [sus] [res]
+serialinfo [serial num]
+time [show | set Seconds(from epoch)]]
+reset [all] - Reset MCU or reset all cores if "all" arg is given
+map - Pipeline to MAP via internal UART
+pwrMode - Configure MCU sleep mode and duration (units: MSec). Usage:[stop | standby | shutdown] {<DURATION_VAL>}
+sleepSet - Enable or disable go to sleep. Usage:[enable | disable]
+gpioWkup - Configure gpio wakeup source pin. Usage:<PHYSICAL_GPIO_ID> [set [ h | l | r | f | rf] | del]
+gpioMon - Configure gpio monitored pin. Usage:<LOGICAL_GPIO_ID> [set <VALUE> | del]
+retMemTest - Read/Write a key-value pair to/from Retention Memory. Usage:[get [<KEY> | DUMPALL]| set <KEY> <VALUE>]
+setCRidMask - Configure the Content Retention section ID mask. Usage:<SECTION_ID_MASK>
+sleepStat - Print out or reset current statistics. Usage:[show | reset]
+wd - Watchdog control command. Usage:[enable | disable | testbark | timeleft | timeout <NEW_TIMEOUT_VAL>]
+inActTime - Configure the value of MCU CLI inactivity timeout in units of Sec. Usage:<NEW_TIMEOUT_VAL>
+mapMode - Switch to MAP mode when MCU wakeup from warm boot. Usage:[on | off]
+run - MCU change to run at full load.
+AT
+unknown command (type ? for help): dedeedeAT
+unknown command (type ? for help): dedeedeAT>> map
+Open MAP CLI (Press Ctrl+D to exit)
+
+%SCMNOTIFYEV:"ADRASTEA-IReady"
+AT+GSN?
+
+132001792
+
+OK
+AT+CPIN?
++CPIN: READY
+
+OK
+AT+CEREG=2
+OK
+AT+CEREG?
++CEREG: 2,2
+
+OK
+AT
+OK
+AT
+OK
+ATZ
+OK
+
++CEREG: 0
+AT
+Unknown command 'ededwedAT' - try 'help'
+# map
+Unknown command 'map' - try 'help'
+# AT
+Unknown command 'AT' - try 'help'
+# AT
+Unknown command 'AT' - try 'help'
+Dev resume thread rc=-1 cnt=0
+Dev resume thread rc=-1 cnt=1
+Dev resume thread rc=-1 cnt=2
+Dev resume thread rc=-1 cnt=3
+Dev resume thread rc=-1 cnt=4
+Dev resume thread rc=-1 cnt=5
+Dev resume thread rc=-1 cnt=6
+Dev resume thread rc=-1 cnt=7
+Dev resume thread rc=-1 cnt=8
+Dev resume thread rc=-1 cnt=9
+Dev resume thread rc=-1 cnt=10
+Dev resume thread rc=-1 cnt=11
+Dev resume thread rc=-1 cnt=12
+AT
+unknown command (type ? for help): AT
+AT
+unknown command (type ? for help): AT
+Dev resume thread rc=-1 cnt=0
+Dev resume thread rc=-1 cnt=1
+Dev resume thread rc=-1 cnt=2
+Dev resume thread rc=-1 cnt=3
+Dev resume thread rc=-1 cnt=4
+Dev resume thread rc=-1 cnt=5
+Dev resume thread rc=-1 cnt=6
+Dev resume thread rc=-1 cnt=7
+Dev resume thread rc=-1 cnt=8
+Dev resume thread rc=-1 cnt=9
+Dev resume thread rc=-1 cnt=10
+Dev resume thread rc=-1 cnt=11
+Dev resume thread rc=-1 cnt=12
+Dev resume thread rc=-1 cnt=13
+Dev resume thread rc=-1 cnt=14
+Dev resume thread rc=-1 cnt=15
+Dev resume thread rc=-1 cnt=16
+Dev resume thread rc=-1 cnt=17
+Dev resume thread rc=-1 cnt=18
+Dev resume thread rc=-1 cnt=19
+Dev resume thread rc=-1 cnt=20
+Dev resume thread rc=-1 cnt=21
+Dev resume thread rc=-1 cnt=22
+Dev resume thread rc=-1 cnt=23
+Dev resume thread rc=-1 cnt=24
+Dev resume thread rc=-1 cnt=25
+Dev resume thread rc=-1 cnt=26
+Dev resume thread rc=-1 cnt=27
+Dev resume thread rc=-1 cnt=28
+Dev resume thread rc=-1 cnt=29
+Dev resume thread rc=-1 cnt=30
+Dev resume thread rc=-1 cnt=31
+Dev resume thread rc=-1 cnt=32
+Dev resume thread rc=-1 cnt=33
+Dev resume thread rc=-1 cnt=34
+Dev resume thread rc=-1 cnt=35
+Dev resume thread rc=-1 cnt=0
+Dev resume thread rc=-1 cnt=1
+Dev resume thread rc=-1 cnt=2
+Dev resume thread rc=-1 cnt=3
+Dev resume thread rc=-1 cnt=4
+Dev resume thread rc=-1 cnt=5
+Dev resume thread rc=-1 cnt=6

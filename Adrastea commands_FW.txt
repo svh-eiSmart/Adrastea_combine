@@ -1,0 +1,16 @@
+GPIO commands:
+lsgpio
+addgpio 2   --> GPIO 1 is enabled and set and is mapped to a physical pin 2 connecting to ADC1
+gpio 1 set
+gpio 1 state
+gpio 1 pullup
+gpio 1 get --> gpio 1 input 1
+
+
+I2C commands:
+i2c bus 0
+i2c init
+i2c pwrctrl 1
+i2c speed 100
+i2c mode 0
+i2c probe

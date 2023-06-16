@@ -1,0 +1,8 @@
+AT
+unknown command (type ? for help): AT
+unknown command (type ? for help): AT>> map
+unknown command (type ? for help): map
+AT
+Unknown command 'AT' - try 'help'
+# map
+Unknown command 'map' - try 'help'
