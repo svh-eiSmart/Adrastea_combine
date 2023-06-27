@@ -1,0 +1,7 @@
+# Directory path
+APP_OSAL_OPENRTOS_SRC_DIR=$(APP_OSAL_SRC_DIR)/openrtos
+
+# add your private additional flags here
+VPATH += $(APP_OSAL_OPENRTOS_SRC_DIR)
+
+CSRCS += osal.c

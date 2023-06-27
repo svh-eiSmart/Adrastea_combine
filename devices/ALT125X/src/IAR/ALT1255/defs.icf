@@ -1,0 +1,14 @@
+/* The offset to flash base address.
+ * "base address + offset" represents the starting address on flash */
+define symbol __MCU_MTD_PARTITION_OFFSET__ = 0x00000000;
+export symbol __MCU_MTD_PARTITION_OFFSET__;
+
+/* The flash partition size */
+define symbol __MCU_MTD_PARTITION_SIZE__ = 0x0003f000;
+export symbol __MCU_MTD_PARTITION_SIZE__;
+
+/* The base address of allocated GPM memory */
+define symbol __GPM_RAM_BASE__ = 0x0C0F0000;
+
+/* The size of allocated GPM memory */
+define symbol __GPM_RAM_SIZE__ = 0x10000;

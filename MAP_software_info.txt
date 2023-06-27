@@ -1,0 +1,54 @@
+This MCU2.1 SDK is the formal release to provide both ALT1250 and ALT1255 example projects and peripheral drivers by the same package.
+
+On ALT1255 platform, the following example projects and peripheral driver are NOT supported yet:
+    - AwsConnector
+    - MqttConnector
+    - GpsConnector
+    - SocketConnector
+    - PwrMgmtAwsDemo
+	
+This version is with minor changes from previous MCU version MCU_02_01_00_00_05:
+    - Version naming:
+        Adapt the YWWDV format as MAP releases.
+
+    - Example:
+        LteConnector)
+            Add PDCP discard timer usage.
+
+        MqttConnector)
+            Add "No-Auth" usage.
+
+        PushWake)
+            Evaluate FIFO operation of accelerometer.
+	
+        PwrMgmtAwsDemo)
+            Configure default power mode from stop to standby.
+        
+    - Middleware:
+        ALTCOM)
+            Fix RSRQ range.
+            Add PDCP discard timer in LTE C-API. 
+            Support "No-Auth" mode in MQTT C-API.
+
+        Sensor)
+            Add new APIs to configure ODR, FIFIO mode and high pass filter.
+
+    - Debug:
+        Add stacktrace.py to reconstruct the backtrace from the coredump.
+        Support thread-aware debugging in Eclipse.
+        Add comments to linker scripts.
+
+    - Resolve additional Coverity tickets.
+
+    - Replace LGPL-2.1-or-later open source software with the alternative implementation.
+. 
+
+To test with ALT1250, please use Modem release as RK_03_00_00_00_10341_001 / RK_03_02_00_00_10511_001 or above.
+To test with ALT1255, please use CP_01_00_00_00_11011_001 or above.
+
+
+The corresponding io_par.bin for ALT1250 MCU Dev Kit and ALT1255 NB Dev Kit are available in images folder:
+    - ./images/io_par_ALT1250.bin
+    - ./images/io_par_ALT1255.bin
+    - ./images/ io_par_ALT1255_EJTAG.bin  (for MCU JTAG debug on ALT1255 NB Dev Kit)
+
