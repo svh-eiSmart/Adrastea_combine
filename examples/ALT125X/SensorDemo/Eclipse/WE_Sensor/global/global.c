@@ -274,7 +274,102 @@ void WE_Error_Handler(void)
 
 bool WE_InitPins(WE_Pin_t pins[], uint8_t numPins)
 {
+	/*Interface_Id gpio_if;
+	  GPIO_Param gpio_config;
+	  GPIO_Param gpio_orig_cfg[MCU_GPIO_ID_MAX];
+	  GPIO_Id gpio_id;
+	  MCU_PinId pin_id;
 
+	  if (g_gpio_initialized) return DRV_GPIO_OK;
+
+	  memset(gpio_peripheral, 0x0, sizeof(GPIO_Peripheral) * MCU_GPIO_ID_MAX);
+	  memset(phys_pin_map, 0x0, sizeof(MCU_PinId) * MCU_PIN_ID_NUM);
+	  memset(gpio_orig_cfg, 0x0, sizeof(GPIO_Param) * MCU_GPIO_ID_MAX);
+
+	#if (configUSE_ALT_SLEEP == 1)
+	  if (DRV_SLEEP_RegNotification(DRV_GPIO_SleepHandler, &g_gpio_sleep_notify_inx, NULL) != 0)
+	    return DRV_GPIO_ERROR_GENERIC;
+	#endif
+
+	  if (DRV_CLKGATING_EnableClkSource(CLK_GATING_GPIO_IF) != 0) return DRV_GPIO_ERROR_GENERIC;
+
+	  // Reset GPIO control block
+	  RST_CONTROL->REG_SET_b.RESET_GPIO = 1;
+	  RST_CONTROL->REG_CLR_b.RESET_GPIO = 1;
+
+	  for (gpio_id = MCU_GPIO_ID_01; gpio_id < MCU_GPIO_ID_MAX; gpio_id++) {
+	    gpio_peripheral[gpio_id].pin_set = MCU_PIN_ID_UNDEF;
+	    gpio_orig_cfg[gpio_id].pin_set = MCU_PIN_ID_UNDEF;
+	  }
+	  memset(phys_pin_map, MCU_GPIO_ID_UNDEF, sizeof(GPIO_Id) * MCU_PIN_ID_NUM);
+
+	  // Configure static allocated GPIO defined in interfaces_config_alt12xx.h
+	  for (gpio_if = IF_CFG_GPIO01; gpio_if <= IF_CFG_LAST_GPIO; gpio_if++) {
+	    if (DRV_IF_CFG_GetDefConfig(gpio_if, &gpio_config) == DRV_IF_CFG_OK) {
+	      gpio_id = (GPIO_Id)(MCU_GPIO_ID_01 + (gpio_if - IF_CFG_GPIO01));
+	      // In case number of GPIO defined is less than the definition in DRV_IF_CFG and interface header
+
+	      if (gpio_id >= MCU_GPIO_ID_MAX) break;
+
+	      pin_id = gpio_config.pin_set;
+
+	      if (DRV_IO_ValidatePartition(pin_id) != DRV_IO_OK) goto gpio_init_err;
+
+	      if (DRV_GPIO_SetPinset(gpio_id, pin_id) != DRV_GPIO_OK) goto gpio_init_err;
+
+	      // Backup the previous setting for error handling
+	      DRV_IO_GetMux(pin_id, &gpio_peripheral[gpio_id].orig_mux);
+	      gpio_orig_cfg[gpio_id].pin_set = pin_id;
+	      gpio_orig_cfg[gpio_id].direction =
+	          DRV_GPIOCTL_GetDirection(pin_id) ? GPIO_DIR_OUTPUT : GPIO_DIR_INPUT;
+	      gpio_orig_cfg[gpio_id].value = DRV_GPIOCTL_GetValue(pin_id);
+	      gpio_orig_cfg[gpio_id].pull = DRV_GPIOCTL_GetPull(pin_id);
+
+	      if (DRV_IF_CFG_SetIO(gpio_if) != DRV_IF_CFG_OK) goto gpio_init_err;
+
+	      // Configure the gpio settings
+	      DRV_GPIOCTL_SetDirection(pin_id, gpio_config.direction == GPIO_DIR_OUTPUT);
+	      DRV_GPIOCTL_SetValue(pin_id, (uint8_t)gpio_config.value);
+	      DRV_GPIOCTL_SetPull(pin_id, gpio_config.pull);
+
+	      DRV_IO_SetInputEnable(pin_id, 1);
+	    }
+	  }
+
+	  DRV_GPIOCTL_IrqInitialize();
+
+	  g_gpio_initialized = 1;
+
+	  return DRV_GPIO_OK;
+
+	gpio_init_err:
+	  // Reset GPIO registers to value if it was previous configured.
+	  for (gpio_id = MCU_GPIO_ID_01; gpio_id < MCU_GPIO_ID_MAX; gpio_id++) {
+	    pin_id = gpio_orig_cfg[gpio_id].pin_set;
+
+	    if (pin_id != MCU_PIN_ID_UNDEF) {
+	      DRV_GPIOCTL_SetDirection(pin_id, gpio_config.direction == GPIO_DIR_OUTPUT);
+
+	      DRV_GPIOCTL_SetValue(pin_id, gpio_orig_cfg[gpio_id].value);
+
+	      DRV_GPIOCTL_SetPull(pin_id, gpio_orig_cfg[gpio_id].pull);
+	      // No need to check return value here since we intends to retore the mux setting here for gpio_init error handling and the orig_mux was get from iosel register before
+	      (void)DRV_IO_SetMux(pin_id, gpio_peripheral[gpio_id].orig_mux);
+	    }
+	  }
+
+	  memset(gpio_peripheral, 0x0, sizeof(GPIO_Peripheral) * MCU_GPIO_ID_MAX);
+	  for (gpio_id = MCU_GPIO_ID_01; gpio_id < MCU_GPIO_ID_MAX; gpio_id++)
+	    gpio_peripheral[gpio_id].pin_set = MCU_PIN_ID_UNDEF;
+
+	  memset(phys_pin_map, MCU_GPIO_ID_UNDEF, sizeof(GPIO_Id) * MCU_PIN_ID_NUM);
+	  RST_CONTROL->REG_SET_b.RESET_GPIO = 1;
+	  RST_CONTROL->REG_CLR_b.RESET_GPIO = 1;
+	  (void)DRV_CLKGATING_DisableClkSource(CLK_GATING_GPIO_IF);
+	  g_gpio_initialized = 0;
+
+	  return DRV_GPIO_ERROR_GENERIC;
+	  */
 }
 
 

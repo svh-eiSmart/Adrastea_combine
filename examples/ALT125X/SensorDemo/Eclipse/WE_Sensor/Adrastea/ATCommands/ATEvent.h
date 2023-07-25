@@ -40,9 +40,6 @@
 #define ATEvent_HTTP_NumberOfValues      5
 #define ATEvent_Socket_NumberOfValues      4
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 /**
  * @brief AT event IDs.
@@ -108,9 +105,5 @@ typedef enum ATEvent_t
 extern bool ATEvent_ParseEventType(char **pAtCommand, ATEvent_t *pEvent);
 
 extern bool ATEvent_GetEventName(ATEvent_t event, char *pEventName);
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif // AT_EVENTS_H_INCLUDED

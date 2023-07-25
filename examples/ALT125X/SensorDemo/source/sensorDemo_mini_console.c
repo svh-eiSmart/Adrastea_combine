@@ -42,7 +42,10 @@
 //#include "../Eclipse/We_Sensor/WSEN_HIDS_2523020210001/drivers/WSEN_HIDS.h"
 //#include "../Eclipse/We_Sensor/WSEN_HIDS_2523020210001/drivers/WSEN_HIDS.c"
 
-#include "../Eclipse/We_Sensor/Adrastea/ATCommands/ATMQTT.h"
+//#include "../Eclipse/We_Sensor/Adrastea/ATCommands/ATMQTT.h"
+//#include "../Eclipse/We_Sensor/Adrastea/ATCommands/ATPacketDomain.h"
+//#include "../Eclipse/We_Sensor/Adrastea/ATCommands/ATEvent.h"
+
 //#include "../Eclipse/We_Sensor/global/global.h"
 //#include "../Eclipse/We_Sensor/Adrastea/ATCommands/ATMQTT.c"
 //#include "../Eclipse/We_Sensor/AdrasteaI/Examples/AdrasteaExamples.h"
@@ -50,7 +53,16 @@
 //#include "../Eclipse/We_Sensor/WSEN_HIDS_2523020210001/AdrasteaI/Examples/AdrasteaExamples.h"
 //#include "../Eclipse/We_Sensor/WSEN_HIDS_2523020210001/AdrasteaI/Examples/AdrasteaExamples.c"
 
+//Mqtt
+/*  void Adrastea_ATMQTT_EventCallback(char *eventText);
 
+  static ATPacketDomain_Network_Registration_Status_t status = {
+  		.state = 0 };
+  static ATMQTT_Connection_Result_t conResult = {
+  		.resultCode = -1 };
+  static ATMQTT_Subscription_Result_t subResult = {
+  		.resultCode = -1 };
+*/
 
 serial_handle *sHandle_i = NULL;
 char testbuf[20];
@@ -151,7 +163,8 @@ int do_test(char *s){
 
 int do_map(char *s) {
   char c;
-  // char c[3]="at";
+  char p1[]="at\n";
+  char p2[]="AT+CPIN?\n";
 
   static xTaskHandle AtCmdTaskHandle = NULL;
 
@@ -166,28 +179,89 @@ int do_map(char *s) {
   printf("Open MAP CLI (Press Ctrl+D to exit)\r\n");
   do {
 	  // strcpy(c,"at");
-    console_read(&c, 1);
+
 
     if (c != 4) {
-      serial_write(sHandle_i, &c, 1);
-      //printf("line 158 9 .\r\n");
+      // If this ne3xt line is commented out, no OK response is received after sending AT
+    	serial_write(sHandle_i, &c, 1);
+      for(int i=0;i<strlen(p1);i++)
+        {
+      	  serial_write(sHandle_i, &p1[i], 1);
+
+        }
+      WE_Delay(1000);
+      /*serial_write(sHandle_i, &c, 1);
+            for(int i=0;i<strlen(p2);i++)
+              {
+            	  serial_write(sHandle_i, &p2[i], 1);
+
+              }
+
+      //printf("not exit");
     }
+    console_read(&c, 1);
+
   } while (c != 4);
 
   //strcpy(c,"at");
-  serial_write(sHandle_i, &c, 1);
 
-  vTaskDelay(1000);
+  serial_write(sHandle_i, &c, 1);
+  for(int i=0;i<3;i++)
+  {
+	  //serial_write(sHandle_i, &p[i], 1);
+	  printf("exit\n");
+  }
+
+
+  WE_Delay(1000);
+
+  for(int i=0;i<1;i++)
+  {
+
+   for(int i=0;i<25;i++)
+   {
+   printf("doing temp read from TIDS iteration %d ", i);
+   do_tids("temp");
+   }
+   printf(do_tids("id"));
+
+   printf("\n");
+   printf("\n");
+
+
+   for(int i=0;i<25;i++)
+    {
+ 	  printf("doing temp read from ITDS iteration %d ", i);
+ 	  do_itds("temp");
+ 	  printf("doing accel read from ITDS iteration %d ", i);
+ 	  do_itds("accel");
+    }
+   printf( do_itds("id"));
+
+    printf("\n");
+    printf("\n");
+
+
+    for(int i=0;i<25;i++)
+     {
+  	  printf("doing temp read from PADS iteration %d ", i);
+  	  do_pads("temp");
+     }
+    printf(do_pads("id"));
+    printf("\n");
+    printf("\n");
+   }
+
 
   /*if (!Adrastea_Init(115200, WE_FlowControl_NoFlowControl, WE_Parity_None, &Adrastea_ATMQTT_EventCallback, NULL))
   	{
   		return;
-  	}
+  	}*/
 
   	printf("*** Start of Adrastea ATMQTT example ***\r\n");
 
   	WE_Delay(1000);
-  	*/
+
 
   printf("MAP CLI Closed.\r\n");
   serial_close(sHandle_i);
@@ -286,7 +360,7 @@ int do_tids(char *s)
         	  //AdrasteaExamplesPrint(message, isSuccess);
         	  Adrasteatest1();
         	  msleep(1000);
-        	  WE_Delay(8000);
+
         	  Adrasteatest1();
 
         	  //Adrasteatest1();
@@ -710,3 +784,44 @@ static int initialize_pads()
 	return retVal;
 }
 
+
+// MQTT
+/*void Adrastea_ATMQTT_EventCallback(char *eventText)
+{
+	ATEvent_t event;
+	ATEvent_ParseEventType(&eventText, &event);
+
+	switch (event)
+	{
+	case ATEvent_MQTT_Connection_Confirmation:
+	{
+		ATMQTT_ParseConnectionConfirmationEvent(eventText, &conResult);
+		break;
+	}
+	case ATEvent_MQTT_Subscription_Confirmation:
+	{
+		ATMQTT_ParseSubscriptionConfirmationEvent(eventText, &subResult);
+		break;
+	}
+	case ATEvent_MQTT_Publication_Received:
+	{
+		ATMQTT_Publication_Received_Result_t result;
+		char payload[128];
+		result.payload = payload;
+		result.payloadMaxBufferSize = 128;
+		if (!ATMQTT_ParsePublicationReceivedEvent(eventText, &result))
+		{
+			return;
+		}
+		printf("Connection ID: %d, Message ID: %d, Topic Name: %s, Payload Size: %d, Payload: %s\r\n", result.connID, result.msgID, result.topicName, result.payloadSize, result.payload);
+		break;
+	}
+	case ATEvent_PacketDomain_Network_Registration_Status:
+	{
+		ATPacketDomain_ParseNetworkRegistrationStatusEvent(eventText, &status);
+		break;
+	}
+	default:
+		break;
+	}
+}*/

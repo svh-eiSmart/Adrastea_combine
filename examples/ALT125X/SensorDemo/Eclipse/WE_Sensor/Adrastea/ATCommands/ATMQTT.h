@@ -159,6 +159,7 @@ typedef struct ATMQTT_Connection_Result_t
 	ATMQTT_Event_Error_Code_t errorCode;
 } ATMQTT_Connection_Result_t;
 
+
 typedef uint16_t ATMQTT_Message_ID_t;
 
 /**
