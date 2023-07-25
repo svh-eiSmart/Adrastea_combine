@@ -36,7 +36,21 @@
 #include "WSEN_TIDS.h"
 #include "WSEN_ITDS.h"
 #include "WSEN_PADS.h"
-//#include "WSEN_HIDS.h"
+#include "WSEN_HIDS.h"
+//#include "../../../../devices/ALT125X/time/timex.c"
+
+//#include "../Eclipse/We_Sensor/WSEN_HIDS_2523020210001/drivers/WSEN_HIDS.h"
+//#include "../Eclipse/We_Sensor/WSEN_HIDS_2523020210001/drivers/WSEN_HIDS.c"
+
+#include "../Eclipse/We_Sensor/Adrastea/ATCommands/ATMQTT.h"
+//#include "../Eclipse/We_Sensor/global/global.h"
+//#include "../Eclipse/We_Sensor/Adrastea/ATCommands/ATMQTT.c"
+//#include "../Eclipse/We_Sensor/AdrasteaI/Examples/AdrasteaExamples.h"
+
+//#include "../Eclipse/We_Sensor/WSEN_HIDS_2523020210001/AdrasteaI/Examples/AdrasteaExamples.h"
+//#include "../Eclipse/We_Sensor/WSEN_HIDS_2523020210001/AdrasteaI/Examples/AdrasteaExamples.c"
+
+
 
 serial_handle *sHandle_i = NULL;
 char testbuf[20];
@@ -57,6 +71,7 @@ static void prvAtCmdTask(void *pvParameters) {
 
   while (1) {
     serial_read(sHandle_i, &c, 1);
+    //printf("in line62");
     console_write(&c, 1);
   }
 }
@@ -136,6 +151,7 @@ int do_test(char *s){
 
 int do_map(char *s) {
   char c;
+  // char c[3]="at";
 
   static xTaskHandle AtCmdTaskHandle = NULL;
 
@@ -149,16 +165,33 @@ int do_map(char *s) {
 
   printf("Open MAP CLI (Press Ctrl+D to exit)\r\n");
   do {
+	  // strcpy(c,"at");
     console_read(&c, 1);
 
     if (c != 4) {
       serial_write(sHandle_i, &c, 1);
+      //printf("line 158 9 .\r\n");
     }
   } while (c != 4);
+
+  //strcpy(c,"at");
+  serial_write(sHandle_i, &c, 1);
+
+  vTaskDelay(1000);
+
+  /*if (!Adrastea_Init(115200, WE_FlowControl_NoFlowControl, WE_Parity_None, &Adrastea_ATMQTT_EventCallback, NULL))
+  	{
+  		return;
+  	}
+
+  	printf("*** Start of Adrastea ATMQTT example ***\r\n");
+
+  	WE_Delay(1000);
+  	*/
+
   printf("MAP CLI Closed.\r\n");
   serial_close(sHandle_i);
   sHandle_i = NULL;
-
   vTaskDelete(AtCmdTaskHandle);
 
   return 0;
@@ -242,24 +275,22 @@ int do_tids(char *s)
 
       if (strcmp("id", command) == 0) {
 
-    	 //uint16_t id = 0x38;
-    	 //uint32_t address = 0x01;
-    	 //static i2c_bus_e i2c_bus_id = I2C0_BUS;
-    	 //static i2c_devid_mode_e i2c_opmode = I2C_DEVID_MODE_7BITS;
-    	 //i2c_addrlen_e addrLen = 1;
-    	 //uint8_t data[10] = {0};
-    	 //printf("read device id\n\r");
-          //if (i2c_read_advanced_mode(id, i2c_opmode, address, addrLen, 1, data, i2c_bus_id) == 0) {
-        	// printf("ID: %02x\n\r", data[0]);
-          //} else {
-            //printf("Error reading from I2C bus\n\r");
-          //}
-
     	 uint8_t id = 0;
     	 I2C_SetAddress(TIDS_ADDRESS_I2C_1);
     	 if(WE_SUCCESS == TIDS_getDeviceID(&id))
     	 {
         	  printf("ID: %02x\n\r", id);
+        	  //printf("Adrastea exampl write: ");
+        	  //char message[] = "Hello, world!";
+        	  //bool isSuccess = true;
+        	  //AdrasteaExamplesPrint(message, isSuccess);
+        	  Adrasteatest1();
+        	  msleep(1000);
+        	  WE_Delay(8000);
+        	  Adrasteatest1();
+
+        	  //Adrasteatest1();
+        	  //ATDeviceExample();
     	 }
     	 else
     	 {
@@ -299,109 +330,6 @@ int do_tids(char *s)
 }
 
 int do_itds(char *s)
-/*{
-	int argc;
-	int ret_val = 0;
-	char command[20] = {0};
-
-	argc = sscanf(s, "%s", command) + 1;
-
-  if (argc <= 1) {
-	printTidsUsage();
-    ret_val = -1;
-  } else {
-
-	  if (WE_FAIL == SPI_Init())
-	  {
-		 printf("Could not initalize spi \n\r");
-		  return -1;
-	  }
-	  printf("SPI initialized \n\r");
-      if (strcmp("id", command) == 0) {
-    	 uint8_t id = 0;
-    	 if(WE_SUCCESS == ITDS_getDeviceID(&id))
-    	 {
-        	  printf("ID: %02x\n\r", id);
-    	 }
-    	 else
-    	 {
-    		 printf("Could not read out device id \n\r");
-    		 return -1;
-    	 }
-
-      }
-      else if(strcmp("temp", command) == 0)
-      {
-     	float temp = 0;
-    	if(WE_SUCCESS == ITDS_getTemperature12bit(&temp))
-    	{
-    		printf("Temperature (C): %f\n\r", temp);
-    	}
-    	else
-    	{
-    		printf("Could not read out temperature \n\r");
-    		return -1;
-    	}
-      }
-      else if(strcmp("accel", command) == 0)
-      {
-		ITDS_state_t DRDY = ITDS_disable;
-		int16_t XRawAcc = 0, YRawAcc = 0, ZRawAcc = 0;
-
-		// Sampling rate of 200 Hz
-		ITDS_setOutputDataRate(odr6);
-		// Enable normal mode
-		ITDS_setOperatingMode(normalOrLowPower);
-		ITDS_setpowerMode(normalMode);
-		// Enable block data update
-		ITDS_setBlockDataUpdate(ITDS_enable);
-		// Enable address auto increment
-		ITDS_setAutoIncrement(ITDS_enable);
-		// Full scale +-16g
-		ITDS_setFullScale(sixteenG);
-		// Filter bandwidth = ODR/2
-		ITDS_setFilteringCutoff(outputDataRate_2);
-
-		uint8_t retries = 0;
-		do
-		{
-			ITDS_getdataReadyState(&DRDY);
-			retries++;
-		} while ((DRDY == ITDS_disable) && (retries < 10));
-
-		if(retries < 10)
-		{
-			ITDS_getRawAccelerationX(&XRawAcc);
-			XRawAcc = XRawAcc >> 2; // shifted by 2 as 14bit resolution is used in normal mode
-			float XAcceleration = (float) (XRawAcc);
-			XAcceleration = XAcceleration / 1000; // mg to g
-			XAcceleration = XAcceleration * 1.952; // Multiply with sensitivity 1.952 in normal mode, 14bit, and full scale +-16g
-			printf("Acceleration X-axis %f g \r\n", XAcceleration);
-
-			ITDS_getRawAccelerationY(&YRawAcc);
-			YRawAcc = YRawAcc >> 2;
-			float YAcceleration = (float) (YRawAcc);
-			YAcceleration = YAcceleration / 1000;
-			YAcceleration = (YAcceleration*1.952);
-			printf("Acceleration Y-axis %f g \r\n", YAcceleration);
-
-			ITDS_getRawAccelerationZ(&ZRawAcc);
-			ZRawAcc = ZRawAcc >> 2;
-			float ZAcceleration = (float) (ZRawAcc);
-			ZAcceleration = ZAcceleration / 1000;
-			ZAcceleration = ZAcceleration * 1.952;
-			printf("Acceleration Z-axis %f g \r\n", ZAcceleration);
-		}
-		else
-		{
-			printf("Sensor not ready");
-		}
-      }
-  }
-
-	return ret_val;
-}*/
-
 {
 	int argc;
 		int ret_val = 0;
@@ -528,6 +456,137 @@ int do_itds(char *s)
 
 }
 
+int do_hids(char *s)
+{
+	int argc;
+	int status;
+	//The Output Data Rate in Hz
+	int ODR = 0;
+	int ret_val = 0;
+	char command[20] = {0};
+
+		argc = sscanf(s, "%s", command) + 1;
+
+	  if (argc <= 1) {
+	    printHidsUsage();
+	    ret_val = -1;
+	  } else {
+		  if(!i2c_initializes)
+		  {
+
+
+			  if(WE_SUCCESS == I2CInit(HIDS_ADDRESS_I2C_0))
+			  {
+				  i2c_initializes = 1;
+
+
+				  if (WE_FAIL == HIDS_setOdr(ODR))
+				  	{
+					  printf("Could not initialized output data rate\n\r");
+				  		return WE_FAIL;
+				  	}
+
+				  if (WE_FAIL == HIDS_setPowerMode(activeMode))
+				  	{
+					  printf("Could not initialized power mode\n\r");
+				  		return WE_FAIL;
+
+				  	}
+
+			  }
+			  else
+			  {
+				  printf("Could not initialized I2C\n\r");
+				  return -1;
+			  }
+
+		  }
+
+	      if (strcmp("id", command) == 0) {
+
+
+
+	    	 uint8_t id = 0;
+	    	 I2C_SetAddress(HIDS_ADDRESS_I2C_0);
+	    	 if(WE_SUCCESS == HIDS_getDeviceID(&id))
+	    	 {
+	        	  printf("ID: %02x\n\r", id);
+	    	 }
+	    	 else
+	    	 {
+	    		 printf("Could not read out device id \n\r");
+	    		 return -1;
+	    	 }
+
+	      }
+
+	      else if (strcmp("humid", command) == 0) {
+	    	  I2C_SetAddress(HIDS_ADDRESS_I2C_0);
+	    	  HIDS_state_t humidity_drdy, temp_drdy;
+	    	  //humidity_drdy = HIDS_enable;
+
+
+	    	    if (WE_FAIL == HIDS_enOneShot(HIDS_enable))
+	    	    {
+	    	    	printf("Could not set to one shot \r\n");
+	    	    }
+
+
+	    	    // HIDS_getHumStatus(&humStatus);
+	    	    float humid = 0;
+
+	    	    if(WE_SUCCESS == HIDS_getHumidity(&humid))
+	    	    {
+	    	    	printf("humidity : %f\n\r", humid);
+	    	    }
+	    	    else
+	    	    {
+	    	    	printf("Could not read out humid \n\r");
+	    	    	return -1;
+	    	    }
+
+	      }
+
+	      else if (strcmp("temp", command) == 0) {
+	 	    	  I2C_SetAddress(HIDS_ADDRESS_I2C_0);
+	 	    	  //HIDS_state_t humStatus = HIDS_disable, tempStatus = HIDS_disable;
+	 	    	 HIDS_state_t tempStatus = HIDS_enable;
+
+	 	    	    if (WE_FAIL == HIDS_enOneShot(HIDS_enable))
+	 	    	    {
+	 	    	    	printf("Could not set to one shot \r\n");
+	 	    	    }
+
+	 	    	    // Get status of data
+
+			HIDS_getTempStatus(&tempStatus);
+
+	 	    	    float temp = 0;
+         	    if(WE_SUCCESS == HIDS_getTemperature(&temp))
+	 	    	    {
+	 	    	    	printf("temp (C) : %f\n\r", temp);
+	 	    	    }
+	 	    	    else
+	 	    	    {
+	 	    	    	printf("Could not read out temp \n\r");
+	 	    	    	return -1;
+	 	    	    }
+         	   SW_RESET();
+
+	 	 	      }
+
+
+	      else
+	      {
+	    	  printHidsUsage();
+	    	  ret_val = -1;
+	      }
+	  }
+
+		return ret_val;
+}
+
+
 int do_pads(char *s)
 {
 	int argc;
@@ -650,5 +709,4 @@ static int initialize_pads()
 
 	return retVal;
 }
-
 

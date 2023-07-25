@@ -84,6 +84,7 @@ int8_t I2C_ReadReg(uint8_t RegAdr, int NumByteToRead, uint8_t *Data)
 	{
 		return WE_FAIL;
 	}
+	//print("under i2c_readreg");
 
 	if (i2c_read_advanced_mode(device_address, i2c_opmode, RegAdr, 1, NumByteToRead, Data, i2c_bus_id) != 0) {
 		return WE_FAIL;

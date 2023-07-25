@@ -72,7 +72,7 @@ int8_t TIDS_getSwReset(TIDS_state_t *mode)
 
 	if (WE_FAIL == I2C_ReadReg((uint8_t)TIDS_SOFT_RESET_REG, 1, (uint8_t *)&swRstReg))
 	return WE_FAIL;
-
+	
 	*mode = (TIDS_state_t)swRstReg.reset;
 	return WE_SUCCESS;
 }
@@ -107,7 +107,7 @@ int8_t TIDS_getContinuousMode(TIDS_state_t *mode)
 
 	if (WE_FAIL == I2C_ReadReg((uint8_t)TIDS_CTRL_REG, 1, (uint8_t *)&ctrl_reg))
 	return WE_FAIL;
-
+	
 	*mode = (TIDS_state_t)ctrl_reg.freeRunBit;
 	return WE_SUCCESS;
 }
@@ -143,7 +143,7 @@ int8_t TIDS_getBlockDataUpdate(TIDS_state_t *bdu)
 
 	if (WE_FAIL == I2C_ReadReg((uint8_t)TIDS_CTRL_REG, 1, (uint8_t *)&ctrl_reg))
 	return WE_FAIL;
-
+	
 	*bdu = (TIDS_state_t)ctrl_reg.blockDataUpdate;
 	return WE_SUCCESS;
 }
@@ -215,7 +215,7 @@ int8_t TIDS_getSingleConvMode(TIDS_state_t *mode)
 
 	if (WE_FAIL == I2C_ReadReg((uint8_t)TIDS_CTRL_REG, 1, (uint8_t *)&ctrl_reg))
 	return WE_FAIL;
-
+	
 	*mode = (TIDS_state_t)ctrl_reg.oneShotbit;
 	return WE_SUCCESS;
 }
@@ -251,7 +251,7 @@ int8_t TIDS_getAutoIncrement(TIDS_state_t *inc)
 
 	if (WE_FAIL == I2C_ReadReg((uint8_t)TIDS_CTRL_REG, 1, (uint8_t *)&ctrl_reg))
 	return WE_FAIL;
-
+	
 	*inc = (TIDS_state_t)ctrl_reg.autoAddIncr;
 	return WE_SUCCESS;
 }
@@ -268,7 +268,7 @@ int8_t TIDS_getBusyStatus(TIDS_state_t *state)
 
 	if (WE_FAIL == I2C_ReadReg((uint8_t)TIDS_STATUS_REG, 1, (uint8_t *)&status_reg))
 	return WE_FAIL;
-
+	
 	*state = (TIDS_state_t)status_reg.busy;
 	return WE_SUCCESS;
 }
@@ -284,7 +284,7 @@ int8_t TIDS_getOverHighLimStatus(TIDS_state_t *state)
 
 	if (WE_FAIL == I2C_ReadReg((uint8_t)TIDS_STATUS_REG, 1, (uint8_t *)&status_reg))
 	return WE_FAIL;
-
+	
 	*state = (TIDS_state_t)status_reg.overLimit;
 	return WE_SUCCESS;
 }
@@ -300,7 +300,7 @@ int8_t TIDS_getUnderLowLimStatus(TIDS_state_t *state)
 
 	if (WE_FAIL == I2C_ReadReg((uint8_t)TIDS_STATUS_REG, 1, (uint8_t *)&status_reg))
 	return WE_FAIL;
-
+	
 	*state = (TIDS_state_t)status_reg.underlimit;
 	return WE_SUCCESS;
 }
@@ -316,7 +316,7 @@ int8_t TIDS_getRAWTemperature(int16_t *rawTemp)
 
 	if (WE_FAIL == I2C_ReadReg((uint8_t)TIDS_DATA_T_L_REG, 1, &tmp[0]))
 	return WE_FAIL;
-
+	
 	if (WE_FAIL == I2C_ReadReg((uint8_t)TIDS_DATA_T_H_REG, 1, &tmp[1]))
 	return WE_FAIL;
 
@@ -362,7 +362,7 @@ int8_t TIDS_getTempHighLimit(uint8_t *hLimit)
 {
 	if (WE_FAIL == I2C_ReadReg((uint8_t)TIDS_LIMIT_T_H_REG, 1, hLimit))
 	return WE_FAIL;
-
+	
 	return WE_SUCCESS;
 }
 
@@ -390,7 +390,7 @@ int8_t TIDS_getTempLowLimit(uint8_t *lLimit)
 {
 	if (WE_FAIL == I2C_ReadReg((uint8_t)TIDS_LIMIT_T_L_REG, 1, lLimit))
 	return WE_FAIL;
-
+	
 	return WE_SUCCESS;
 }
 

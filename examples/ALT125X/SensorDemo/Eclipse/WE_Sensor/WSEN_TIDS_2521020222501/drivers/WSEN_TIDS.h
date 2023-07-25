@@ -27,7 +27,7 @@
 #define _WSEN_TIDS_H
 
 
-/*
+/* 
  * #### INFORMATIVE ####
  * This sensor only has a i2c communication interface.
  */
