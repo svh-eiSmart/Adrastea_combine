@@ -24,6 +24,7 @@
 #define MCU_PROJECT_NAME "SensorIntegration"
 
 DECLARE_COMMAND("map", do_map, "map - pipeline to MAP via internal UART")
+DECLARE_COMMAND("map2", do_map2, "map2 - pipeline to MAP via internal UART")
 DECLARE_COMMAND("i2c mode", do_i2c_speed, "i2c mode - i2c mode(speed) of i2c. Standard(1), Fast(2), Fast Plus(3), High speed (4) and ultra high speed (5)")
 DECLARE_COMMAND("tids", do_tids, "tids [id | temp]")
 DECLARE_COMMAND("itds", do_itds, "itds [id | temp | accel]")

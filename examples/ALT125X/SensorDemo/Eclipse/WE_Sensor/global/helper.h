@@ -1,6 +1,7 @@
 #include <stdint.h>
 //#include "../../../CMSIS/Include/cmsis"
 #include "global_types.h"
+// #include "task.h"
 
 #define __IO    volatile             /*!< Defines 'read / write' permissions */
 #define PendSV_IRQn -2     /*!< 14 Cortex-M4 Pend SV Interrupt                  */
@@ -64,7 +65,7 @@ typedef enum WE_Pin_Type_t
  * @brief Configuration of one pin.
  */
 
-
+// Definition for map2
 
 
 /**

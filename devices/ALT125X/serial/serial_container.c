@@ -215,8 +215,11 @@ uint32_t serial_read(serial_handle *handle, char *buf, uint32_t len) {
       break;
     }
     buf[index] = c;
-    // if(sHandle->uartHwIndx == 2)
-    // printf("Serial read: HwIdx:%d Q:%p\r\n",sHandle->uartHwIndx,sHandle->xQueue_rx);
+     //if(sHandle->uartHwIndx == 2)
+     //printf("line 219 serial_container.c Serial read: HwIdx:%d Q:%p buf:%c buf_c: %c\r\n",sHandle->uartHwIndx,sHandle->xQueue_rx, c, &c);
+    //printf("buf:%c \r\n", c);
+
+
   }
 
   return index;

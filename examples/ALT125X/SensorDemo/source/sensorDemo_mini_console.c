@@ -37,6 +37,7 @@
 #include "WSEN_ITDS.h"
 #include "WSEN_PADS.h"
 #include "WSEN_HIDS.h"
+
 //#include "../../../../devices/ALT125X/time/timex.c"
 
 //#include "../Eclipse/We_Sensor/WSEN_HIDS_2523020210001/drivers/WSEN_HIDS.h"
@@ -71,6 +72,10 @@ static int i2c_initializes = 0;
 
 static int pads_inizialized = 0;
 static int initialize_pads();
+
+// variables for store sensor value
+float pads_temp;
+
 
 
 static void prvAtCmdTask(void *pvParameters) {
@@ -161,13 +166,64 @@ int do_test(char *s){
   return 0;
 }
 
-int do_map(char *s) {
+int do_map2(char *s) {
   char c;
   char p1[]="at\n";
-  char p2[]="AT+CPIN?\n";
+    char p2[]="AT+CPIN?\n";
+    char str_pads_temp[50];
+    snprintf(str_pads_temp, sizeof(str_pads_temp), "%f", pads_temp);
 
   static xTaskHandle AtCmdTaskHandle = NULL;
+  xTaskCreate(prvAtCmdTask, /* The function that implements the task. */
+              "Console", /* The text name assigned to the task - for debug only as it is not used by
+                            the kernel. */
+              configMINIMAL_STACK_SIZE, /* The size of the stack to allocate to the task. */
+              NULL,                     /* The parameter passed to the task */
+              configMAX_PRIORITIES - 1, /* The priority assigned to the task - minimal priority. */
+              &AtCmdTaskHandle);
 
+  printf("Open MAP 2 CLI (Press Ctrl+D to exit)\r\n");
+  do {
+    console_read(&c, 1);
+
+    if (c != 4) {
+      //serial_write(sHandle_i, &c, 1);
+
+      for(int i=0;i<strlen(p1);i++)
+         {
+           serial_write(sHandle_i, &p1[i], 1);
+          }
+            //WE_Delay(1000);
+
+       serial_write(sHandle_i, &c, 1);
+       WE_Delay(200);
+       for(int i=0;i<strlen(p2);i++)
+        {
+          serial_write(sHandle_i, &p2[i], 1);
+         }
+       serial_write(sHandle_i, &c, 1);
+       WE_Delay(200);
+    }
+  } while (c != 4);
+
+  serial_close(sHandle_i);
+  printf("MAP CLI Closed.\r\n");
+
+    sHandle_i = NULL;
+    vTaskDelete(AtCmdTaskHandle);
+
+  return 0;
+}
+
+
+int do_map(char *s) {
+  char c[50];
+  char p1[]="at\n";
+  char p2[]="AT+CPIN?\n";
+  char str_pads_temp[50];
+  snprintf(str_pads_temp, sizeof(str_pads_temp), "%f", pads_temp);
+
+  static xTaskHandle AtCmdTaskHandle = NULL;
   xTaskCreate(prvAtCmdTask, /* The function that implements the task. */
               "Console", /* The text name assigned to the task - for debug only as it is not used by
                             the kernel. */
@@ -178,28 +234,36 @@ int do_map(char *s) {
 
   printf("Open MAP CLI (Press Ctrl+D to exit)\r\n");
   do {
-	  // strcpy(c,"at");
-
 
     if (c != 4) {
-      // If this ne3xt line is commented out, no OK response is received after sending AT
+      // If this next line is commented out, no OK response is received after sending AT
     	serial_write(sHandle_i, &c, 1);
       for(int i=0;i<strlen(p1);i++)
         {
       	  serial_write(sHandle_i, &p1[i], 1);
-
         }
-      WE_Delay(1000);
-      /*serial_write(sHandle_i, &c, 1);
+      //WE_Delay(1000);
+
+      serial_write(sHandle_i, &c, 1);
             for(int i=0;i<strlen(p2);i++)
               {
             	  serial_write(sHandle_i, &p2[i], 1);
 
               }
 
-      //printf("not exit");
+            /*serial_write(sHandle_i, &str_pads_temp, 1);
+                        for(int i=0;i<strlen(str_pads_temp);i++)
+                          {
+                        	  serial_write(sHandle_i, &str_pads_temp[i], 1);
+
+                          }*/
+
     }
+
     console_read(&c, 1);
+    //serial_read(sHandle_i,&c,1);
+
+
 
   } while (c != 4);
 
@@ -208,14 +272,14 @@ int do_map(char *s) {
   serial_write(sHandle_i, &c, 1);
   for(int i=0;i<3;i++)
   {
-	  //serial_write(sHandle_i, &p[i], 1);
+	  // serial_write(sHandle_i, &p[i], 1);
 	  printf("exit\n");
   }
 
 
   WE_Delay(1000);
 
-  for(int i=0;i<1;i++)
+  /*for(int i=0;i<1;i++)
   {
 
    for(int i=0;i<25;i++)
@@ -709,6 +773,7 @@ int do_pads(char *s)
     	if(WE_SUCCESS == PADS_getTemperature(&temp))
 		{
 			printf("Temperature (C): %f\n\r", temp);
+			pads_temp = temp;
 		}
 		else
 		{

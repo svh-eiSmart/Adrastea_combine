@@ -5164,4 +5164,108 @@ when performing module tests). */
 
 #endif
 
+// map2
+
+	/*	osThreadId_t osThreadNew (osThreadFunc_t func, void *argument, const osThreadAttr_t *attr) {
+			  const char *name;
+			  uint32_t stack;
+			  TaskHandle_t hTask;
+			  UBaseType_t prio;
+			  int32_t mem;
+
+			  hTask = NULL;
+
+			  if ((IRQ_Context() == 0U) && (func != NULL)) {
+				stack = configMINIMAL_STACK_SIZE;
+				prio  = (UBaseType_t)osPriorityNormal;
+
+				name = NULL;
+				mem  = -1;
+
+				if (attr != NULL) {
+				  if (attr->name != NULL) {
+					name = attr->name;
+				  }
+				  if (attr->priority != osPriorityNone) {
+					prio = (UBaseType_t)attr->priority;
+				  }
+
+				  if ((prio < osPriorityIdle) || (prio > osPriorityISR) || ((attr->attr_bits & osThreadJoinable) == osThreadJoinable)) {
+					// Invalid priority or unsupported osThreadJoinable attribute used
+					return (NULL);
+				  }
+
+				  if (attr->stack_size > 0U) {
+					// In FreeRTOS stack is not in bytes, but in sizeof(StackType_t) which is 4 on ARM ports.
+					// Stack size should be therefore 4 byte aligned in order to avoid division caused side effects
+					stack = attr->stack_size / sizeof(StackType_t);
+				  }
+
+				  if ((attr->cb_mem    != NULL) && (attr->cb_size    >= sizeof(StaticTask_t)) &&
+					  (attr->stack_mem != NULL) && (attr->stack_size >  0U)) {
+					// The memory for control block and stack is provided, use static object
+					mem = 1;
+				  }
+				  else {
+					if ((attr->cb_mem == NULL) && (attr->cb_size == 0U) && (attr->stack_mem == NULL)) {
+					  // Control block and stack memory will be allocated from the dynamic pool
+					  mem = 0;
+					}
+				  }
+				}
+				else {
+				  mem = 0;
+				}
+
+				if (mem == 1) {
+				  #if (configSUPPORT_STATIC_ALLOCATION == 1)
+					hTask = xTaskCreateStatic ((TaskFunction_t)func, name, stack, argument, prio, (StackType_t  *)attr->stack_mem,
+																								  (StaticTask_t *)attr->cb_mem);
+				  #endif
+				}
+				else {
+				  if (mem == 0) {
+					#if (configSUPPORT_DYNAMIC_ALLOCATION == 1)
+					  if (xTaskCreate ((TaskFunction_t)func, name, (uint16_t)stack, argument, prio, &hTask) != pdPASS) {
+						hTask = NULL;
+					  }
+					#endif
+				  }
+				}
+			  }
+
+			  // Return thread ID
+			  return ((osThreadId_t)hTask);
+			}
+
+			osStatus_t osThreadTerminate (osThreadId_t thread_id) {
+			  TaskHandle_t hTask = (TaskHandle_t)thread_id;
+			  osStatus_t stat;
+			#ifndef USE_FreeRTOS_HEAP_1
+			  eTaskState tstate;
+
+			  if (IRQ_Context() != 0U) {
+				stat = osErrorISR;
+			  }
+			  else if (hTask == NULL) {
+				stat = osErrorParameter;
+			  }
+			  else {
+				tstate = eTaskGetState (hTask);
+
+				if (tstate != eDeleted) {
+				  stat = osOK;
+				  vTaskDelete (hTask);
+				} else {
+				  stat = osErrorResource;
+				}
+			  }
+			#else
+			  stat = osError;
+			#endif
+
+			  // Return execution status
+			  return (stat);
+			}
+*/
 

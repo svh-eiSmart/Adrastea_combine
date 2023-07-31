@@ -235,19 +235,6 @@ static void prvMiniConsoleTask(void *pvParameters) {
    printf("\n");
   }
 
- //serial_handle *sHandle_j = NULL;
- //sHandle_j = serial_open(&uartInit);
- //serial_write(sHandle_j, "?", strlen("?"));
- //serial_write(sHandle_j, "?", strlen("?"));
- // serial_write(sHandle, "[D", strlen("[D"));
- //serialUartDriverWrite(sHandle, "?", strlen("?"));
-   //serial_close(sHandle_j);
- //printf("command is map : ");
- //do_map("at");
- //do_map("map");
- //vTaskDelay(1000);
- //do_map("at");
-
 
 
 
